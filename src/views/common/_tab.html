@@ -1,27 +1,25 @@
-<div class="clearfix">
-    <ul class="com-tab-title type-1">
-        <li class="active"><a href="#tab-test-21" data-toggle="tab">选项卡01</a></li>
-        <li><a href="#tab-test-22" data-toggle="tab">选项卡02</a></li>
-        <li><a href="#tab-test-23" data-toggle="tab">选项卡03</a></li>
-        <li><a href="#tab-test-24" data-toggle="tab">选项卡04</a></li>
-    </ul>
-    <div class="com-tab-body active" id="tab-test-21">
-        <div class="p20">选项卡————————————————01</div>
-    </div>
-    <div class="com-tab-body" id="tab-test-22">
-        <div class="p20">选项卡————————————————02</div>
-    </div>
-    <div class="com-tab-body" id="tab-test-23">
-        <div class="p20">选项卡————————————————03</div>
-    </div>
-    <div class="com-tab-body" id="tab-test-24">
-        <div class="p20">选项卡————————————————04</div>
-    </div>
-</div>
-<div class="pb50"></div>
+<div class="am-tabs" data-am-tabs>
+  <ul class="am-tabs-nav am-nav am-nav-tabs">
+    <li class="am-active"><a href="#tab1">恣意</a></li>
+    <li><a href="#tab2">等候</a></li>
+    <li><a href="#tab3">流浪</a></li>
+  </ul>
 
-<div class="clearfix">
-	<ul class="com-tab-title type-2">
+  <div class="am-tabs-bd">
+    <div class="am-tab-panel am-active" id="tab1">...</div>
+    <div class="am-tab-panel" id="tab2">...</div>
+    <div class="am-tab-panel" id="tab3">...</div>
+  </div>
+</div>
+<script>
+  $(function() {
+    $('#x1').tabs();
+  })
+</script>
+
+
+<!-- <div class="clearfix">
+	<ul class="coms-tab-title type-2">
     <li class="active"><a href="#tab-test-11" data-toggle="tab">选项卡01</a></li>
     <li><a href="#tab-test-12" data-toggle="tab">选项卡02</a></li>
     <li><a href="#tab-test-13" data-toggle="tab">选项卡03</a></li>
@@ -40,8 +38,4 @@
         <div class="p20">选项卡————————————————04</div>
     </div>
 </div>
-<script type="text/javascript">
-layui.use("tab", function() {
-
-});
-</script>
+ -->

@@ -1,0 +1,38 @@
+html,body{
+    height: 100%;
+}
+.relative{
+    position:relative;
+}
+.absolute{
+    position:absolute;
+}
+/**
+ * 页面主题容器
+ */
+.coms-layout-body{
+	position: absolute;
+    left: 220px;
+    right: 0;
+    top: 60px;
+    bottom: 0px;
+    z-index: 998;
+    width: auto;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    transition:all 0.2s 0.2s; 
+}
+
+/**
+ * 标题面包导航
+ */
+.coms-elem-quote{
+    margin-bottom: 10px;
+    padding: 15px;
+    line-height: 22px;
+    border-left: 5px solid #009688;
+    border-radius: 0 2px 2px 0;
+    background-color: #f2f2f2;
+    box-sizing:content-box; 
+}

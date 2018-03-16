@@ -4,6 +4,10 @@
     height: 60px;
     background-color: #23262E;
     background-color: #23262E;
+    *{
+        box-sizing: content-box;
+        
+    }
     .logo {
         line-height: 60px;
         padding: 0 10px;
@@ -54,8 +58,9 @@
         }
     }
     .header-userinfo {
-        float: left;
+        float: right;
         position:relative;
+        margin-right:30px; 
         .info-name {
             position: relative;
             display: block;
@@ -139,7 +144,7 @@
     }
 
     .header-notice{
-        float:left;
+        float:right;
         position:relative;
         .tit{
             position: relative;
