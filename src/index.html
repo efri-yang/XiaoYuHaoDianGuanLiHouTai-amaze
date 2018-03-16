@@ -12,9 +12,9 @@
     <meta name="renderer" content="webkit">
     <link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
     <link rel="stylesheet" type="text/css" href="./AmazeUI/assets/css/amazeui.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
     <!--[if (gte IE 9)|!(IE)]><!-->
     <script type="text/javascript" src="./js/common/jquery-3.0.0.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/common.css">
     <!--<![endif]-->
     <!--[if lte IE 8 ]>
       <script type="text/javascript" src="./js/common/jquery-1.9.1.js"></script>
@@ -32,12 +32,35 @@
         @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
         <div class="coms-layout-body p15">
             @@include("./views/common/_breadcrumb.html",{"title":"通用框架示范"})
+            
+            
+
+             <!--  表单验证************************************* -->
             <div class="pb50"></div>
+            <div class="coms-elem-quote am-cf">
+                <span class="fl f16">表单验证</span>
+            </div>
+            @@include("./views/common/_form.html")
+            <!--  标题************************************* -->
+            <div class="pb50"></div>
+            <div class="coms-elem-quote am-cf">
+                <span class="fl f16">两种标题</span>
+            </div>
             <p class="am-text-lg mb10">标题1</p>
             <hr>
             <p class="am-text-default mb10">标题2</p>
-            <hr>
+            <hr> 
+            <!--  tab 选项卡************************************* -->
+            <div class="pb50"></div>
+            <div class="coms-elem-quote am-cf">
+                <span class="fl f16">三种tab选项标题</span>
+            </div>
             @@include("./views/common/_tab.html")
+
+
+
+
+
 
         </div>
     </div>

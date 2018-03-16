@@ -13,41 +13,6 @@
 
 
 
-
-/**************模块——表格*/
-.com-table-wrap{
-    position:relative;
-    .layui-table-page{
-        padding:15px 20px;
-        height:60px;
-        >div{
-            float:right;
-        }
-    }
-    .table-total-handler{
-        position:absolute;
-        bottom:10px;
-        left:16px;
-    }
-    .layui-table-body{
-        min-height:250px; 
-    }
-    .layui-table-view{
-        margin:0;
-    }
-
-    .com-table-top-handler{
-        border:1px solid #e6e6e6;
-        background:#e9e9e9; 
-        
-        padding:5px 10px 5px 60px;
-        .layui-btn{
-            font-size:12px;
-        }
-    }
-}
-
-
 /**
  * 宽度 width
  */
