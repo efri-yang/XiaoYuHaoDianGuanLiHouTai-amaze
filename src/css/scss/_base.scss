@@ -1,86 +1,5 @@
 
-/**************模块——tab选项卡*/
-.coms-tab-title {
-    position: relative;
-    left: 0;
-    height: 40px;
-    white-space: nowrap;
-    font-size: 0;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    transition: all .2s;
-    -webkit-transition: all .2s;
-    border-color: #e6e6e6;
-    box-sizing:content-box; 
-    *{
-        box-sizing:content-box; 
-    }
-    li {
-        display: inline-block;
-        *display: inline;
-        *zoom: 1;
-        vertical-align: middle;
-        font-size: 14px;
-        transition: all .2s;
-        -webkit-transition: all .2s;
-        position: relative;
-        line-height: 40px;
-        min-width: 65px;
-        padding: 0 15px;
-        text-align: center;
-        cursor: pointer;
-        a {
-            display: block;
-            height:100%;
-            color:#333333; 
-        }
-        &.am-active {
-            &:after {
-                position: absolute;
-                left: 0;
-                top: 0;
-                content: '';
-                width: 100%;
-                height: 41px;
-            }
-        }
-    }
 
-    &.type-1 {
-        li {
-            &.am-active {
-                &:after {
-                    border-width: 1px;
-                    border-style: solid;
-                    border-color: #e6e6e6;
-                    border-bottom-color: #fff;
-                    border-radius: 2px 2px 0 0;
-                    box-sizing: border-box;
-                    pointer-events: none;
-                }
-            }
-        }
-    }
-    &.type-2 {
-        li {
-            &.am-active {
-                color: #009688;
-                a {
-                    color: #009688;
-                }
-                &:after {
-                    border-bottom: 2px solid #5FB878;
-                }
-            }
-        }
-    }
-}
-.coms-tab-body{
-    display:none;
-    &.am-active{
-        display:block;
-    }
-}
 /**
  * 颜色
  */
@@ -94,13 +13,6 @@
 
 
 
-/**
- * 
- */
-
-.top5{
-	top:5px;	
-}
 
 /**************模块——表格*/
 .com-table-wrap{
@@ -278,6 +190,9 @@
  ************margin 四个边距
  *m5 m10  m15  m20  m25 m30
  */
+.m0 {
+    margin:0px;
+}
 .m5 {
     margin: 5px;
 }
@@ -495,6 +410,9 @@
  ************padding
  *
  */
+.p0 {
+    padding:0px;
+}
 .p5 {
     padding:5px;
 }
