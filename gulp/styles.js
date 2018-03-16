@@ -28,6 +28,7 @@ function styles(){
 	var compress=conf.compress==true || conf.compress=="css";
 	return gulp.src(conf.src + conf.mod + '/**/*.{scss,sass,css}')
 		.pipe(gulpif(conf.env==="d",sourcemaps.init({sourcemap:true})))
+		.pipe(changed(conf.dest + conf.mod))
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulpif(conf.env==="d",sourcemaps.write({includeContent: false})))
 		.pipe(autoprefixer({
