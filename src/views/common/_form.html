@@ -1,4 +1,6 @@
-<form action="" class="am-form am-form-horizontal" data-am-validator>
+<script type="text/javascript" src="js/plugin/webuploader-0.1.5/webuploader.min.js"></script>
+<link rel="stylesheet" type="text/css" href="js/plugin/webuploader-0.1.5/webuploader.css" />
+<form action="" class="am-form am-form-horizontal" data-am-validator id="form-1">
   
     <div class="am-form-group">
       <label class="am-para-label">用户名：</label>
@@ -15,7 +17,7 @@
     </div>
 
     <div class="am-form-group">
-      <label class="am-para-label">头像：</label>
+      <label class="am-para-label">封面图片(头像):</label>
       <div class="am-para-input">
         <div class="coms-upload-single-box">
                 <div class="no-pic" id="J_no-pic"></div>
@@ -24,12 +26,197 @@
                 <div class="upload-btn-group clearfix">
                     <div id="filePicker" class="filepicker-container"></div>
                 </div>
-            </div>
+        </div>
+        <script type="text/javascript">
+            var uploader = WebUploader.create({
+                    pick: {
+                        id: '#filePicker',
+                        label: '点击上传本地头像'
+                    },
+                    formData: {
+                        uid: ""
+                    },
+                    accept: { // 只允许选择图片文件格式
+                        title: 'Images',
+                        extensions: 'gif,jpg,bmp,png',
+                        mimeTypes: 'image/jpg,image/jpeg,image/png'
+                    },
+                    server: '',
+                    //限制文件的大小
+                    fileSingleSizeLimit: 2 * 1024 * 1024,
+                    fileNumLimit: 1,
+                    fileSizeLimit: 4 * 1024 * 1024
+                });
+        </script>
       </div>
     </div>
-    
 
+    <div class="am-form-group">
+      <label class="am-para-label">封面图片(头像)-上传步骤: </label>
+      <div class="am-para-input">
+         <div class="coms-upload-single-box">
+                <ul class="uploading-img-list clearfix" id="J_uploader-list">
+                    <li>
+                        <div class="img-wrap preview">预览中...</div>
+                        <div class="handle-bar">
+                            <span class="del-btn">删除</span>
+                            <span class="upload-btn">上传</span>
+                        </div>
+                        <p class="progressing">
+                            <span style="width:0;"></span>
+                        </p>
+                        <span class="error">上传失败</span>
+                    </li>
+                    <li>
+                        <div class="img-wrap">
+                            <img src="upload/icon_perssion_1.png" />
+                        </div>
+                        <div class="handle-bar" style="display:block;">
+                            <span class="del-btn">删除</span>
+                            <span class="upload-btn">上传</span>
+                        </div>
+                        <p class="progressing">
+                            <span style="width:0;"></span>
+                        </p>
+                        <span class="error">上传失败</span>
+                        <span class="success"></span>
+                    </li>
+                    <li>
+                        <div class="img-wrap">
+                            <img src="upload/icon_perssion_1.png" />
+                        </div>
+                        <div class="handle-bar">
+                            <span class="del-btn">删除</span>
+                            <span class="upload-btn">上传</span>
+                        </div>
+                        <p class="progressing" style="display:block;">
+                            <span style="width:50%;"></span>
+                        </p>
+                        <span class="error">上传失败</span>
+                        <span class="success"></span>
+                    </li>
+                    <li>
+                        <div class="img-wrap">
+                            <img src="upload/icon_perssion_1.png" />
+                        </div>
+                        <div class="handle-bar">
+                            <span class="del-btn">删除</span>
+                            <span class="upload-btn">上传</span>
+                        </div>
+                        <p class="progressing">
+                            <span style="width:0%;"></span>
+                        </p>
+                        <span class="error" style="display: block;">上传失败</span>
+                        <span class="success"></span>
+                    </li>
+                    <li>
+                        <div class="img-wrap">
+                            <img src="upload/icon_perssion_1.png" />
+                        </div>
+                        <div class="handle-bar">
+                            <span class="del-btn">删除</span>
+                            <span class="upload-btn">上传</span>
+                        </div>
+                        <p class="progressing">
+                            <span style="width:50%;"></span>
+                        </p>
+                        <span class="success" style="display: block;"></span>
+                    </li>
+                </ul>
+            </div>
+        <script type="text/javascript">
+            var uploader = WebUploader.create({
+                    pick: {
+                        id: '#filePicker',
+                        label: '点击上传本地头像'
+                    },
+                    formData: {
+                        uid: ""
+                    },
+                    accept: { // 只允许选择图片文件格式
+                        title: 'Images',
+                        extensions: 'gif,jpg,bmp,png',
+                        mimeTypes: 'image/jpg,image/jpeg,image/png'
+                    },
+                    server: '',
+                    //限制文件的大小
+                    fileSingleSizeLimit: 2 * 1024 * 1024,
+                    fileNumLimit: 1,
+                    fileSizeLimit: 4 * 1024 * 1024
+                });
+        </script>
+      </div>
+    </div>
+
+    <div class="am-form-group">
+      <label class="am-para-label">选择框：</label>
+      <div class="am-para-input">
+          <select required name="pro">
+            <option value="">请选择</option>
+            <option value="option1">选项一...</option>
+            <option value="option2">选项二.....</option>
+            <option value="option3" disabled>选项三........</option>
+          </select>
+      </div>
+    </div>
+
+    <div class="am-form-group">
+      <label class="am-para-label">选择框：</label>
+      <div class="am-para-inline w150 mr10">
+          <select required name="province">
+            <option value="">省</option>
+            <option value="option1">选项一...</option>
+            <option value="option2">选项二.....</option>
+            <option value="option3" disabled>选项三........</option>
+          </select>
+      </div>
+      <div class="am-para-inline w150 mr10">
+          <select required name="city">
+            <option value="">市</option>
+            <option value="option1">选项一...</option>
+            <option value="option2">选项二.....</option>
+            <option value="option3" disabled>选项三........</option>
+          </select>
+      </div>
+      <div class="am-para-inline w150 mr10">
+          <select required name="district">
+            <option value="">区</option>
+            <option value="option1">选项一...</option>
+            <option value="option2">选项二.....</option>
+            <option value="option3" disabled>选项三........</option>
+          </select>
+      </div>
+    </div>
+    <div class="am-form-group">
+      <label class="am-para-label">文本域：</label>
+      <div class="am-para-input">
+           <textarea  rows="5" minlength="2" maxlength="100000" required></textarea>
+      </div>
+    </div>
+    <div class="am-form-group">
+      <label class="am-para-label">编辑器：</label>
+      <div class="am-para-input">
+          <textarea id="container"  required name="content" type="text/plain">这里写你的初始化内容
+          </textarea>
+          <script type="text/javascript" src="js/plugin/ueditor/ueditor.config.js"></script>
+          <!-- 编辑器源码文件 -->
+          <script type="text/javascript" src="js/plugin/ueditor/ueditor.all.js"></script>
+          <!-- 实例化编辑器 -->
+          <script type="text/javascript">
+          var ue = UE.getEditor('container');
+          </script>
+      </div>
+    </div>
+    <div class="am-form-group">
+        <label class="am-para-label"></label>
+        <div class="am-para-input"><button class="am-btn am-btn-secondary" type="submit">提交</button></div>
+        
+    </div>
     
-    <button class="am-btn am-btn-secondary" type="submit">提交</button>
   
 </form>
+
+
+<script type="text/javascript">
+
+</script>
