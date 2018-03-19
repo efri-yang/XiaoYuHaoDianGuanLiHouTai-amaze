@@ -1,6 +1,7 @@
-<script type="text/javascript" src="js/plugin/jqGrid/js/jquery.jqGrid.src.js"></script>
-<script type="text/javascript" src="js/plugin/jqGrid/js/i18n/grid.locale-cn.js"></script>
-<link rel="stylesheet" type="text/css" href="js/plugin/jqGrid/css/ui.jqgrid.css" />
+<script type="text/javascript" src="js/plugin/jqgrid/js/jquery.jqGrid.src.js"></script>
+<script type="text/javascript" src="js/plugin/jqgrid/js/i18n/grid.locale-cn.js"></script>
+<link rel="stylesheet" type="text/css" href="js/plugin/jqgrid/css/ui.jqgrid.css" />
+
 
 
 <table id="table-type-1"></table>
@@ -10,18 +11,34 @@ $(function() {
     //页面加载完成之后执行
     pageInit();
 });
+
 function pageInit() {
     //创建jqGrid组件
-    jQuery("#table-type-1").jqGrid({
-        url: 'https://wnworld/api/table.php', //组件创建完成之后请求数据的url
+    $("#table-type-1").jqGrid({
+        url: 'https://wnworld.com/api/haoDianGuanLiHouTai/table.php', //组件创建完成之后请求数据的url
         datatype: "json", //请求数据返回的类型。可选json,xml,txt
         colNames: ['ID', '榜单名称', '得分'], //jqGrid的列显示名字
-        colModel: [ 
+        colModel: [
             //jqGrid每一列的配置信息。包括名字，索引，宽度,对齐方式.....
             { name: 'id', index: 'id', width: 55 },
             { name: 'bangdanmingcheng', index: 'bangdanmingcheng', width: 90 },
-            { name: 'score', index: 'score', width: 100}
+            { name: 'score', index: 'score', width: 100 }
         ],
+        jsonReader: {
+            root: "rows",
+            page: "page",
+            total: "total", //页码总数
+            records: "records",//数据总条数
+            repeatitems: true,
+            cell: "cell",
+            id: "id",
+            userdata: "userdata",
+            subgrid: {
+                root: "rows",
+                repeatitems: false,
+                cell: "cell"
+            }
+        },
         rowNum: 10, //一页显示多少条
         rowList: [10, 20, 30], //可供用户选择一页显示多少条
         pager: '#pager2', //表格页脚的占位符(一般是div)的id
