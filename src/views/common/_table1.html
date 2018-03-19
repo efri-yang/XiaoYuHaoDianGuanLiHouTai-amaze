@@ -13,17 +13,18 @@ $(function() {
 function pageInit() {
     //创建jqGrid组件
     jQuery("#table-type-1").jqGrid({
-        url: 'api/table.html', //组件创建完成之后请求数据的url
-        datatype: "txt", //请求数据返回的类型。可选json,xml,txt
-        colNames: ['Inv No', 'Date', 'Client', 'Amount', 'Tax', 'Total', 'Notes'], //jqGrid的列显示名字
-        colModel: [ //jqGrid每一列的配置信息。包括名字，索引，宽度,对齐方式.....
+        url: 'api/table.php', //组件创建完成之后请求数据的url
+        datatype: "json", //请求数据返回的类型。可选json,xml,txt
+        colNames: ['ID', '榜单名称', '标签', '类型', '样式', '状态', '操作'], //jqGrid的列显示名字
+        colModel: [ 
+            //jqGrid每一列的配置信息。包括名字，索引，宽度,对齐方式.....
             { name: 'id', index: 'id', width: 55 },
-            { name: 'invdate', index: 'invdate', width: 90 },
-            { name: 'name', index: 'name asc, invdate', width: 100 },
-            { name: 'amount', index: 'amount', width: 80, align: "right" },
-            { name: 'tax', index: 'tax', width: 80, align: "right" },
-            { name: 'total', index: 'total', width: 80, align: "right" },
-            { name: 'note', index: 'note', width: 150, sortable: false }
+            { name: 'invdate', index: 'bangdanmingcheng', width: 90 },
+            { name: 'name', index: 'biaoqian', width: 100},
+            { name: 'leixing', index: 'leixing', width: 80},
+            { name: 'yangshi', index: 'yangshi', width: 80},
+            { name: 'zhuangtai', index: 'zhuangtai', width: 80},
+            { name: 'caozuo', index: 'caozuo', width: 150}
         ],
         rowNum: 10, //一页显示多少条
         rowList: [10, 20, 30], //可供用户选择一页显示多少条
