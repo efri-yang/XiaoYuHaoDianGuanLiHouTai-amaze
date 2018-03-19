@@ -22,8 +22,12 @@ function pageInit() {
             //jqGrid每一列的配置信息。包括名字，索引，宽度,对齐方式.....
             { name: 'id', index: 'id', width: 55 },
             { name: 'bangdanmingcheng', index: 'bangdanmingcheng', width: 90 },
-            { name: 'score', index: 'score', width: 100 }
+            { name: 'score', index: 'score', width: 200 }
         ],
+        width:$(".coms-layout-body").width()-20,
+       
+        autowidth:true,  
+        shrinkToFit: true,  
         jsonReader: {
             root: "rows",
             page: "page",
