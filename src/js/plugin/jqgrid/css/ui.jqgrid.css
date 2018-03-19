@@ -783,9 +783,3 @@ a.g-menu-item, a.soptclass, a.clearsearchclass {
     font-size: 11px;
 }
 
-/**
- * by yyh
- */
-.ui-jqgrid .ui-jqgrid-bdiv {
-	min-height:350px; 
-}

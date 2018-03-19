@@ -46,9 +46,17 @@ $arr=[];
 $arr["page"]=$page;
 $arr["total"]=$total;
 $arr["records"]=$records;
+$k=0;
 while ($row = $result->fetch_assoc()) {
-	$arr["rows"][]=$row;
+	$arr["rows"][$k]["id"]=$row["id"];
+	foreach ($row as $key => $value) {
+		$arr["rows"][$k]["cell"][]=$value;
+	}
+	$k++;
 }
+
+
+
 
 echo json_encode($arr);
 
