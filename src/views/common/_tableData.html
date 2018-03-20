@@ -1,0 +1,143 @@
+<script type="text/javascript" src="js/plugin/datatables/amazeui.datatables.js"></script>
+<link rel="stylesheet" type="text/css" href="js/plugin/datatables/amazeui.datatables.css">
+<link rel="stylesheet" type="text/css" href="css/linshi.css">
+<div class="coms-datatable-wrap">
+    <div class="coms-datatable-hd">
+        <div class="am-form am-form-horizontal">
+            <div class="am-form-group fl">
+                <label class="am-para-label">榜单名称：</label>
+                <div class="am-para-inline w200">
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="am-form-group fl">
+                <label class="am-para-label">类型：</label>
+                <div class="am-para-inline w150">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group fl">
+                <label class="am-para-label">分类：</label>
+                <div class="am-para-inline w150 mr10">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+                <div class="am-para-inline w150 mr10">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group fl ml20">
+                <button type="button" class="am-btn am-btn-success w100">搜索</button>
+            </div>
+        </div>
+    </div>
+    <table class="am-table am-table-bordered" id="table-01"></table>
+    <div class="coms-datatable-handler am-form">
+        <label class="checkall mr20">
+            <input type="checkbox" name="checkall">全选</label>
+        <div class="fl">
+            <select>
+                <option value="">请选择</option>
+                <option value="option1">选项一...</option>
+                <option value="option2">选项二.....</option>
+                <option value="option3" disabled="">选项三........</option>
+            </select>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+//   dom: "<'am-g am-datatable-hd'<'am-u-sm-6'l><'am-u-sm-6'f>>" +
+// "<'am-g'<'am-u-sm-12'tr>>" +
+// "<'am-g am-datatable-footer'<'am-u-sm-5'i><'am-u-sm-7'p>>",
+$(function() {
+    
+    $("#table-01").DataTable({
+        "dom": "<'.coms-datatable-bd'tr><'.coms-datatable-ft clearfix'<'.page-every-count'l><'.page-num-list'p><'.page-info'i>>",
+        "processing": true,
+        "serverSide": true,
+        'ordering': false,
+        "pageLength":10,//每页显示几条
+        "ajax": {
+            "url": "https://wnworld.com/api/haoDianGuanLiHouTai/table.php",
+            "type": "post"
+        },
+        "columns": [{
+                data: null,
+                bSortable: false,
+                className: "align-c",
+                width: "60px",
+                title:'<input type="checkbox" name="checkall" class="checkall" />',
+                render: function (data, type, row){
+                     return '<input type="checkbox"  name="checkchild[]" class="checkchild"  value="' + data.id + '" />';
+                     
+                }
+            },
+            { "data": "id",title:"榜单 ID",width:"40%",className:"align-c"},
+            { "data": "name",title:"榜单名称",width:"40%",className:"align-c"},
+            { "data":null,title:"操作",className:"align-c"},
+        ],
+        "columnDefs": [ {
+				targets:-1,
+		        render: function(data, type, row, meta) {
+		            return '<a type="button"  href="#" onclick="del("' + row.id +'")" >编辑</a> | <a type="button"  href="#" onclick="del("' + row.id +'")" >删除</a>';
+		        }
+        }],
+        "fnDrawCallback": function(){
+
+            // var oTable = $("#table-01").dataTable();
+            // $('#redirect').keyup(function(e){
+            //     if($(this).val() && $(this).val()>0){
+            //         var redirectpage = $(this).val()-1;
+            //     }else{
+            //         var redirectpage = 0;
+            //     }
+            //     oTable.fnPageChange( redirectpage );
+            // });
+        },
+        "pagingType": "full_numbers",//显示首页尾页
+        "language": {
+            "processing": "处理中...",
+            "lengthMenu": "每页显示 _MENU_ 条",
+            "zeroRecords": "没有匹配结果",
+            // "info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "info": "共 _TOTAL_ 条数据",
+            "infoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "infoFiltered": "(由 _MAX_ 项结果过滤)",
+            "infoPostFix": "",
+            "search": "搜索:",
+            "searchPlaceholder": "搜索...",
+            "url": "",
+            "emptyTable": "表中数据为空",
+            "loadingRecords": "载入中...",
+            "infoThousands": ",",
+            "paginate": {
+                "first": "首页",
+                "previous": "上一页",
+                "next": "下一页",
+                "last": "末页"
+            }
+          
+        }
+
+    });
+
+    $("[name=checkall]:checkbox").click(function(){
+    	
+          
+    });
+})
+</script>
