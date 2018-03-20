@@ -6,8 +6,8 @@
         <thead>
             <tr>
                 <th width="10%">榜单 ID</th>
-                <th>榜单名称</th>
-                <th>得分</th>
+                <th width="60%">榜单名称</th>
+                <th width="30%">得分</th>
             </tr>
         </thead>
     </table>
@@ -27,6 +27,7 @@ $(function() {
         "dom": "<'.coms-datatable-bd'tr><'.coms-datatable-ft clearfix'<'.page-every-count'l><'.page-num-list'p>>",
         "processing": true,
         "serverSide": true,
+        'ordering':false,
         "ajax": {
             "url": "https://wnworld.com/api/haoDianGuanLiHouTai/table.php",
             "type": "post"

@@ -12,12 +12,28 @@
 
 .coms-datatable-bd{
 	table{
-		th{
-			text-align:center; 
+		thead{
+			background-color: #f2f2f2;
+			th{
+				text-align:center;
+				font-weight:normal;
+				padding-right:0 !important;   
+			}
 		}
+		
 		td{
 			text-align:center; 
 		}
+	}
+
+	table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after{
+		    position:relative;
+		   
+		    margin-top: -12px;
+		    margin-left:15px; 
+		    display:inline-block;
+		    opacity: 0.5;
+		    font-weight: normal;
 	}
 }
 
