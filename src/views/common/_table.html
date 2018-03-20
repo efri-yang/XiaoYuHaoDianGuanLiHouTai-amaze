@@ -1,22 +1,30 @@
 <script type="text/javascript" src="js/plugin/datatables/amazeui.datatables.js"></script>
 <link rel="stylesheet" type="text/css" href="js/plugin/datatables/amazeui.datatables.css">
 <link rel="stylesheet" type="text/css" href="css/linshi.css">
-<table class="am-table am-table-bordered" id="table-01">
-    <thead>
-        <tr>
-            <th>榜单 ID</th>
-            <th>榜单名称</th>
-            <th>得分</th>
-        </tr>
-    </thead>
-</table>
-<div class="wrapper">
-      
+<div class="coms-datatable-wrap">
+    <table class="am-table am-table-bordered" id="table-01">
+        <thead>
+            <tr>
+                <th width="10%">榜单 ID</th>
+                <th>榜单名称</th>
+                <th>得分</th>
+            </tr>
+        </thead>
+    </table>
+
+    <div class="coms-datatable-handler">
+        
     </div>
+  
+</div>
 <script type="text/javascript">
+//   dom: "<'am-g am-datatable-hd'<'am-u-sm-6'l><'am-u-sm-6'f>>" +
+// "<'am-g'<'am-u-sm-12'tr>>" +
+// "<'am-g am-datatable-footer'<'am-u-sm-5'i><'am-u-sm-7'p>>",
 $(function() {
     $("#table-01").DataTable({
-    	"dom": '<"wrapper"flipt>',
+        // "dom": "<'am-g am-datatable-hd coms-datatable-hd'f>"+"<'am-g coms-datatable-bd'tr>"+"<'am-g coms-datatable-ft'pl>",
+        "dom": "<'.coms-datatable-bd'tr><'.coms-datatable-ft clearfix'<'.page-every-count'l><'.page-num-list'p>>",
         "processing": true,
         "serverSide": true,
         "ajax": {
@@ -29,7 +37,7 @@ $(function() {
             { "data": "score" }
         ],
         "language": {
-            "lengthMenu": "Display _MENU_ records",
+            "lengthMenu": "每页显示_MENU_条",
         }
 
     });

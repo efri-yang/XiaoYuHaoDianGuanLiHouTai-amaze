@@ -1,0 +1,46 @@
+/**
+ * by yyh
+ */
+
+
+
+
+.am-table-bordered  tbody > tr:first-child > td{
+	border-top:none !important; 
+}
+
+
+.coms-datatable-bd{
+	table{
+		th{
+			text-align:center; 
+		}
+		td{
+			text-align:center; 
+		}
+	}
+}
+
+.coms-datatable-ft .page-num-list{
+	float: right;
+}
+.coms-datatable-ft .page-every-count{
+	float: right;
+	padding:0 10px;
+	font-size:14px;
+	line-height:32px;   
+	
+}
+.coms-datatable-ft .page-every-count label{
+	font-weight:normal; 
+}
+.coms-datatable-ft .page-every-count select{
+	vertical-align:middle;
+	margin:0 5px;  
+}
+
+.coms-datatable-wrap{
+
+}
+
+
