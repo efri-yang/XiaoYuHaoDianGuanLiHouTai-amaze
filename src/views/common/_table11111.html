@@ -149,7 +149,7 @@
 </div> -->
 <!--  -->
 <table id="table-type-1"></table>
-<div id="pager2"></div>
+<div id="pager"></div>
 <script type="text/javascript">
 $(function() {
     //页面加载完成之后执行
@@ -168,6 +168,10 @@ function pageInit() {
             { name: 'mingceng', index: 'mingceng', width: 200 },
             { name: 'score', index: 'score', width: 200 }
         ],
+        multiselect : true,
+        multiselectWidth:50,
+
+
         direction: "",
         width: $(".coms-layout-body").width() - 20,
         height: "auto",
@@ -184,15 +188,47 @@ function pageInit() {
         },
         rowNum: 10, //一页显示多少条
         rowList: [10, 20, 30], //可供用户选择一页显示多少条
-        pager: '#pager2', //表格页脚的占位符(一般是div)的id
+        pager: '#pager', //表格页脚的占位符(一般是div)的id
         sortname: 'id', //初始化的时候排序的字段
         sortorder: "desc", //排序方式,可选desc,asc
         mtype: "post", //向后台请求数据的ajax的类型。可选post,get
         viewrecords: true,
-        caption: "JSON Example" //表格的标题名字
-    });
+        caption:false //表格的标题名字
+    }).navGrid('#pager',{edit:false,add:false,del:false,search:false})  
+
+.navButtonAdd('#pager',{  
+
+   caption:"Add",   
+
+   buttonicon:"ui-icon-add",   
+
+   onClickButton: function(){   
+
+     alert("Adding Row");  
+
+   },   
+
+   position:"last"  
+
+})  
+
+.navButtonAdd('#pager',{  
+
+   caption:"Del",   
+
+   buttonicon:"ui-icon-del",   
+
+   onClickButton: function(){   
+
+      alert("Deleting Row");  
+
+   },   
+
+   position:"last"  
+
+});
     /*创建jqGrid的操作按钮容器*/
     /*可以控制界面上增删改查的按钮是否显示*/
-    jQuery("#table-type-1").jqGrid('navGrid', '#pager2', { edit: false, add: false, del: false });
+    
 }
 </script>

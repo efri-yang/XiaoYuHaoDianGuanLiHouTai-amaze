@@ -2,9 +2,13 @@
  * by yyh
  */
 
-
+/*
 .ui-jqgrid{
 	overflow:hidden; 
+}
+
+.ui-jqgrid .ui-jqgrid-view .cbox{
+
 }
 
 .ui-jqgrid .ui-jqgrid-hdiv{
@@ -19,13 +23,12 @@
 .ui-jqgrid .ui-jqgrid-htable th{
 	height: 39px;
     line-height: 39px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight:normal;
+    padding:0;
     border:1px solid #e6e6e6 !important; 
 }
-.ui-jqgrid .ui-jqgrid-htable th{
-	padding:0; 
-}
+
 .ui-jqgrid .ui-jqgrid-htable th:last-child{
 	border-right:none; 
 }
@@ -33,12 +36,13 @@
 	height:auto; 
 }
 
+*/
 
-
-
+/*
 .ui-jqgrid .ui-jqgrid-bdiv {
 	min-height:350px; 
-	border:1px solid #e6e6e6;
+	border-left:1px solid #e6e6e6;
+	border-right:1px solid #e6e6e6;
 	border-top:none;
 	overflow-y:auto;  
 	overflow-x:hidden;  
@@ -50,7 +54,7 @@
 }
 .ui-jqgrid .ui-jqgrid-btable .jqgrow td{
 	border:1px solid #e6e6e6;
-	padding:5px;
+	padding:10px 5px;
 	font-size:16px;
 	white-space:nowrap;
 	text-overflow:ellipsis;
@@ -78,4 +82,8 @@
 	padding-right:0; 
 	width:100%;
 	border-right:1px solid #e6e6e6; 
+}*/
+
+.am-table-bordered  tbody > tr:first-child > td{
+	border-top:none !important; 
 }
