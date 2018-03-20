@@ -1,0 +1,93 @@
+.coms-layout-aside {
+    top: 60px;
+    width: 220px;
+    overflow-x: hidden;
+    background-color: #393D49;
+    color: #fff !important;
+    bottom: 0;
+    z-index: 999;
+    position: fixed;
+    transition: all 0.2s 0.2s;
+   *{
+        box-sizing: content-box;
+        
+    }
+    &.fold {
+        width: 42px;
+        .aside-unfold {
+            width: 42px;
+            i {
+                transform: rotate(90deg);
+                margin-left: -19px;
+            }
+        }
+    }
+    .aside-unfold {
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        width: 200px;
+        padding-right: 20px;
+        background: #42485b;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.2s 0.2s;
+        i {
+            position: absolute;
+            height: 18px;
+            line-height: 18px;
+            left: 50%;
+            top: 50%;
+            margin-top: -9px;
+            margin-left: -9px;
+            transform-origin: center;
+            transition: all 0.2s;
+        }
+        &:hover {
+            background: darken(#42485b, 5%);
+        }
+    }
+
+    .aside-menu-scroll {
+        width: 240px;
+        height: 100%;
+        overflow-x: hidden;
+    }
+
+    .aside-menu {
+        margin:0 !important; 
+        li {
+            margin:0 !important; 
+            a {
+                position: relative;
+                display: block;
+                
+              
+                padding: 0 0 0 10px;
+                background-color: #4E5465;
+                transition: all 0.2s;
+             
+                i{
+                    color: #fff;
+                    color: rgba(255, 255, 255, .7);
+                    font-size: 18px;
+                   
+                    display: inline-block;
+                    padding-right: 10px;
+                    vertical-align: middle;
+                    transition: background 0.2s;
+                }
+                .txt {
+                    color: #fff;
+                    color: rgba(255, 255, 255, .7);
+                    font-size: 14px;
+                    transition: all 0.2s;
+                    display:block;
+                }
+              
+            }
+            
+        }
+    }
+    
+}

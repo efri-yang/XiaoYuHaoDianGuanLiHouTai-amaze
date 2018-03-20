@@ -1,25 +1,21 @@
 .coms-layout-aside {
     top: 60px;
-    width: 220px;
     overflow-x: hidden;
     background-color: #393D49;
     color: #fff !important;
     bottom: 0;
     z-index: 999;
     position: fixed;
-    transition: all 0.2s 0.2s;
-   *{
+    width:220px;
+    transition: all 0.2s;
+
+    * {
         box-sizing: content-box;
-        
     }
     .aside-unfold {
         text-align: center;
-        height: 40px;
-        line-height: 40px;
-        width: 200px;
-        padding-right: 20px;
-        background: #42485b;
-        cursor: pointer;
+        height:28px;
+        overflow:hidden;
         position: relative;
         transition: all 0.2s 0.2s;
         i {
@@ -37,123 +33,109 @@
             background: darken(#42485b, 5%);
         }
     }
-
+    &.fold {
+        width:65px;
+        .aside-unfold {
+            width: 65px;
+            i {
+                transform: rotate(90deg);
+                margin-left: -10px;
+            }
+        }
+    } 
+    
     .aside-menu-scroll {
-        width: 240px;
+        width: 220px;
         height: 100%;
         overflow-x: hidden;
     }
 
     .aside-menu {
-        margin:0 !important; 
         li {
-            margin:0 !important; 
             a {
-                position: relative;
+                padding: 5px;
+                width: 55px;
                 display: block;
-                height: 40px;
-                line-height: 40px;
-                width: 212px;
-                padding: 0 0 0 10px;
-                background-color: #4E5465;
-                transition: all 0.2s;
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                i{
+                transition: background 0.3s;
+                overflow: hidden;
+                text-overflow: eliphis;
+                &:hover {
+                    background: lighten(#23262E, 15%);
+                }
+            }
+            i {
+                display: block;
+                text-align: center;
+                color: #fff;
+                font-size: 18px;
+                margin: 0 auto;
+                color: rgba(255, 255, 255, .7);
+                transition: color 0.2s;
+            }
+            .txt {
+                color: #fff;
+                font-size: 12px;
+                color: rgba(255, 255, 255, .7);
+                transition: color 0.2s;
+            }
+            &.active {
+                a {
+                    background: lighten(#23262E, 20%);
+                }
+                i {
                     color: #fff;
-                    color: rgba(255, 255, 255, .7);
-                    font-size: 18px;
-                    height: 40px;
-                    line-height: 40px;
-                    display: inline-block;
-                    padding-right: 10px;
-                    vertical-align: middle;
-                    transition: background 0.2s;
                 }
                 .txt {
                     color: #fff;
-                    color: rgba(255, 255, 255, .7);
-                    font-size: 14px;
-                    transition: all 0.2s;
-                }
-                .more {
-                    content: '';
-                    width: 0;
-                    height: 0;
-                    border-style: dashed;
-                    border-color: transparent;
-                    overflow: hidden;
-                    cursor: pointer;
-                    transition: all .2s;
-                    -webkit-transition: all .2s;
-                    position: absolute;
-                    top: 50%;
-                    right: 15px;
-                    margin-top: -3px;
-                    border-width: 6px;
-                    border-top-style: solid;
-                    border-top-color: #fff;
-                    border-top-color: rgba(255, 255, 255, .7);
-                }
-                &:hover {
-                    background-color: #5FB878; // background:#00c1de;
-                    .layui-icon {
-                        color: #fff;
-                    }
-                    .txt {
-                        color: #fff;
-                    }
-                    .more {
-                        border-top-color: #fff;
-                    }
-                }
-            }
-            &.treeview {
-                &.active {
-                    .treeview-menu {
-                        max-height: auto;
-                    }
-                }
-                .treeview-menu {
-                    margin:0 !important; 
-                    width: 240px;
-                    transition: max-height 0.2s;
-                    overflow-y: scroll;
-                    overflow-x: hidden;
-                    max-height: 0;
-                    li {
-                        a {
-                            background: none;
-                            color: #fff;
-                            color: rgba(255, 255, 255, .7);
-                            padding-left: 42px;
-                            padding-right: 15px;
-                            font-size: 14px;
-                            white-space: nowrap;
-                            text-overflow: ellipsis;
-                            overflow: hidden;
-                            &:hover {
-                                color: #fff;
-                            }
-                        }
-                        &.active {
-                            a {
-                                background: #5FB878;
-                                color: #fff;
-                            }
-                        }
-                    }
                 }
             }
         }
     }
-    &.fold {
-        width: 42px;
-        .aside-unfold {
-            width: 42px;
-            i {
-                transform: rotate(90deg);
-                margin-left: -19px;
+
+    .aside-menu-sub {
+        position: absolute;
+        left: 65px;
+        top: 28px;
+        bottom: 0;
+        width: 155px;
+        background: lighten(#23262E, 20%);
+        overflow: hidden;
+        .list {
+            width:175px;
+            padding: 10px 0;
+            position:absolute;
+            visibility:hidden;
+            opacity: 0;
+            top:0;
+            bottom:0;
+            left:150px; 
+            transition:all 0.25s;
+            overflow-y:auto; 
+            &.active{
+                visibility:visible;
+                opacity:1;
+                left:0; 
+            }
+            li {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                a {
+                    color: #fff;
+                    font-size: 14px;
+                    padding:0 20px;
+                    line-height:35px;
+                    color: rgba(255, 255, 255, .7);
+                    transition: color 0.2s;
+                    &:hover {
+                        color: #fff;
+                    }
+                }
+                &.current{
+                    a{
+                        color:#fff;
+                    }
+                }
             }
         }
     }

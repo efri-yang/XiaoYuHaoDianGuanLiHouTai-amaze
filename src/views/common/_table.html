@@ -48,7 +48,7 @@
     <table class="am-table am-table-bordered" id="table-01"></table>
     <div class="coms-datatable-handler am-form">
         <label class="checkall mr20">
-            <input type="checkbox">全选</label>
+            <input type="checkbox" name="checkall">全选</label>
         <div class="fl">
             <select>
                 <option value="">请选择</option>
@@ -88,8 +88,14 @@ $(function() {
             },
             { "data": "id",title:"榜单 ID",width:"40%",className:"align-c"},
             { "data": "name",title:"榜单名称",width:"40%",className:"align-c"},
-            { "data": "score",title:"分数",className:"align-c"}
+            { "data":null,title:"操作",className:"align-c"},
         ],
+        "columnDefs": [ {
+				targets:-1,
+		        render: function(data, type, row, meta) {
+		            return '<a type="button"  href="#" onclick="del("' + row.id +'")" >编辑</a> | <a type="button"  href="#" onclick="del("' + row.id +'")" >删除</a>';
+		        }
+        }],
         "fnDrawCallback": function(){
 
             // var oTable = $("#table-01").dataTable();
@@ -130,11 +136,8 @@ $(function() {
     });
 
     $("[name=checkall]:checkbox").click(function(){
-       
-        $('[name=checkchild]:checkbox').each(function(){  
-            console.dir("xxx")
-            this.checked=!this.checked;  
-        });  
+    	
+          
     });
 })
 </script>
