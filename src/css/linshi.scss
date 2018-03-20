@@ -2,61 +2,78 @@
  * by yyh
  */
 
-
-
-
-.am-table-bordered  tbody > tr:first-child > td{
-	border-top:none !important; 
+.am-table-bordered tbody>tr:first-child>td {
+    border-top: none !important;
 }
-
-
-.coms-datatable-bd{
-	table{
-		thead{
-			background-color: #f2f2f2;
-			th{
-				text-align:center;
-				font-weight:normal;
-				padding-right:0 !important;   
-			}
-		}
-		
-		td{
-			text-align:center; 
-		}
-	}
-
-	table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after{
-		    position:relative;
-		   
-		    margin-top: -12px;
-		    margin-left:15px; 
-		    display:inline-block;
-		    opacity: 0.5;
-		    font-weight: normal;
-	}
-}
-
-.coms-datatable-ft .page-num-list{
-	float: right;
-}
-.coms-datatable-ft .page-every-count{
-	float: right;
-	padding:0 10px;
-	font-size:14px;
-	line-height:32px;   
-	
-}
-.coms-datatable-ft .page-every-count label{
-	font-weight:normal; 
-}
-.coms-datatable-ft .page-every-count select{
-	vertical-align:middle;
-	margin:0 5px;  
-}
-
 .coms-datatable-wrap{
-
+	position:relative;
 }
 
+.coms-datatable-bd {
+    table {
+        margin-bottom: 0px !important;
+        thead {
+            background-color: #f2f2f2;
+            th {
+                text-align: center;
+                font-weight: normal;
+                padding-right: 0 !important;
+            }
+        }
 
+        td {
+            text-align: center;
+        }
+    }
+
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_desc:after {
+        position: relative;
+
+        margin-top: -12px;
+        margin-left: 15px;
+        display: inline-block;
+        opacity: 0.5;
+        font-weight: normal;
+    }
+}
+
+.coms-datatable-ft {
+	border:1px solid #ddd;
+	border-top:none;
+	padding:20px 10px 15px 0;
+    .page-num-list {
+        float: right;
+    }
+    .page-every-count {
+        float: right;
+        padding: 0 10px;
+        font-size: 14px;
+        line-height: 32px;
+        label {
+            font-weight: normal;
+        }
+        select {
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+    }
+}
+
+.coms-datatable-handler{
+	position:absolute;
+	bottom:20px;
+	left:30px; 
+	.checkall{
+		font-weight:normal;
+		font-size:14px;
+		line-height:37px;
+		float:left;
+		input{
+			vertical-align:middle;
+			margin-top:-1px;
+			margin-right:5px; 
+		}
+	}
+}

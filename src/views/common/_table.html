@@ -2,20 +2,73 @@
 <link rel="stylesheet" type="text/css" href="js/plugin/datatables/amazeui.datatables.css">
 <link rel="stylesheet" type="text/css" href="css/linshi.css">
 <div class="coms-datatable-wrap">
+    <div class="coms-datatable-hd">
+        <div class="am-form am-form-horizontal">
+            <div class="am-form-group fl">
+                <label class="am-para-label">榜单名称：</label>
+                <div class="am-para-inline w200">
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="am-form-group fl">
+                <label class="am-para-label">类型：</label>
+                <div class="am-para-inline w150">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group fl">
+                <label class="am-para-label">分类：</label>
+                <div class="am-para-inline w150 mr10">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+                <div class="am-para-inline w150 mr10">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group fl ml20">
+                <button type="button" class="am-btn am-btn-success w100">搜索</button>
+            </div>
+        </div>
+    </div>
     <table class="am-table am-table-bordered" id="table-01">
         <thead>
             <tr>
+                <th width="5%">
+                    <input type="checkbox" name="checkall">
+                </th>
                 <th width="10%">榜单 ID</th>
                 <th width="60%">榜单名称</th>
                 <th width="30%">得分</th>
             </tr>
         </thead>
     </table>
-
-    <div class="coms-datatable-handler">
-        
+    <div class="coms-datatable-handler am-form">
+        <label class="checkall mr20">
+            <input type="checkbox">全选</label>
+        <div class="fl">
+            <select>
+                <option value="">请选择</option>
+                <option value="option1">选项一...</option>
+                <option value="option2">选项二.....</option>
+                <option value="option3" disabled="">选项三........</option>
+            </select>
+        </div>
     </div>
-  
 </div>
 <script type="text/javascript">
 //   dom: "<'am-g am-datatable-hd'<'am-u-sm-6'l><'am-u-sm-6'f>>" +
@@ -23,16 +76,24 @@
 // "<'am-g am-datatable-footer'<'am-u-sm-5'i><'am-u-sm-7'p>>",
 $(function() {
     $("#table-01").DataTable({
-        // "dom": "<'am-g am-datatable-hd coms-datatable-hd'f>"+"<'am-g coms-datatable-bd'tr>"+"<'am-g coms-datatable-ft'pl>",
         "dom": "<'.coms-datatable-bd'tr><'.coms-datatable-ft clearfix'<'.page-every-count'l><'.page-num-list'p>>",
         "processing": true,
         "serverSide": true,
-        'ordering':false,
+        'ordering': false,
+         
         "ajax": {
             "url": "https://wnworld.com/api/haoDianGuanLiHouTai/table.php",
             "type": "post"
         },
-        "columns": [
+        "columns": [{
+                data: null,
+                bSortable: false,
+                className: "text-right",
+                width: "30px",
+                render: function (data, type, row){
+                    console.dir(data);
+                }
+            },
             { "data": "id" },
             { "data": "name" },
             { "data": "score" }
