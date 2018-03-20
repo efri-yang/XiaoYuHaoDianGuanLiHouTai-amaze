@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>榜单-喜欢-列表</title>
+    @@include("./views/common/_headStyleScript.html")
+</head>
+
+<body>
+    @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+    <div class="coms-layout-body p15" id="J_coms-layout-body">
+        @@include("./views/common/_breadcrumb.html",{"title":"喜欢列表"})
+        <div class="coms-table-wrap pl20 pr20 mt20">
+            <!-- <div class="coms-table-hd clearfix no-border">
+        <div class="am-form am-form-horizontal">
+            <div class="am-form-group fl">
+                <label class="am-para-label">榜单名称：</label>
+                <div class="am-para-inline w200">
+                    <input type="text" />
+                </div>
+            </div>
+            <div class="am-form-group fl">
+                <label class="am-para-label">类型：</label>
+                <div class="am-para-inline w150">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group fl">
+                <label class="am-para-label">分类：</label>
+                <div class="am-para-inline w150 mr10">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+                <div class="am-para-inline w150 mr10">
+                    <select required="" name="province">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled="">选项三........</option>
+                    </select>
+                </div>
+            </div>
+            <div class="am-form-group fl ml20">
+                <button type="button" class="am-btn am-btn-success w100">搜索</button>
+            </div>
+        </div>
+    </div> -->
+            <div class="coms-table-bd">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="50">
+                                <input type="checkbox" />
+                            </th>
+                            <th width="15%"><span>时间</span><span class="sort" data-sort="asc"><i class="asc"></i><i class="desc"></i></span></th>
+                            <th width="15%"><span>用户</span></th>
+                            <th><span>榜单</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>2017-12-20 13:13</td>
+                            <td>onetao</td>
+                            <td>榜单</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>2017-12-20 13:13</td>
+                            <td>onetao</td>
+                            <td>榜单</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>2017-12-20 13:13</td>
+                            <td>onetao</td>
+                            <td>榜单</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>2017-12-20 13:13</td>
+                            <td>onetao</td>
+                            <td>榜单</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="coms-table-ft clearfix">
+                <!--  @@include("./views/common/_tableCheckAll.html") -->
+                @@include("./views/common/_pagination.html")
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

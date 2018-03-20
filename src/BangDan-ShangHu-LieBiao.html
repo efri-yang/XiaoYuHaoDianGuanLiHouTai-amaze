@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>榜单-商户-列表</title>
+    @@include("./views/common/_headStyleScript.html")
+</head>
+
+<body>
+    @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+    <div class="coms-layout-body p15" id="J_coms-layout-body">
+        @@include("./views/common/_breadcrumb.html",{"title":"榜单——商户列表"})
+        <div class="coms-table-wrap pl20 pr20 mt20">
+            <div class="coms-table-bd">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                        <tr>
+                            <th width="50">
+                                <input type="checkbox" />
+                            </th>
+                            <th width="20%"><span>时间</span><span class="sort" data-sort="asc"><i class="asc"></i><i class="desc"></i></span></th>
+                            <th><span>商户名</span></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>2017-12-20 13:13</td>
+                            <td>老码头火锅（万达店）</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>2017-12-20 13:13</td>
+                            <td>老码头火锅（万达店）</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="checkbox" />
+                            </td>
+                            <td>2017-12-20 13:13</td>
+                            <td>老码头火锅（万达店）</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="coms-table-ft clearfix">
+                <!--  @@include("./views/common/_tableCheckAll.html") -->
+                @@include("./views/common/_pagination.html")
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

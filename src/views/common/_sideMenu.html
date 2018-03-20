@@ -33,57 +33,10 @@
         </ul>
         <div class="aside-menu-sub">
             <ul class="list active">
-                <li><a href="#">榜单管理1-1</a></li>
-                <li class="current"><a href="#">榜单管理1-2</a></li>
-                <li><a href="#">榜单管理1-3</a></li>
-                <li><a href="#">榜单管理1-4</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">榜单管理1-5</a></li>
-                <li><a href="#">最后一个</a></li>
+                <li><a href="BangDan-LieBiao.html">榜单列表</a></li>
+                <li class="current"><a href="BangDan-XiHuan-LieBiao.html">喜欢列表</a></li>
+                <li class="current"><a href="BangDan-ShangHu-LieBiao.html">商户列表</a></li>
+                
             </ul>
 
             <ul class="list">
@@ -108,6 +61,7 @@
             var $aside=$("#J_coms-layout-aside"),
                 $fold=$aside.find(".aside-unfold"),
                 $menuList=$aside.find(".aside-menu").children('li.treeview'),
+                $mainBody=$("#J_coms-layout-body"),
                 $menuSubList=$aside.find(".aside-menu-sub").children('ul');
 
             $menuList.on("click",function(){
@@ -115,6 +69,7 @@
                 var index=$menuList.index(this);
                 if($aside.hasClass('fold')){
                     $aside.removeClass('fold');
+                     $mainBody.removeClass('unfold');
                 }
                 $this.addClass('active').siblings().removeClass('active')
                 $menuSubList.eq(index).addClass('active').siblings().removeClass('active');
@@ -122,8 +77,10 @@
             $fold.on("click",function(){
                 if($aside.hasClass('fold')){
                     $aside.removeClass('fold');
+                    $mainBody.removeClass('unfold');
                 }else{
                     $aside.addClass('fold');
+                    $mainBody.addClass('unfold');
                 }
             })
 

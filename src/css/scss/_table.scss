@@ -1,18 +1,116 @@
+.coms-datatable-wrap {
+    position: relative;
+}
+
+.coms-datatable-bd {
+    table {
+        margin-bottom: 0px !important;
+        thead {
+            background-color: #f2f2f2;
+            th {
+
+                font-weight: normal;
+                padding-right: 0 !important;
+                padding-left: 0 !important;
+            }
+        }
+    }
+
+    table.dataTable thead .sorting:after,
+    table.dataTable thead .sorting_asc:after,
+    table.dataTable thead .sorting_desc:after {
+        position: relative;
+
+        margin-top: -12px;
+        margin-left: 15px;
+        display: inline-block;
+        opacity: 0.5;
+        font-weight: normal;
+    }
+}
+
+.coms-datatable-ft {
+    border: 1px solid #ddd;
+    border-top: none;
+    padding: 20px 10px 15px 0;
+    .page-num-list {
+        float: right;
+    }
+    .page-every-count {
+        float: right;
+        padding: 0 10px;
+        font-size: 14px;
+        line-height: 24px;
+        label {
+            font-weight: normal;
+        }
+        select {
+            vertical-align: middle;
+            margin: 0 5px;
+        }
+    }
+    .am-pagination>li>a,
+    .am-pagination>li>span {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+    .page-info {
+        float: right;
+        margin-right: 10px;
+        .am-datatable-info {
+            padding-top: 0;
+            line-height: 28px;
+        }
+    }
+}
+
+.coms-datatable-handler {
+    position: absolute;
+    bottom: 20px;
+    left: 25px;
+    .checkall {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 37px;
+        float: left;
+        input {
+            vertical-align: middle;
+            margin-top: -1px;
+            margin-right: 5px;
+        }
+    }
+}
+
+
+
+
+
+
+
+/**普通table 样式
+*********************************/
+
 .coms-table-wrap {}
 
-.coms-table-hd {}
+.coms-table-hd {
+    padding: 10px 0 0 30px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
 
 .coms-table-bd {
     .am-table {
         text-align: center;
         table-layout: fixed;
+        margin-bottom: 0;
         thead {
             background: #f2f2f2;
             th {
                 text-align: center;
                 font-weight: normal;
                 font-size: 14px;
-                font-weight:bold; 
+                font-weight: bold;
                 &.align-c {
                     text-align: center;
                 }
@@ -22,11 +120,147 @@
                 &.align-r {
                     text-align: right;
                 }
+                [data-sort='asc'] {
+                    .asc {
+                        border-bottom-color: #f60 !important;
+                    }
+                }
+                [data-sort='desc'] {
+                    .desc {
+                        border-top-color: #f60 !important;
+                    }
+                }
+                .sort {
+                    position: relative;
+                    cursor: pointer;
+                    i {
+                        display: inline-block;
+                        width: 0;
+                        height: 0;
+                        position: absolute;
+                        left: 5px;
+                        border-width: 5px;
+                        border-style: dashed;
+                        border-color: transparent;
+                        overflow: hidden;
+                    }
+                    .asc {
+                        top: 4px;
+                        border-top: none;
+                        border-bottom-style: solid;
+                        border-bottom-color: #b2b2b2;
+                    }
+                    .desc {
+                        bottom: 4px;
+                        border-bottom: none;
+                        border-top-style: solid;
+                        border-top-color: #b2b2b2;
+                    }
+                }
             }
         }
         tbody {
-            td {
+            td {}
+        }
+    }
+}
 
+
+
+.coms-table-ft {
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    padding: 15px 0;
+    .hander {
+        padding-left: 20px;
+        .checkall {
+            float: left;
+            line-height: 37px;
+            margin-right: 20px;
+            font-weight: normal;
+            font-size: 14px;
+            input {
+                vertical-align: middle;
+                margin-top: -2px;
+            }
+        }
+    }
+}
+
+.coms-pagination {
+    font-size: 14px;
+    text-align: center;
+    .total {
+        color: #666;
+        margin-right: 8px;
+        font-size: 12px;
+    }
+    .skip {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 15px;
+        input {
+            width: 30px;
+            text-align: center;
+            margin: 0 3px;
+            height: 30px;
+            padding: 6px 0;
+        }
+        button {
+            height: 32px;
+            margin-left: 10px;
+        }
+    }
+    .sel {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 15px;
+        select {
+            height: 30px;
+        }
+    }
+    .first,
+    .prev,
+    .num,
+    .next,
+    .last {
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid #e2e2e2;
+        padding: 0 10px;
+        line-height: 30px;
+        color: #333;
+        &:hover {
+            background: #0066cc;
+            color: #fff;
+            border-color: #0066cc;
+        }
+    }
+    .num {
+        &.current {
+            background: #0066cc;
+            color: #fff;
+            border-color: #0066cc;
+        }
+    }
+    .more {
+        padding: 0 5px;
+        color: #999;
+    }
+    .first,
+    .prev,
+    .next,
+    .last {
+        &.disabled {
+            border: 1px solid #e2e2e2;
+            color: #d2d2d2!important;
+            cursor: not-allowed!important;
+            &:hover {
+                background: #fff;
+                border: 1px solid #e2e2e2 !important;
+                color: #d2d2d2!important;
+                cursor: not-allowed!important;
             }
         }
     }

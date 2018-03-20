@@ -12,6 +12,31 @@
 }
 
 
+.relative{
+    position:relative;
+}
+.absolute{
+    position:absolute;
+}
+/**
+ * 
+ */
+.no-border{
+    border:none;
+}
+
+.align-c{
+    text-align:center; 
+}
+.align-l{
+    text-align:left; 
+}
+.align-r{
+    text-align:right; 
+}
+.underline{
+    text-decoration: underline;
+}
 
 /**
  * 宽度 width

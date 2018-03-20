@@ -19,10 +19,12 @@ const server=require("./server.js")
 
 function htmls(){
 	return gulp.src([conf.src + conf.mod + '/**/*.html',"!" + conf.src + conf.mod + '/**/_*.html'])
+   
 		  	.pipe(fileInclude({
             	prefix: '@@',
             	basepath: '@file'
         	}))
+             .pipe(changed(conf.dest + conf.mod))
             .pipe(debug({title: 'htmls-------------'}))
         	.pipe(gulp.dest(conf.dest + conf.mod));
             

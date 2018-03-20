@@ -1,5 +1,6 @@
 <div class="coms-table-wrap">
-    <div class="coms-table-hd">
+    <!--  no-border  去掉头部就有边控了-->
+    <div class="coms-table-hd clearfix no-border">
         <div class="am-form am-form-horizontal">
             <div class="am-form-group fl">
                 <label class="am-para-label">榜单名称：</label>
@@ -46,166 +47,146 @@
         <table class="am-table am-table-bordered">
             <thead>
                 <tr>
+                    <!-- th 中 复选框的宽度 写死 固定50  然后其他的用百分比，但是必须有一个是不要设置值得(这样可以自适应省去计算麻烦) -->
                     <th width="50">
                         <input type="checkbox" />
                     </th>
-                    <th width="10%">榜单ID</th>
-                    <th width="40%">榜单名称</th>
-                    <th width="15%">标签</th>
-                    <th width="10%">类型</th>
-                    <th width="10%">样式</th>
-                    <th>状态</th>
+                    <th width="8%"><span>ID</span><span class="sort" data-sort="asc"><i class="asc"></i><i class="desc"></i></span></th>
+                    <th width="27%"><span>榜单名称</span><span class="sort" data-sort="desc"><i class="asc"></i><i class="desc"></i></span></th>
+                    <th width="15%"><span>标签</span></th>
+                    <th width="10%"><span>类型</span></th>
+                    <th width="10%"><span>样式</span></th>
+                    <th width="10%"><span>状态</span></th>
+                    <th><span>操作</span></th>
+                    
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td rowspan="2">
-                        <input type="checkbox" />
-                    </td>
+                    <td><input type="checkbox" /></td>
                     <td>01</td>
                     <td>厦门某某店面01</td>
                     <td>美食，家装，亲子</td>
                     <td>官方</td>
                     <td>大图</td>
                     <td>正常</td>
-                </tr>
-                <tr>
-                    <td colspan="6" class="align-r">
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">喜欢(0)</a>
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">商户(0)</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">下架</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">删除</a>
-                        <a href="#" class="am-btn am-btn-primary am-btn-sm">修改</a>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan="2">
-                        <input type="checkbox" />
-                    </td>
+                    <td><input type="checkbox" /></td>
                     <td>01</td>
                     <td>厦门某某店面01</td>
                     <td>美食，家装，亲子</td>
                     <td>官方</td>
                     <td>大图</td>
                     <td>正常</td>
-                </tr>
-                <tr>
-                    <td colspan="6" class="align-r">
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">喜欢(0)</a>
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">商户(0)</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">下架</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">删除</a>
-                        <a href="#" class="am-btn am-btn-primary am-btn-sm">修改</a>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
                     </td>
                 </tr>
+
                 <tr>
-                    <td rowspan="2">
-                        <input type="checkbox" />
-                    </td>
+                    <td><input type="checkbox" /></td>
                     <td>01</td>
                     <td>厦门某某店面01</td>
                     <td>美食，家装，亲子</td>
                     <td>官方</td>
                     <td>大图</td>
                     <td>正常</td>
-                </tr>
-                <tr>
-                    <td colspan="6" class="align-r">
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">喜欢(0)</a>
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">商户(0)</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">下架</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">删除</a>
-                        <a href="#" class="am-btn am-btn-primary am-btn-sm">修改</a>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan="2">
-                        <input type="checkbox" />
-                    </td>
+                    <td><input type="checkbox" /></td>
                     <td>01</td>
                     <td>厦门某某店面01</td>
                     <td>美食，家装，亲子</td>
                     <td>官方</td>
                     <td>大图</td>
                     <td>正常</td>
-                </tr>
-                <tr>
-                    <td colspan="6" class="align-r">
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">喜欢(0)</a>
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">商户(0)</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">下架</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">删除</a>
-                        <a href="#" class="am-btn am-btn-primary am-btn-sm">修改</a>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan="2">
-                        <input type="checkbox" />
-                    </td>
+                    <td><input type="checkbox" /></td>
                     <td>01</td>
                     <td>厦门某某店面01</td>
                     <td>美食，家装，亲子</td>
                     <td>官方</td>
                     <td>大图</td>
                     <td>正常</td>
-                </tr>
-                <tr>
-                    <td colspan="6" class="align-r">
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">喜欢(0)</a>
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">商户(0)</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">下架</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">删除</a>
-                        <a href="#" class="am-btn am-btn-primary am-btn-sm">修改</a>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
                     </td>
                 </tr>
                 <tr>
-                    <td rowspan="2">
-                        <input type="checkbox" />
-                    </td>
+                    <td><input type="checkbox" /></td>
                     <td>01</td>
                     <td>厦门某某店面01</td>
                     <td>美食，家装，亲子</td>
                     <td>官方</td>
                     <td>大图</td>
                     <td>正常</td>
-                </tr>
-                <tr>
-                    <td colspan="6" class="align-r">
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">喜欢(0)</a>
-                        <a href="#" class="am-btn am-btn-primary am-round am-btn-sm mr10">商户(0)</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">下架</a>
-                        <a href="#" class="am-btn am-btn-danger am-btn-sm">删除</a>
-                        <a href="#" class="am-btn am-btn-primary am-btn-sm">修改</a>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
                     </td>
                 </tr>
+                <tr>
+                    <td><input type="checkbox" /></td>
+                    <td>01</td>
+                    <td>厦门某某店面01</td>
+                    <td>美食，家装，亲子</td>
+                    <td>官方</td>
+                    <td>大图</td>
+                    <td>正常</td>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" /></td>
+                    <td>01</td>
+                    <td>厦门某某店面01</td>
+                    <td>美食，家装，亲子</td>
+                    <td>官方</td>
+                    <td>大图</td>
+                    <td>正常</td>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" /></td>
+                    <td>01</td>
+                    <td>厦门某某店面01</td>
+                    <td>美食，家装，亲子</td>
+                    <td>官方</td>
+                    <td>大图</td>
+                    <td>正常</td>
+                    <td>
+                        <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                        <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                    </td>
+                </tr>
+              
+               
             </tbody>
         </table>
     </div>
-    <div class="coms-table-ft">
-        <div class="coms-pagination">
-            <a href="#" class="first">首页</a>
-            <a href="#" class="prev">上一页</a>
-            <a href="#" class="num">1</a>
-            <span class="more">...</span>
-            <a href="#" class="num">4</a>
-            <a href="#" class="num">5</a>
-            <a href="#" class="num">6</a>
-            <a href="#" class="num">7</a>
-            <a href="#" class="num">8</a>
-            <a href="#" class="num">...</a>
-            <a href="#" class="num">20</a>
-            <a href="#" class="first">下一页</a>
-            <a href="#" class="prev">末页</a>
-            <span class="sel">
-                <select>
-                    <option value="10" selected="">10 条/页</option>
-                    <option value="20">20 条/页</option>
-                    <option value="30">30 条/页</option>
-                    <option value="40">40 条/页</option>
-                    <option value="50">50 条/页</option>
-                </select>
-            </span>
-            <span class="skip">到第<input type="text" min="1" value="6">页<button type="button">确定</button></span>
-        </div>
+    <div class="coms-table-ft clearfix">
+        @@include("_tableCheckAll.html")
+        @@include("_pagination.html")
     </div>
 </div>
