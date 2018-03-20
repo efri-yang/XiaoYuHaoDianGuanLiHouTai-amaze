@@ -45,18 +45,7 @@
             </div>
         </div>
     </div>
-    <table class="am-table am-table-bordered" id="table-01">
-        <thead>
-            <tr>
-                <th width="5%">
-                    <input type="checkbox" name="checkall">
-                </th>
-                <th width="10%">榜单 ID</th>
-                <th width="60%">榜单名称</th>
-                <th width="30%">得分</th>
-            </tr>
-        </thead>
-    </table>
+    <table class="am-table am-table-bordered" id="table-01"></table>
     <div class="coms-datatable-handler am-form">
         <label class="checkall mr20">
             <input type="checkbox">全选</label>
@@ -75,12 +64,13 @@
 // "<'am-g'<'am-u-sm-12'tr>>" +
 // "<'am-g am-datatable-footer'<'am-u-sm-5'i><'am-u-sm-7'p>>",
 $(function() {
+    
     $("#table-01").DataTable({
-        "dom": "<'.coms-datatable-bd'tr><'.coms-datatable-ft clearfix'<'.page-every-count'l><'.page-num-list'p>>",
+        "dom": "<'.coms-datatable-bd'tr><'.coms-datatable-ft clearfix'<'.page-every-count'l><'.page-num-list'p><'.page-info'i>>",
         "processing": true,
         "serverSide": true,
         'ordering': false,
-         
+        "pageLength":10,//每页显示几条
         "ajax": {
             "url": "https://wnworld.com/api/haoDianGuanLiHouTai/table.php",
             "type": "post"
@@ -88,20 +78,63 @@ $(function() {
         "columns": [{
                 data: null,
                 bSortable: false,
-                className: "text-right",
-                width: "30px",
+                className: "align-c",
+                width: "60px",
+                title:'<input type="checkbox" name="checkall" class="checkall" />',
                 render: function (data, type, row){
-                    console.dir(data);
+                     return '<input type="checkbox"  name="checkchild[]" class="checkchild"  value="' + data.id + '" />';
+                     
                 }
             },
-            { "data": "id" },
-            { "data": "name" },
-            { "data": "score" }
+            { "data": "id",title:"榜单 ID",width:"40%",className:"align-c"},
+            { "data": "name",title:"榜单名称",width:"40%",className:"align-c"},
+            { "data": "score",title:"分数",className:"align-c"}
         ],
+        "fnDrawCallback": function(){
+
+            // var oTable = $("#table-01").dataTable();
+            // $('#redirect').keyup(function(e){
+            //     if($(this).val() && $(this).val()>0){
+            //         var redirectpage = $(this).val()-1;
+            //     }else{
+            //         var redirectpage = 0;
+            //     }
+            //     oTable.fnPageChange( redirectpage );
+            // });
+        },
+        "pagingType": "full_numbers",//显示首页尾页
         "language": {
-            "lengthMenu": "每页显示_MENU_条",
+            "processing": "处理中...",
+            "lengthMenu": "每页显示 _MENU_ 条",
+            "zeroRecords": "没有匹配结果",
+            // "info": "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+            "info": "共 _TOTAL_ 条数据",
+            "infoEmpty": "显示第 0 至 0 项结果，共 0 项",
+            "infoFiltered": "(由 _MAX_ 项结果过滤)",
+            "infoPostFix": "",
+            "search": "搜索:",
+            "searchPlaceholder": "搜索...",
+            "url": "",
+            "emptyTable": "表中数据为空",
+            "loadingRecords": "载入中...",
+            "infoThousands": ",",
+            "paginate": {
+                "first": "首页",
+                "previous": "上一页",
+                "next": "下一页",
+                "last": "末页"
+            }
+          
         }
 
+    });
+
+    $("[name=checkall]:checkbox").click(function(){
+       
+        $('[name=checkchild]:checkbox').each(function(){  
+            console.dir("xxx")
+            this.checked=!this.checked;  
+        });  
     });
 })
 </script>
