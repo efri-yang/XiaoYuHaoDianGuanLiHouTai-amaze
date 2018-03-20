@@ -1,13 +1,33 @@
-.coms-table-wrap{
-	
-}
-.coms-table-hd{
+.coms-table-wrap {}
 
-}
+.coms-table-hd {}
 
-.coms-table-bd{
-	table{
-		text-align:center; 
-		table-layout: fixed;
-	}
+.coms-table-bd {
+    .am-table {
+        text-align: center;
+        table-layout: fixed;
+        thead {
+            background: #f2f2f2;
+            th {
+                text-align: center;
+                font-weight: normal;
+                font-size: 14px;
+                font-weight:bold; 
+                &.align-c {
+                    text-align: center;
+                }
+                &.align-l {
+                    text-align: left;
+                }
+                &.align-r {
+                    text-align: right;
+                }
+            }
+        }
+        tbody {
+            td {
+
+            }
+        }
+    }
 }
