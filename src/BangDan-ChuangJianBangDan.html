@@ -70,15 +70,15 @@
 				    </div>
 				    <div class="am-form-group">
 				      <label class="am-para-label"><span class="com-must-star">*</span>添加好店：</label>
-				      <div class="am-para-input">
+				      <div class="am-para-input wp50">
 							<div class="haodian-sel-list">
 								<div class="caption">已选好店</div>
 								<ul class="list">
 									<li>
 										<span class="name">商家名称商家名称</span>
-										<span class="sort-up"></span>
-										<span class="sort-down"></span>
-										<a href="#" class="sort-down"></a>
+										<span class="sort-up iconfont am-text-success f20">&#xe648;</span>
+										<span class="sort-down iconfont am-text-success f20">&#xe647;</span>
+										<span class="sort-down iconfont">&#xe632;</span>
 									</li>
 								</ul>
 							</div>
@@ -98,6 +98,32 @@
 			line-height:37px; 
 			padding:0 10px; 
 			border-bottom:1px solid #f2f2f2;	
+		}
+		.haodian-sel-list li{
+			line-height:40px; 
+		}
+		.haodian-sel-list li .name{
+			width:50%;
+			display:inline-block; 
+		}
+		.haodian-sel-list li .sort-up{
+			width:40px;
+			display:inline-block;
+			text-align:center; 
+			cursor:pointer;
+		}
+		.haodian-sel-list li .sort-up:hover{
+				color:#3f7b3f;
+				
+			}
+		.haodian-sel-list li .sort-down{
+			width:40px;
+			display:inline-block;
+			text-align:center;
+			cursor:pointer;
+		}
+		.haodian-sel-list li .sort-down:hover{
+			color:#3f7b3f;
 		}
 	</style>
 </body>
