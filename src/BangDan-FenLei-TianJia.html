@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>榜单列表</title>
+    @@include("./views/common/_headStyleScript.html")
+</head>
+
+<body>
+    @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+    <div class="coms-layout-body p15" id="J_coms-layout-body">
+        @@include("./views/common/_breadcrumb.html",{"title":"榜单——分类——添加"})
+        <!-- 
+*****内容开始start**************************************************
+ -->
+        <form action="" class="am-form am-form-horizontal mt40" data-am-validator>
+            <div class="am-form-group">
+                <label class="am-para-label">上级：</label>
+                <div class="am-para-input wp50">
+                    <select required name="pro">
+                        <option value="">请选择</option>
+                        <option value="option1">选项一...</option>
+                        <option value="option2">选项二.....</option>
+                        <option value="option3" disabled>选项三........</option>
+                    </select> 
+                    
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-para-label">分类名称：</label>
+                <div class="am-para-input wp50">
+                    <input type="text" minlength="3" placeholder="输入用户名(至少 3 个字符)" required />
+                </div>
+            </div>
+            <div class="am-form-group">
+                <label class="am-para-label"></label>
+                <div class="am-para-input">
+                    <button class="am-btn am-btn-secondary" type="submit">提交</button>
+                </div>
+            </div>
+        </form>
+        <!-- 
+*****内容开始end**************************************************
+ -->
+    </div>
+</body>
+
+</html>

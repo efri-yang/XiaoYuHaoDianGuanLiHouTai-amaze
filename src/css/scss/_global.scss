@@ -2,6 +2,20 @@ html,body{
     height: 100%;
 }
 
+.coms-nodata-1{
+    .hd{
+        text-align:center;
+        padding:20px 0;  
+        color:#999; 
+        .iconfont{
+            color:#999;
+            font-size:40px;
+            display:inline-block;
+            vertical-align:middle;
+            margin-right:10px;     
+        }
+    }
+}
 /**
  * 颜色
  */

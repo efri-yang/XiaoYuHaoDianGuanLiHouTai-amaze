@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>榜单列表</title>
+    @@include("./views/common/_headStyleScript.html")
+</head>
+
+<body>
+    @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+    <div class="coms-layout-body p15" id="J_coms-layout-body">
+        @@include("./views/common/_breadcrumb.html",{"title":"榜单——分类列表"})
+        <!-- 
+*****内容开始start**************************************************
+ -->
+        <div class="coms-table-wrap  mt20 ml50 mr50">
+            <div class="coms-table-hd clearfix no-border">
+                <a href="#" class="am-btn am-btn-primary fr mb10">添加分类</a>
+            </div>
+            <div class="coms-table-bd">
+                <table class="am-table am-table-bordered">
+                    <thead>
+                        <tr>                            
+                            <th width="8%"><span>ID</span></th>
+                            <th><span>分类名称</span></th>
+                            <th width="30%"><span>操作</span></th> 
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr>
+                            <td>1</td>
+                            <td class="align-l">美食</td>
+                            <td>
+                                <a href="#" class="am-btn am-btn-success am-btn-xs">添加子类</a>
+                                <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                                <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="align-l">&nbsp;&nbsp;&nbsp;&nbsp;|--- 美食 1-1</td>
+                            <td>
+                                <a href="#" class="am-btn am-btn-success am-btn-xs">添加子类</a>
+                                <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                                <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="align-l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--- 美食 1-1-1</td>
+                            <td>
+        
+                                <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                                <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="align-l">&nbsp;&nbsp;&nbsp;&nbsp;|--- 美食 1-2</td>
+                            <td>
+                                <a href="#" class="am-btn am-btn-success am-btn-xs">添加子类</a>
+                                <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                                <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td class="align-l">美食</td>
+                            <td>
+                                <a href="#" class="am-btn am-btn-success am-btn-xs">添加子类</a>
+                                <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                                <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="align-l">&nbsp;&nbsp;&nbsp;&nbsp;|--- 美食 1-1</td>
+                            <td>
+                                <a href="#" class="am-btn am-btn-success am-btn-xs">添加子类</a>
+                                <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                                <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td class="align-l">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|--- 美食 1-1-1</td>
+                            <td>
+        
+                                <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                                <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td class="align-l">&nbsp;&nbsp;&nbsp;&nbsp;|--- 美食 1-2</td>
+                            <td>
+                                <a href="#" class="am-btn am-btn-success am-btn-xs">添加子类</a>
+                                <a href="#" class="am-btn am-btn-danger am-btn-xs">删除</a>
+                                <a href="#" class="am-btn am-btn-primary am-btn-xs">修改</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+        <!-- 
+*****内容开始end**************************************************
+ -->
+    </div>
+</body>
+
+</html>
