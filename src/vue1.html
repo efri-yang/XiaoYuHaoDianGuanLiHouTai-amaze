@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>榜单-喜欢-列表</title>
+    @@include("./views/common/_headStyleScript.html")
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+
+
+</head>
+
+<body>
+    <style type="text/css">
+    .ztpz-form-togglebox{
+        border:1px solid #ccc;
+        padding:10px 0;
+
+    }
+    .ztpz-form-toggleup{
+        padding:0 30px 10px;
+        border-bottom:1px solid #ccc;
+    }
+    .ztpz-form-toggleup li{
+        float: left;
+        margin-right:20px;
+        min-width:80px ;
+    }
+    .ztpz-form-toggledown{
+        padding: 10px 30px 0;
+    }
+    .ztpz-form-toggledown li{
+        width:120px;
+        float: left;
+        margin-right:20px ;
+
+
+    }
+
+</style>
+    @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+
+    <script type="text/javascript">
+        $(function(){
+            
+        })
+    </script>
+    <div class="coms-layout-body p15" id="J_coms-layout-body" id="hdi-cms-edit">
+        @@include("./views/common/_breadcrumb.html",{"title":"喜欢列表"})
+        <div class="am-form am-form-horizontal">
+            <div id="J_XXX">
+                <div class="am-form-group">
+                    <span class="fl f16">配置报名表单</span>
+                </div>
+                <div class="am-form-group">
+                    <label class="am-para-label">
+                        <input type="checkbox" name="nameid" disabled checked class="user-ids" value="1" />必填|姓名：</label>
+                    <div class="am-para-input">
+                        <input type="text" placeholder="标签" name="jsondata[label]" value="" />
+                    </div>
+                </div>
+                <div class="am-form-group">
+                    <label class="am-para-label">
+                        <input type="checkbox" name="nameid" disabled checked class="user-ids" value="1" />必填|电话：</label>
+                    <div class="am-para-input">
+                        <input type="text" placeholder="标签" name="jsondata[label]" value="" />
+                    </div>
+                </div>
+            </div>
+            <div class="ztpz-form-togglebox clearfix">
+                <ul class="ztpz-form-toggleup clearfix">
+                    <li class="am-btn am-btn-primary am-disabled" v-on:click="pzHandler()">年龄</li>
+                    <li class="am-btn am-btn-primary" v-on:click="pzHandler()">性别</li>
+                    <li class="am-btn am-btn-primary" v-on:click="pzHandler()">身份证</li>
+                    <li class="am-btn am-btn-primary" v-on:click="pzHandler()">生日</li>
+                </ul>
+                <ul class="ztpz-form-toggledown clearfix">
+                    <li class="am-btn am-btn-primary">单行文本框</li>
+                    <li class="am-btn am-btn-primary">多行文本框</li>
+                    <li class="am-btn am-btn-primary">单选按钮</li>
+                    <li class="am-btn am-btn-primary">多选按钮</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
