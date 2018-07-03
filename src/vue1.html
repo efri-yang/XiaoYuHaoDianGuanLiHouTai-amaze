@@ -33,39 +33,164 @@
         width:120px;
         float: left;
         margin-right:20px ;
-
-
     }
+    .ztpz-form .ztpz-insert-cell{
+        padding:5px 0; 
+    }
+    .ztpz-form .ztpz-insert-cell .lab{
+        float:left; 
+        line-height:37px; 
+    }
+    .ztpz-form .ztpz-insert-cell .lab input[type="checkbox"]{
+        vertical-align:middle; 
+        margin-right:8px;
+        margin-top:-3px;  
+    }
+    .ztpz-form .ztpz-insert-cell .line-h{
+        float:left;
+        margin:0 15px; 
+        color:#ccc;  
+        line-height:37px; 
+    }
+    .ztpz-form .ztpz-insert-cell .cname{
+        line-height:37px;
+        margin-right:25px; 
+        width: 80px;
+    }
+
+    .ztpz-form .ztpz-insert-cell .cinput{
+        float:left; 
+    }
+    .ztpz-form .ztpz-insert-cell .cadd-list{
+        padding-left:126px; 
+        clear:both;
+    }
+    .ztpz-form .ztpz-insert-cell .cadd-list li{
+        padding: 10px 0;
+    }
+    .ztpz-form .ztpz-insert-cell .cadd-list li:first-child{
+        padding-top:20px;
+    }
+    .ztpz-form .ztpz-insert-cell .cadd-list .paratit{
+        float:left;
+        color:#666; 
+        width:70px;
+        line-height:37px;   
+    }
+    .ztpz-form .ztpz-insert-cell .cadd-list  .paraval{
+        float:left; 
+        position:relative; 
+    }
+    .ztpz-form .ztpz-insert-cell .cadd-list .delbtn{
+        position:absolute;
+        background:#000;
+        width:25px;
+        right:-12px;
+        top:-12px; 
+        height:25px;
+        line-height:25px; 
+        text-align:center; 
+        border-radius:100%;    
+    }
+    .ztpz-form .ztpz-insert-cell .cadd-list .delbtn i{
+        color:#fff;
+        font-size:14px;  
+    }
+    /*.ztpz-form .ztpz-insert-cell .ipt-text-1{
+        width:200px; 
+    }*/
 
 </style>
     @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
 
-    <script type="text/javascript">
-        $(function(){
-            
-        })
-    </script>
-    <div class="coms-layout-body p15" id="J_coms-layout-body" id="hdi-cms-edit">
+
+    <div class="coms-layout-body p15" id="J_coms-layout-body" >
         @@include("./views/common/_breadcrumb.html",{"title":"喜欢列表"})
-        <div class="am-form am-form-horizontal">
-            <div id="J_XXX">
+        <div class="am-form am-form-horizontal ztpz-form" id="hdi-cms-edit">
+                
+
                 <div class="am-form-group">
                     <span class="fl f16">配置报名表单</span>
                 </div>
-                <div class="am-form-group">
-                    <label class="am-para-label">
-                        <input type="checkbox" name="nameid" disabled checked class="user-ids" value="1" />必填|姓名：</label>
-                    <div class="am-para-input">
-                        <input type="text" placeholder="标签" name="jsondata[label]" value="" />
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    <span class="cname fl">姓名</span>
+                    <div class="cinput w220">
+                        <input type="text" placeholder="请输入您的姓名" />
                     </div>
                 </div>
-                <div class="am-form-group">
-                    <label class="am-para-label">
-                        <input type="checkbox" name="nameid" disabled checked class="user-ids" value="1" />必填|电话：</label>
-                    <div class="am-para-input">
-                        <input type="text" placeholder="标签" name="jsondata[label]" value="" />
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    <span class="cname fl">性别</span>
+                    <div class="cinput w100 mr20">
+                        <input type="text"  value="男" />
+                    </div>
+                    <div class="cinput w100">
+                        <input type="text"  value="女" />
                     </div>
                 </div>
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    <span class="cname fl">身份证</span>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="请输入您的姓名" />
+                    </div>
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    <span class="cname fl">生日</span>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="请输入您的生日" />
+                    </div>
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    
+                    <div class="cinput w220 mr20">
+                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="装修时间" />
+                    </div>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="请小编输入提示信息"  />
+                    </div>
+                    <a href="#" class="am-btn am-btn-primary fl ml20">添加选项</a>
+                    <ul class="cadd-list clearfix">
+                        <li class="clearfix">
+                            <span class="paratit">选项1</span>
+                            <div class="paraval"><input type="text" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></div>
+                        </li>
+                        <li class="clearfix">
+                            <span class="paratit">选项2</span>
+                            <div class="paraval"><input type="text" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></div>
+                        </li>
+
+                        <li class="clearfix">
+                            <span class="paratit">选项3</span>
+                            <div class="paraval"><input type="text" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    
+                    <div class="cinput w220 mr20">
+                        <textarea></textarea>
+                    </div>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="请输入您的生日" />
+                    </div>
+                </div>
+
+
             </div>
             <div class="ztpz-form-togglebox clearfix">
                 <ul class="ztpz-form-toggleup clearfix">
@@ -81,8 +206,24 @@
                     <li class="am-btn am-btn-primary">多选按钮</li>
                 </ul>
             </div>
-        </div>
+        
     </div>
+
+    <script type="text/javascript">
+        $(function(){
+            var app = new Vue({
+              el: '#hdi-cms-edit',
+              data: {
+                
+              },
+              methods:{
+                  pzHandler:function(){
+                    alert("Asdfasdfa");
+                  }
+              }
+            })
+        })
+    </script>
 </body>
 
 </html>
