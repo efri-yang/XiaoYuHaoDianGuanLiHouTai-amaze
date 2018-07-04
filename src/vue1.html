@@ -36,6 +36,7 @@
     }
     .ztpz-form .ztpz-insert-cell{
         padding:5px 0; 
+        border-bottom:1px dashed #e5e5e5; 
     }
     .ztpz-form .ztpz-insert-cell .lab{
         float:left; 
@@ -58,30 +59,41 @@
         width: 80px;
     }
 
+    .ztpz-form .ztpz-insert-cell .cdel{
+        float:left; 
+        margin-left:25px;
+        line-height: 37px; 
+        cursor:pointer; 
+    }
+
     .ztpz-form .ztpz-insert-cell .cinput{
         float:left; 
     }
-    .ztpz-form .ztpz-insert-cell .cadd-list{
-        padding-left:126px; 
+    
+     .ztpz-form .ztpz-insert-cell .ctit-tip1{
         clear:both;
+        padding-top:10px; 
+        padding-left: 90px;
     }
-    .ztpz-form .ztpz-insert-cell .cadd-list li{
-        padding: 10px 0;
+
+    .ztpz-form .insert-list-v{
+        clear:both; 
+        padding-left:80px;
+        padding-bottom:10px;  
+
     }
-    .ztpz-form .ztpz-insert-cell .cadd-list li:first-child{
-        padding-top:20px;
-    }
-    .ztpz-form .ztpz-insert-cell .cadd-list .paratit{
-        float:left;
-        color:#666; 
-        width:70px;
-        line-height:37px;   
-    }
-    .ztpz-form .ztpz-insert-cell .cadd-list  .paraval{
+    .ztpz-form .insert-list-v li{
         float:left; 
-        position:relative; 
+        margin-right:30px;
+        margin-top:10px;
+        position: relative; 
     }
-    .ztpz-form .ztpz-insert-cell .cadd-list .delbtn{
+
+    .ztpz-form .insert-list-v li.addplus{
+        margin-left: 10px;
+    }
+
+    .ztpz-form .insert-list-v li .delbtn{
         position:absolute;
         background:#000;
         width:25px;
@@ -92,10 +104,23 @@
         text-align:center; 
         border-radius:100%;    
     }
-    .ztpz-form .ztpz-insert-cell .cadd-list .delbtn i{
+    .ztpz-form .insert-list-v li .delbtn i{
         color:#fff;
         font-size:14px;  
     }
+   
+    .ztpz-form .insert-list-v li input{
+        width:auto;
+        display: inline-block;
+        background:#f6f6f6;  
+    }
+    .ztpz-form .insert-list-v li input[type="text"]{
+        width:100px; 
+        margin-left:10px; 
+    }
+
+    
+
     /*.ztpz-form .ztpz-insert-cell .ipt-text-1{
         width:200px; 
     }*/
@@ -120,17 +145,23 @@
                     <div class="cinput w220">
                         <input type="text" placeholder="请输入您的姓名" />
                     </div>
+                    <div class="cdel"><i class="iconfont icon-shanchu"></i></div>
                 </div>
                 <div class="ztpz-insert-cell clearfix">
                     <label class="lab"><input type="checkbox" name=""> 必填</label>
                     <span class="line-h">|</span>
                     <span class="cname fl">性别</span>
-                    <div class="cinput w100 mr20">
-                        <input type="text"  value="男" />
+                   
+                    <div class="cinput w220">
+                        <input type="text" placeholder="请输入性别"   />
                     </div>
-                    <div class="cinput w100">
-                        <input type="text"  value="女" />
-                    </div>
+                     <div class="ctit-tip1">选项列表</div>
+
+                    <ul class="insert-list-v clearfix">
+                        <li><input type="text"  value="男" /></li>
+                         <li><input type="text" value="女" /></li>
+                    </ul>
+                    
                 </div>
                 <div class="ztpz-insert-cell clearfix">
                     <label class="lab"><input type="checkbox" name=""> 必填</label>
@@ -155,26 +186,48 @@
                     <span class="line-h">|</span>
                     
                     <div class="cinput w220 mr20">
-                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="装修时间" />
+                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="单行文半框" />
                     </div>
                     <div class="cinput w220">
-                        <input type="text" class="ipt-text-1" placeholder="请小编输入提示信息"  />
+                        <input type="text" class="ipt-text-1" placeholder="提示信息写在这里"  />
                     </div>
-                    <a href="#" class="am-btn am-btn-primary fl ml20">添加选项</a>
-                    <ul class="cadd-list clearfix">
-                        <li class="clearfix">
-                            <span class="paratit">选项1</span>
-                            <div class="paraval"><input type="text" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></div>
-                        </li>
-                        <li class="clearfix">
-                            <span class="paratit">选项2</span>
-                            <div class="paraval"><input type="text" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></div>
-                        </li>
+                    <div class="ctit-tip1">选项列表</div>
+                    <ul class="insert-list-v clearfix">
+                        <li><input type="text"  value="选项1" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></li>
+                        <li><input type="text"  value="选项2" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></li>
 
-                        <li class="clearfix">
-                            <span class="paratit">选项3</span>
-                            <div class="paraval"><input type="text" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></div>
-                        </li>
+                        <li class="addplus"><a href="#" class="am-btn am-btn-primary">添加</a></li>
+                    </ul>
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    
+                    <div class="cinput w220 mr20">
+                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="多行文半框" />
+                    </div>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="提示信息写在这里"  />
+                    </div>
+                    
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    
+                    <div class="cinput w220 mr20">
+                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="多选按钮" />
+                    </div>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="提示信息写在这里"  />
+                    </div>
+                    <div class="ctit-tip1">选项列表</div>
+                    <ul class="insert-list-v clearfix">
+                       
+
+                        <li class="addplus"><a href="#" class="am-btn am-btn-primary">添加</a></li>
                     </ul>
                 </div>
 
