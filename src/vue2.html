@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>榜单-喜欢-列表</title>
+    @@include("./views/common/_headStyleScript.html")
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+</head>
+
+<body>
+    <style type="text/css">
+    .ztpz-form-togglebox {
+        border: 1px solid #ccc;
+        padding: 10px 0;
+        margin-top:30px; 
+    }
+
+    .ztpz-form-toggleup {
+        padding: 0 30px 10px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .ztpz-form-toggleup li {
+        float: left;
+        margin-right: 20px;
+        min-width: 80px;
+    }
+
+    .ztpz-form-toggledown {
+        padding: 10px 30px 0;
+    }
+
+    .ztpz-form-toggledown li {
+        width: 120px;
+        float: left;
+        margin-right: 20px;
+    }
+
+    .ztpz-form .ztpz-insert-cell {
+        padding: 5px 0;
+        border-bottom: 1px dashed #e5e5e5;
+    }
+
+    .ztpz-form .ztpz-insert-cell .lab {
+        float: left;
+        line-height: 37px;
+    }
+
+    .ztpz-form .ztpz-insert-cell .lab input[type="checkbox"] {
+        vertical-align: middle;
+        margin-right: 8px;
+        margin-top: -3px;
+    }
+
+    .ztpz-form .ztpz-insert-cell .line-h {
+        float: left;
+        margin: 0 15px;
+        color: #ccc;
+        line-height: 37px;
+    }
+
+    .ztpz-form .ztpz-insert-cell .cname {
+        line-height: 37px;
+        margin-right: 25px;
+        width: 80px;
+    }
+
+    .ztpz-form .ztpz-insert-cell .cdel {
+        float: left;
+        margin-left: 25px;
+        line-height: 37px;
+        cursor: pointer;
+    }
+
+    .ztpz-form .ztpz-insert-cell .cinput {
+        float: left;
+    }
+
+    .ztpz-form .ztpz-insert-cell .ctit-tip1 {
+        clear: both;
+        padding-top: 10px;
+        padding-left: 90px;
+    }
+
+    .ztpz-form .insert-list-v {
+        clear: both;
+        padding-left: 80px;
+        padding-bottom: 10px;
+    }
+
+    .ztpz-form .insert-list-v li {
+        float: left;
+        margin-right: 30px;
+        margin-top: 10px;
+        position: relative;
+    }
+
+    .ztpz-form .insert-list-v li.addplus {
+        margin-left: 10px;
+    }
+
+    .ztpz-form .insert-list-v li .delbtn {
+        position: absolute;
+        background: #000;
+        width: 25px;
+        right: -12px;
+        top: -12px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        border-radius: 100%;
+    }
+
+    .ztpz-form .insert-list-v li .delbtn i {
+        color: #fff;
+        font-size: 14px;
+    }
+
+    .ztpz-form .insert-list-v li input {
+        width: auto;
+        display: inline-block;
+        background: #f6f6f6;
+    }
+
+    .ztpz-form .insert-list-v li input[type="text"] {
+        width: 100px;
+        margin-left: 10px;
+    }
+    /*.ztpz-form .ztpz-insert-cell .ipt-text-1{
+        width:200px; 
+    }*/
+    </style>
+    @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+    <div class="coms-layout-body p15" id="J_coms-layout-body">
+        @@include("./views/common/_breadcrumb.html",{"title":"喜欢列表"})
+        <div class="am-form am-form-horizontal ztpz-form" id="hdi-cms-edit">
+            <div class="am-form-group">
+                <span class="fl f16">配置报名表单</span>
+            </div>
+            <div class="ztpz-insert-cell clearfix" v-for="(item,idx) in list1" v-if="item.choice">
+                <label class="lab">
+                    <input type="checkbox" name=""> 必填</label>
+                <span class="line-h">|</span>
+                <span class="cname fl">{{item.title}}</span>
+                <div class="cinput w220">
+                    <input type="text" :placeholder="item.tip" />
+                </div>
+                <div class="cdel" v-on:click="pzHandlerDel(idx)"><i class="iconfont icon-shanchu"></i></div>
+                <ul class="insert-list-v clearfix" v-if="!!item.itemlist.length">
+                    <li v-for="(itemsub,index) in item.itemlist">
+                        <input type="text" :value="itemsub.title" />
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="ztpz-insert-cell clearfix" v-for="(item,idx) in toggleData" >
+                <label class="lab">
+                    <input type="checkbox" name=""> 必填</label>
+                <span class="line-h">|</span>
+                <div class="cinput w220 mr20">
+                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="单行文半框" />
+                    </div>
+                <div class="cinput w220">
+                    <input type="text" :placeholder="item.tip" />
+                </div>
+                <div class="cdel" v-on:click="pzHandlerDel2(idx)"><i class="iconfont icon-shanchu"></i></div>
+                <ul class="insert-list-v clearfix" v-if="!!item.itemlist.length">
+                    <li v-for="(itemsub,index) in item.itemlist">
+                        <input type="text" :value="itemsub.title" />
+
+                    </li>
+                </ul>
+            </div>
+            <!-- <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    <span class="cname fl">姓名</span>
+                    <div class="cinput w220">
+                        <input type="text" placeholder="请输入您的姓名" />
+                    </div>
+                    <div class="cdel"><i class="iconfont icon-shanchu"></i></div>
+                </div>
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    <span class="cname fl">性别</span>
+                   
+                    <div class="cinput w220">
+                        <input type="text" placeholder="请输入性别"   />
+                    </div>
+                     <div class="ctit-tip1">选项列表</div>
+
+                    <ul class="insert-list-v clearfix">
+                        <li><input type="text"  value="男" /></li>
+                         <li><input type="text" value="女" /></li>
+                    </ul>
+                    
+                </div>
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    <span class="cname fl">身份证</span>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="请输入您的姓名" />
+                    </div>
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    <span class="cname fl">生日</span>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="请输入您的生日" />
+                    </div>
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    
+                    <div class="cinput w220 mr20">
+                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="单行文半框" />
+                    </div>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="提示信息写在这里"  />
+                    </div>
+                    <div class="ctit-tip1">选项列表</div>
+                    <ul class="insert-list-v clearfix">
+                        <li><input type="text"  value="选项1" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></li>
+                        <li><input type="text"  value="选项2" /><span class="delbtn"><i class="iconfont icon-shanchu"></i></span></li>
+
+                        <li class="addplus"><a href="#" class="am-btn am-btn-primary">添加</a></li>
+                    </ul>
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    
+                    <div class="cinput w220 mr20">
+                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="多行文半框" />
+                    </div>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="提示信息写在这里"  />
+                    </div>
+                    
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    
+                    <div class="cinput w220 mr20">
+                        <input type="text" class="ipt-text-1" placeholder="请输入标题" value="多选按钮" />
+                    </div>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="提示信息写在这里"  />
+                    </div>
+                    <div class="ctit-tip1">选项列表</div>
+                    <ul class="insert-list-v clearfix">
+                       
+
+                        <li class="addplus"><a href="#" class="am-btn am-btn-primary">添加</a></li>
+                    </ul>
+                </div>
+
+                <div class="ztpz-insert-cell clearfix">
+                    <label class="lab"><input type="checkbox" name=""> 必填</label>
+                    <span class="line-h">|</span>
+                    
+                    <div class="cinput w220 mr20">
+                        <textarea></textarea>
+                    </div>
+                    <div class="cinput w220">
+                        <input type="text" class="ipt-text-1" placeholder="请输入您的生日" />
+                    </div>
+                </div> -->
+            <div class="ztpz-form-togglebox clearfix">
+                <ul class="ztpz-form-toggleup clearfix">
+                    <li v-for="(item,index2) in list1" :class="!!item.choice ? 'am-btn am-btn-primary am-disabled':'am-btn am-btn-primary'" v-on:click="pzHandlerAdd(index2)">{{item.title}}</li>
+                </ul>
+                <ul class="ztpz-form-toggledown clearfix">
+
+                    <li v-for="(item,index) in list2" class="am-btn am-btn-primary"  v-on:click="pzHandlerAdd2(index)">{{item.title}}</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    $(function() {
+        var app = new Vue({
+            el: '#hdi-cms-edit',
+            data: {
+                toggleData:[],
+                list1: [
+                    { title: "年龄", tip: "请输入年龄", checked: "checked", "choice": true, itemlist: [] },
+                    { title: "性别", tip: "请输选择性别", checked: "checked", "choice": true, itemlist: [{ title: "男" }, { title: "女" }] },
+                    {  title: "身份证", tip: "请输入身份证", checked: "checked", "choice": true, itemlist: [] },
+                    { title: "生日", tip: "请输入生日", checked: "checked", "choice": true, itemlist: [] }
+                ],
+                list2: [
+                    {title: "单行文本框", tip: "请输入提示", checked: "checked", "choice": false, itemlist: [] },
+                    {title: "多行文本框", tip: "请输入提示", checked: "checked", "choice": false, itemlist: [] },
+                    {title: "单选按钮", tip: "请输入提示", checked: "checked", "choice": false, itemlist: [] },
+                    {title: "多选按钮", tip: "请输入提示", checked: "checked", "choice": false, itemlist: [{ title: "男" }, { title: "女" }] }
+                ]
+            },
+            methods: {
+                pzHandlerDel: function(index) {
+                    this.list1[index].choice = false;
+                },
+                pzHandlerAdd: function(index) {
+                   if(!this.list1[index].choice){
+                        this.list1[index].choice=true;
+                   }
+                },
+                pzHandlerAdd2: function(index) {
+
+                   this.toggleData.push(this.list2[index]);
+                   console.dir(this.toggleData);
+                },
+                pzHandlerDel2: function(index) {
+                    this.toggleData.splice(index,1);;
+                },
+            }
+        })
+    })
+    </script>
+</body>
+
+</html>
