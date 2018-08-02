@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>榜单列表</title>
+    @@include("./views/common/_headStyleScript.html")
+
+    <style type="text/css">
+        .orderstep-list-wrap{
+  background:#ffffff;
+  padding:0 30px;  
+}
+
+
+.orderstep-list .item-cell{
+     position: relative;
+}
+.orderstep-list .item-cell:last-child .cell-info{
+  border-bottom:none; 
+}
+.orderstep-list .cell-info{
+  padding:10px 0; 
+  border-bottom:1px solid #e5e5e5; 
+}
+
+.orderstep-list .lineh{
+    content:"";
+    width: 2px;
+    top:0;
+    bottom:0; 
+    left:-1px;
+    background:#999; 
+    position:absolute;
+}
+
+
+.orderstep-list .item-cell:first-child .lineh{
+    top:20px;
+}
+
+
+.orderstep-list .item-cell:last-child .lineh{
+    height:22px;
+}
+
+.orderstep-list .txt-statu.success{
+  color:#3ac6b8; 
+}
+
+
+
+.orderstep-list .name{
+  color:#333333;
+  font-size:18px;
+  padding-left:15px;
+  position:relative; 
+}
+
+
+.orderstep-list .name::after{
+    content:"";
+    width:10px;
+    height:10px;
+    overflow:hidden;
+    border-radius:100%;
+    background:#999;
+    position:absolute;
+    left:-5px;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+.orderstep-list .item-cell.active .name::after{
+     background:#3ac6b8;
+}
+.orderstep-list .item-cell.active .lineh{
+    background:#3ac6b8;
+}
+
+.orderstep-list .time-finsh{
+  padding-left: 15px;
+  color:#999999;
+  font-size: 16px;
+ 
+}
+
+.orderstep-list .agree-price{
+  padding-left: 15px;
+  color:#999999;
+  font-size: 16px;
+  margin-top: 5px; 
+}
+
+.uploadgallery{
+  position: relative;
+  padding-left:100px;
+ 
+}
+.uploadgallery .lab{
+    color:#999999;
+    font-size:16px;
+    left:0;
+    top:5px;
+    position:absolute; 
+    padding-left:15px;  
+}
+.uploadgallery-list .pic{
+    width: 80px;
+    height: 80px;
+    border:1px solid #ececec;
+    overflow:hidden; 
+    
+    float:left;
+    margin-right:10px; 
+    margin-top: 5px; 
+    
+    
+}
+.uploadgallery-list .pic img{
+  width: 100%;
+  height: 100%;
+}
+    </style>
+</head>
+
+<body>
+    @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+    <div class="coms-layout-body p15" id="J_coms-layout-body">
+        @@include("./views/common/_breadcrumb.html",{"title":"榜单列表"})
+        <div class="order-step-list-wrap">
+            <div class='orderstep-list'>
+                <div class='item-cell active'>
+                    <div class='cell-info'>
+                        <p class='name'>接单</p>
+                        <p class='time-finsh'>完成时间：2018-07-30 14:49:23</p>
+                        
+                    </div>
+                    <p class='lineh'></p>
+                </div>
+                <div class='item-cell active'>
+                    <div class='cell-info'>
+                        <p class='name'>上门量房</p>
+                        <p class='time-finsh'>完成时间：2018-07-30 14:49:23</p>
+                    </div>
+                    <p class='lineh'></p>
+                </div>
+               <div class='item-cell'>
+                    <div class='cell-info'>
+                        <p class='name'>设计方案</p>
+                        <p class='time-finsh'>完成时间：2018-07-30 14:49:23</p>
+                       
+                        <div class='uploadgallery'>
+                            <p class='lab'>方案图片：</p>
+                            <ul class='uploadgallery-list clearfix'>
+                                <li class='pic'>
+                                   <img src="">
+                                </li>
+                            </li>
+                        </div>
+                    </div>
+                    <p class='lineh'></p>
+                </div>
+                 <div class='item-cell'>
+                    <div class='cell-info'>
+                        <p class='name'>合同签约</p>
+                        <p class='time-finsh'>完成时间：2018-07-30 14:49:23</p>
+                        <div class='agree-price'>合同金额：{{dataInfo.ht_price}}</div>
+                        
+                        <div class='uploadgallery'>
+                            <p class='lab'>合同图片：</p>
+                            <ul class='uploadgallery-list clearfix'>
+                                <li class='pic'>
+                                    <img src="">
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class='lineh'></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
