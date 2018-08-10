@@ -7,9 +7,13 @@
     @@include("./views/common/_headStyleScript.html")
 
     <style type="text/css">
-        .orderstep-list-wrap{
+
+    
+        .order-step-list-wrap{
   background:#ffffff;
   padding:0 30px;  
+    position:relative; 
+  
 }
 
 
@@ -120,6 +124,16 @@
   width: 100%;
   height: 100%;
 }
+
+.order-sx{
+  width: 230px;
+  height: 131px;
+  overflow:hidden;
+  position:absolute;
+  left:50px;
+  top:30px; 
+  background: url("./images/order/sx_txt.png") no-repeat top center; 
+}
     </style>
 </head>
 
@@ -178,6 +192,8 @@
                     <p class='lineh'></p>
                 </div>
             </div>
+
+            <div class="order-sx"></div>
         </div>
     </div>
     </div>
