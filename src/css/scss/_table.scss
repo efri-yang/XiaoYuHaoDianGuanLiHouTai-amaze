@@ -99,6 +99,11 @@
     border-top: 1px solid #ddd;
 }
 
+
+.coms-table-hd{
+    
+}
+
 .coms-table-bd {
     .am-table {
         text-align: center;
@@ -109,7 +114,7 @@
             th {
                 text-align: center;
                 font-weight: normal;
-                font-size: 14px;
+                font-size:1.4rem; 
                 font-weight: bold;
                 &.align-c {
                     text-align: center;
@@ -160,7 +165,9 @@
             }
         }
         tbody {
-            td {}
+            td {
+                font-size:1.4rem; 
+            }
         }
     }
 }
