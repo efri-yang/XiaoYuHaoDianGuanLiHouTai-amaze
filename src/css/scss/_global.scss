@@ -1,39 +1,44 @@
-html,body{
+html,
+body {
     height: 100%;
 }
 
-.coms-nodata-1{
-    .hd{
-        text-align:center;
-        padding:20px 0;  
-        color:#999; 
-        .iconfont{
-            color:#999;
-            font-size:40px;
-            display:inline-block;
-            vertical-align:middle;
-            margin-right:10px;     
+.coms-nodata-1 {
+    .hd {
+        text-align: center;
+        padding: 20px 0;
+        color: #999;
+        .iconfont {
+            color: #999;
+            font-size: 40px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
         }
     }
 }
 
 
-.coms-readyfor-dev{
-   
+.coms-readyfor-dev {
+
     height: 605px;
     background: url("../images/common/coms_readyfor_dev.png") no-repeat center center;
 }
 
+
 /**
  * 颜色
  */
-.com-must-star{
-    color:#d44950;
-    font-size:16px;
-    display:inline-block;
-    vertical-align:middle;
-    padding:0px 5px 0 0;
+
+.com-must-star {
+    color: #d44950;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 5px 0 0;
 }
+
+
 /**
  * 
  */
@@ -42,8 +47,9 @@ html,body{
 /**
  * 页面主题容器
  */
-.coms-layout-body{
-	position: absolute;
+
+.coms-layout-body {
+    position: absolute;
     left: 220px;
     right: 0;
     top: 60px;
@@ -53,27 +59,52 @@ html,body{
     overflow: hidden;
     overflow-y: auto;
     box-sizing: border-box;
-    transition:all 0.2s; 
-    &.unfold{
-        left:65px;
+    transition: all 0.2s;
+    &.unfold {
+        left: 65px;
+        .coms-body-main-nav{
+            left:65px;
+        }
+    }
+    &.has-nav {
+        top: 108px;
+        .coms-body-main-nav {
+            display: block;
+        }
+        .coms-elem-quote {
+            margin-bottom: 10px;
+            padding: 10px 15px 15px;
+            line-height: 22px;
+            border-bottom: 1px solid #e6e6e6;
+            border-left:none;
+            background:none;
+
+            box-sizing: content-box;
+        }
     }
 }
+
 
 /**
  * 标题面包导航
  */
-.coms-elem-quote{
+
+.coms-elem-quote {
     margin-bottom: 10px;
-    padding: 15px;
+    padding:15px;
     line-height: 22px;
     border-left: 5px solid #5FB878;
     border-radius: 0 2px 2px 0;
     background-color: #f2f2f2;
-    box-sizing:content-box; 
+    box-sizing: content-box;
 }
 
 
+
+
+
 /**************模块——tab选项卡*/
+
 .coms-tab-title {
     position: relative;
     left: 0;
@@ -85,9 +116,9 @@ html,body{
     transition: all .2s;
     -webkit-transition: all .2s;
     border-color: #e6e6e6;
-    box-sizing:content-box; 
-    *{
-        box-sizing:content-box; 
+    box-sizing: content-box;
+    * {
+        box-sizing: content-box;
     }
     li {
         display: inline-block;
@@ -105,8 +136,8 @@ html,body{
         cursor: pointer;
         a {
             display: block;
-            height:100%;
-            color:#333333; 
+            height: 100%;
+            color: #333333;
         }
         &.am-active {
             &:after {
@@ -149,9 +180,49 @@ html,body{
         }
     }
 }
-.coms-tab-body{
-    display:none;
-    &.am-active{
-        display:block;
+
+.coms-tab-body {
+    display: none;
+    &.am-active {
+        display: block;
+    }
+}
+
+
+
+/**
+ * *
+ */
+
+.coms-body-main-nav {
+    position: fixed;
+    left: 0;
+    top: 60px;
+    left: 220px;
+    right: 0;
+    padding: 0 15px;
+    line-height: 22px;
+    font-size: 15px;
+    background: #f2f2f2;
+    box-shadow: 0 0 15px #ccc;
+    display: none;
+    transition: all 0.2s;
+    li {
+        float: left;
+
+        padding-bottom: 2px;
+        a {
+            color: #666;
+            display: block;
+            padding: 12px 20px;
+        }
+        &.active {
+            border-bottom: 2px solid #5FB878;
+            padding-bottom: 0;
+        }
+        &:hover {
+            border-bottom: 2px solid #5FB878;
+            padding-bottom: 0;
+        }
     }
 }
