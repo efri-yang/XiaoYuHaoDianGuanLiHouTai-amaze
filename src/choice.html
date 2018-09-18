@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./AmazeUI/assets/css/amazeui.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" src="./js/common/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="AmazeUI/assets/js/amazeui.js"></script>
+    <script type="text/javascript" src="js/plugin/layer/layer.js"></script>
+    <script type="text/javascript" src="js/plugin/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <style type="text/css">.seaction-hand-area{padding:20px 30px}.seaction-hand-area .sec-lf{min-width:100px;padding:30px 0 0;float:left;margin-right:50px;position:relative;border:1px solid #e6e6e6}.seaction-hand-area .sec-lf .caption{position:absolute;left:0;top:0;right:0;height:30px;line-height:30px;background:#f2f2f2;text-align:center}.seaction-hand-area .sec-lf .list{max-height:438px;overflow:auto}.seaction-hand-area .sec-lf .list li{border-bottom:1px solid #e6e6e6}.seaction-hand-area .sec-lf .list li.active a{color:#fff;background:#3bb4f2}.seaction-hand-area .sec-lf .list li a{display:block;height:40px;line-height:40px;padding:0 20px;text-align:center;color:#333}.seaction-hand-area .sec-lf .list li a:hover{color:#fff;background:#3bb4f2}.seaction-hand-area .sec-mid,.seaction-hand-area .sec-rt{padding:30px 0 40px;margin-right:50px;float:left;position:relative;border:1px solid #e6e6e6;min-width:250px}.seaction-hand-area .sec-mid .caption,.seaction-hand-area .sec-rt .caption{position:absolute;left:0;top:0;right:0;height:30px;line-height:30px;background:#f2f2f2;text-align:center}.check-hand-box{padding:10px 0;min-height:200px;max-height:400px;overflow:auto}.check-hand-box .item-cell{color:#333;padding:3px 15px}.check-hand-box .item-cell label{font-weight:400}.check-hand-btns{background:#f2f2f2;position:absolute;right:0;bottom:0;left:0;padding:5px 15px}.check-hand-btns .check-all{font-size:14px;font-weight:400}.check-hand-btns .check-all input{display:inline-block;vertical-align:middle;margin-top:-2px}</style>
+</head>
+
+<body>
+    <div class="coms-layout-container theme-default">
+        @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+        <div class="coms-layout-body p15" id="J_coms-layout-body">
+            @@include("./views/common/_breadcrumb.html",{"title":"通用框架示范"})
+            <!--  table 表格样式************************************* -->
+            <div class="seaction-hand-area clearfix">
+                <div class="sec-lf">
+                    <p class="caption">选择行业</p>
+                    <ul class="list">
+                        <li class="active"><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                        <li><a href="#">美食</a></li>
+                    </ul>
+                </div>
+                <div class="sec-mid clearfix">
+                    <p class="caption">未合作商家</p>
+                    <div class="check-hand-box">
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div><div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div><div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div><div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div><div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                    </div>
+                    <div class="check-hand-btns clearfix">
+                        <label class="check-all fl">
+                                <input type="checkbox" >全选
+                        </label>
+                        <button class="am-btn am-btn-primary am-btn-xs fr">修改</button>
+                    </div>
+                </div>
+                <div class="sec-rt">
+                    <p class="caption">未合作商家</p>
+                    <div class="check-hand-box">
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div><div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div><div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div><div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div><div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                        <div class="item-cell">
+                            <label>
+                                <input type="radio" >某某装饰
+                            </label>
+                        </div>
+                    </div>
+                    <div class="check-hand-btns clearfix">
+                        <label class="check-all fl">
+                                <input type="checkbox" >全选
+                        </label>
+                        <button class="am-btn am-btn-danger am-btn-xs fr">移除</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
