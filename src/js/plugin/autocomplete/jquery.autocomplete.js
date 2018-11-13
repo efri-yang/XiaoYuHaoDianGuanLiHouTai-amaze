@@ -175,7 +175,7 @@
             container = $(that.suggestionsContainer);
 
             container.appendTo(options.appendTo || 'body');
-
+            
             // Only set width if it was provided:
             if (options.width !== 'auto') {
                 container.css('width', options.width);
@@ -775,6 +775,8 @@
         },
 
         verifySuggestionsFormat: function (suggestions) {
+            console.group("verifySuggestionsFormat");
+            console.dir(suggestions);
             // If suggestions is string array, convert them to supported format:
             if (suggestions.length && typeof suggestions[0] === 'string') {
                 return $.map(suggestions, function (value) {
