@@ -1,6 +1,24 @@
 .sec-step {
 	margin-left:20px; 
-	margin-top:30px; 
+	margin-top:30px;
+    position:relative;
+    .item-zhl{
+        position:absolute;
+        left:0;
+        top:0;
+        background:#f60;
+        height:600px;
+        .line-1{
+            width:50px;
+            height:1px;
+            background:#666;
+        }
+        .line-2{
+            width:50px;
+            height:1px;
+            background:#666;
+        }
+    } 
     .item-step {
     	position:relative; 
     	padding-left:110px;
