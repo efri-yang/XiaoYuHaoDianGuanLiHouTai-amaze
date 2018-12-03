@@ -1,22 +1,58 @@
 .sec-step {
-	margin-left:20px; 
+	margin-left:120px; 
 	margin-top:30px;
     position:relative;
     .item-zhl{
         position:absolute;
-        left:0;
+        left:-60px;
         top:0;
-        background:#f60;
-        height:600px;
+        
+        height:340px;
+        width:60px;
+        z-index:10; 
+        .intro-txt{
+        	position:absolute;
+        	right:20px;
+        	top:50%;
+        	padding:20px 0; 
+        	background:#fff;
+        	transform:translate(0,-50%);
+        	.txt-1,.txt-2{
+        		font-size:14px;
+        		text-align:center;
+        		white-space: nowrap;
+        	}
+        	.txt-2{
+        		span{
+        			color:#f60;
+        		}
+        	}
+        }
         .line-1{
-            width:50px;
+            width:60px;
             height:1px;
-            background:#666;
+            background:#e5e5e5;
+            position:absolute;
+            right:0;
+            top:50px;
+
         }
         .line-2{
-            width:50px;
+            width:60px;
             height:1px;
-            background:#666;
+            background:#e5e5e5;
+            position:absolute;
+            right:0;
+            bottom:50px;
+        }
+        .line-3{
+        	width:1px;
+            height:240px;
+            background:#e5e5e5;
+            position:absolute;
+            right:60px;
+            top:50px;
+            bottom:50px;
         }
     } 
     .item-step {
