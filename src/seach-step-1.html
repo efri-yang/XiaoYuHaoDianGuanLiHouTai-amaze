@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./AmazeUI/assets/css/amazeui.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" src="./js/common/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="AmazeUI/assets/js/amazeui.js"></script>
+    <script type="text/javascript" src="js/plugin/layer/layer.js"></script>
+    <script type="text/javascript" src="js/plugin/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <style type="text/css">
+    .sec-step {
+        margin-left: 20px;
+        margin-top: 30px
+    }
+
+    .sec-step .item-step {
+        position: relative;
+        padding-left: 110px;
+        margin: 0 0 20px 0
+    }
+
+    .sec-step .item-step .area-l {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 110px;
+        height: 100px;
+        line-height: 100px;
+        background: #e6e6e6;
+        color: #666;
+        font-weight: 400;
+        text-align: center
+    }
+
+    .sec-step .item-step.step-1 .area-l {
+        background: #0c79b1;
+        color: #fff
+    }
+
+    .sec-step .item-step.step-2 .area-l {
+        background: #f37b1d;
+        color: #fff
+    }
+
+    .sec-step .item-step.step-3 .area-l {
+        background: #dd514c;
+        color: #fff
+    }
+
+    .sec-step .item-step.step-4 .area-l {
+        background: #5eb95e;
+        color: #fff
+    }
+
+    .sec-step .item-step.step-5 .area-l {
+        background: #3bb4f2;
+        color: #fff
+    }
+
+    .sec-step .list {
+        float: left;
+        background: #efefef;
+        height: 100px
+    }
+
+    .sec-step .list li {
+        float: left;
+        padding-top: 25px;
+        height: 100px;
+        min-width: 140px;
+        position: relative;
+        text-align: center
+    }
+
+    .sec-step .list li .line {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 1px;
+        background: #e1e1e1;
+        height: 50%;
+        transform: translate(0, -50%)
+    }
+
+    .sec-step .list .tit {
+        font-size: 16px;
+        text-align: center
+    }
+
+    .sec-step .list .intro {
+        font-weight: 700;
+        color: #666
+    }
+    </style>
+</head>
+
+<body>
+    <div class="coms-layout-container theme-default">
+        @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+        <div class="coms-layout-body p15 has-nav" id="J_coms-layout-body">
+            <ul class="coms-body-main-nav">
+                <li class="active"><a href="#">定义菜单01</a></li>
+                <li><a href="#">定义菜单02</a></li>
+                <li><a href="#">定义菜单03</a></li>
+            </ul>
+            <div class="coms-table-wrap">
+                <!--  no-border  去掉头部就有边控了-->
+                <div class="coms-table-hd clearfix no-border">
+                    <div class="am-form am-form-horizontal">
+                        <div class="am-form-group fl">
+                            <label class="am-para-label">时间筛选：</label>
+                            <div class="am-para-inline w150">
+                                <select required="" name="province">
+                                    <option value="">今日实时</option>
+                                    <option value="option1">选项一...</option>
+                                    <option value="option2">选项二.....</option>
+                                    <option value="option3" disabled="">选项三........</option>
+                                </select>
+                            </div>
+                            <div class="am-para-inline w150">
+                                <select required="" name="province">
+                                    <option value="">日期筛选</option>
+                                    <option value="option1">选项一...</option>
+                                    <option value="option2">选项二.....</option>
+                                    <option value="option3" disabled="">选项三........</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="am-form-group fl ml20">
+                            <button type="button" class="am-btn  am-btn-sm am-btn-success w100">搜索</button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="sec-step">
+                    <div class="item-step step-1">
+                        <label class="area-l">申请</label>
+                        <div class="area-r clearfix">
+                            <ul class="list">
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-step step-2">
+                        <label class="area-l">初审通过</label>
+                        <div class="area-r clearfix">
+                            <ul class="list">
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-step step-3">
+                        <label class="area-l">放款</label>
+                        <div class="area-r clearfix">
+                            <ul class="list">
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-step step-4">
+                        <label class="area-l">办理中</label>
+                        <div class="area-r clearfix">
+                            <ul class="list">
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="item-step step-5">
+                        <label class="area-l">其他状态</label>
+                        <div class="area-r clearfix">
+                            <ul class="list">
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                    <span class="line"></span>
+                                </li>
+                                <li>
+                                    <div class="tit">申请人数</div>
+                                    <div class="intro">453</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
