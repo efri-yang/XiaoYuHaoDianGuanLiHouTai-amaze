@@ -2,12 +2,12 @@
 	margin-left:120px; 
 	margin-top:30px;
     position:relative;
-    .item-zhl{
+    .item-zhl-1{
         position:absolute;
         left:-60px;
         top:0;
         
-        height:340px;
+        height:460px;
         width:60px;
         z-index:10; 
         .intro-txt{
@@ -47,7 +47,7 @@
         }
         .line-3{
         	width:1px;
-            height:240px;
+            height:360px;
             background:#e5e5e5;
             position:absolute;
             right:60px;
@@ -55,6 +55,38 @@
             bottom:50px;
         }
     } 
+
+    .item-distance-zhl{
+        position:relative;
+        width:100px;
+        padding:20px 0;
+        .line-t{
+            position:absolute;
+            height:20px;
+            width:1px;
+            left:50%;
+            top:0;
+            background:#999;
+            transform:translate(-50%,0);
+        }
+        .line-b{
+            position:absolute;
+            height:20px;
+            width:1px;
+            left:50%;
+            bottom:0;
+            background:#999;
+            transform:translate(-50%,0);
+        }
+        .zh-intro{
+            text-align:center;
+            line-height:21px;
+            font-size:14px;
+            span{
+                color:#f60;
+            }
+        }
+    }
     .item-step {
     	position:relative; 
     	padding-left:110px;
@@ -72,12 +104,14 @@
 			text-align:center;   
     	}
     	&.step-1{
+            margin:0;
     		.area-l{
 				background:#0c79b1;
 				color:#fff;
     		}
     	}
     	&.step-2{
+            margin:0;
     		.area-l{
 				background:#F37B1D;
 				color:#fff;
