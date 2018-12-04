@@ -1,0 +1,14 @@
+.coms-layout-body-inner{
+		min-width:1440px; 
+}
+@media (max-width: 767px){ 
+	.coms-layout-header{
+		.logo{
+			display:none; 
+		}
+	}
+	.coms-layout-body{
+	
+		overflow:auto; 
+	}
+}
