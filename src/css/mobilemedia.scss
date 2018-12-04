@@ -1,14 +1,93 @@
-.coms-layout-body-inner{
-		min-width:1440px; 
-}
-@media (max-width: 767px){ 
-	.coms-layout-header{
-		.logo{
-			display:none; 
-		}
-	}
-	.coms-layout-body{
-	
-		overflow:auto; 
-	}
+@media (max-width: 767px) {
+    .coms-layout-body-inner {
+        min-width: 1440px;
+
+    }
+
+    .coms-layout-header {
+
+        .logo {
+            display: none;
+        }
+
+        .bars-nav {
+            display: block;
+        }
+
+        .header-nav {
+
+            float: none;
+            position: absolute;
+            left: 0;
+            right: 0;
+            background: #23262e;
+            top: 60px;
+            display: none;
+
+            &.active {
+                display: block;
+            }
+
+            li {
+                a {
+                    height: 35px;
+                    line-height: 35px;
+                }
+            }
+
+        }
+
+        .header-userinfo {
+            position: absolute;
+            right: 0;
+        }
+    }
+
+    .coms-layout-body {
+        overflow: auto;
+
+        &.has-nav {
+            top: 60px;
+        }
+    }
+
+    .coms-body-main-nav {
+
+        overflow: auto;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        min-width: 1440px;
+
+
+
+
+
+
+        white-space: nowrap;
+
+
+        li {
+
+            float: none;
+            display: inline-block;
+        }
+    }
+
+    .coms-layout-body {
+        &.has-nav {
+            .coms-body-main-nav {
+                left: 0px;
+                top: 0;
+
+            }
+            .coms-layout-body-inner{
+            	padding-top:50px; 
+            }
+        }
+    }
+
+   
+
 }

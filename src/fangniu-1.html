@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>榜单列表</title>
+    @@include("./views/common/_headStyleScript.html")
+    <style type="text/css">
+    .sec-item-cell{border:1px solid #e5e5e5}.sec-item-cell .soma-hd{text-align:center;padding:25px 0;border-bottom:1px solid #e5e5e5}.sec-item-cell .soma-hd .cap-1{font-size:32px;font-family:arial;color:#5eb95e;text-align:center;font-weight:700}.sec-item-cell .soma-hd .cap-2{font-size:16px}.sec-item-cell .list{padding:15px}.sec-item-cell .list li{padding:5px 0;min-height:35px;line-height:35px;width:50%;float:left}.sec-item-cell .list li .lab{font-size:14px;display:inline-block;vertical-align:middle}.sec-item-cell .list li .para-val{display:inline-block;vertical-align:middle;font-size:18px;font-family:arial}
+    </style>
+    
+</head>
+
+<body>
+    <div class="coms-layout-container theme-default">
+        @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+        <div class="coms-layout-body p15" id="J_coms-layout-body">
+            <div class="coms-layout-body-inner"> 
+                @@include("./views/common/_breadcrumb.html",{"title":"通用框架示范"})
+                <!--  table 表格样式************************************* -->
+                
+                    <div class="am-g mt50 ml50">
+                        <div class="am-u-sm-5">
+                            <div class="sec-item-cell">
+                                <div class="soma-hd">
+                                    <span class="cap-1">123454</span>
+                                    <p class="cap-2">估价次数</p>
+                                    <button class="am-btn am-btn-success mt10">操作操作</button>
+                                </div>
+                                <ul class="list clearfix">
+                                    <li class="align-l"><span class="lab">昨日：</span><span class="para-val am-text-success">60</span></li>
+                                    <li class="align-r"><span class="lab">昨日：</span><span class="para-val am-text-success">60</span></li>
+                                    <li class="align-l"><span class="lab">昨日：</span><span class="para-val am-text-success">60</span></li>
+                                    <li class="align-r"><span class="lab">昨日：</span><span class="para-val am-text-success">60</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="am-u-sm-5 am-u-end">
+                            <div class="sec-item-cell">
+                                <div class="soma-hd">
+                                    <span class="cap-1">123454</span>
+                                    <p class="cap-2">估价次数</p>
+                                    <button class="am-btn am-btn-success mt10">操作操作</button>
+                                </div>
+                                <ul class="list clearfix">
+                                    <li class="align-l"><span class="lab">昨日：</span><span class="para-val am-text-success">60</span></li>
+                                    <li class="align-r"><span class="lab">昨日：</span><span class="para-val am-text-success">60</span></li>
+                                    <li class="align-l"><span class="lab">昨日：</span><span class="para-val am-text-success">60</span></li>
+                                    <li class="align-r"><span class="lab">昨日：</span><span class="para-val am-text-success">60</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

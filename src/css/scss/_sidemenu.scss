@@ -11,6 +11,9 @@
     * {
         box-sizing: content-box;
     }
+    .sidemask{
+        position:absolute;right:0;top:0;width:20px;height:28px;background:#393d49;
+    }
     .aside-unfold {
         text-align: center;
         height:28px;
