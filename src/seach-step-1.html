@@ -19,19 +19,283 @@
     <script type="text/javascript" src="js/plugin/jquery.ba-throttle-debounce.min.js"></script>
     <script type="text/javascript" src="js/common.js"></script>
     <style type="text/css">
-.sec-step{margin-left:120px;margin-top:30px;position:relative}.sec-step .item-zhl-1{position:absolute;left:-60px;top:0;height:460px;width:60px;z-index:10}.sec-step .item-zhl-1 .intro-txt{position:absolute;right:20px;top:50%;padding:20px 0;background:#fff;transform:translate(0,-50%)}.sec-step .item-zhl-1 .intro-txt .txt-1,.sec-step .item-zhl-1 .intro-txt .txt-2{font-size:14px;text-align:center;white-space:nowrap}.sec-step .item-zhl-1 .intro-txt .txt-2 span{color:#f60}.sec-step .item-zhl-1 .line-1{width:60px;height:1px;background:#e5e5e5;position:absolute;right:0;top:50px}.sec-step .item-zhl-1 .line-2{width:60px;height:1px;background:#e5e5e5;position:absolute;right:0;bottom:50px}.sec-step .item-zhl-1 .line-3{width:1px;height:360px;background:#e5e5e5;position:absolute;right:60px;top:50px;bottom:50px}.sec-step .item-distance-zhl{position:relative;width:100px;padding:20px 0}.sec-step .item-distance-zhl .line-t{position:absolute;height:20px;width:1px;left:50%;top:0;background:#999;transform:translate(-50%,0)}.sec-step .item-distance-zhl .line-b{position:absolute;height:20px;width:1px;left:50%;bottom:0;background:#999;transform:translate(-50%,0)}.sec-step .item-distance-zhl .zh-intro{text-align:center;line-height:21px;font-size:14px}.sec-step .item-distance-zhl .zh-intro span{color:#f60}.sec-step .item-step{position:relative;padding-left:110px;margin:0 0 20px 0}.sec-step .item-step .area-l{position:absolute;left:0;top:0;width:110px;height:100px;line-height:100px;background:#e6e6e6;color:#666;font-weight:400;text-align:center}.sec-step .item-step.step-1{margin:0}.sec-step .item-step.step-1 .area-l{background:#0c79b1;color:#fff}.sec-step .item-step.step-2{margin:0}.sec-step .item-step.step-2 .area-l{background:#f37b1d;color:#fff}.sec-step .item-step.step-3 .area-l{background:#dd514c;color:#fff}.sec-step .item-step.step-4 .area-l{background:#5eb95e;color:#fff}.sec-step .item-step.step-5 .area-l{background:#3bb4f2;color:#fff}.sec-step .list{float:left;background:#efefef;height:100px}.sec-step .list li{float:left;padding-top:25px;height:100px;min-width:140px;position:relative;text-align:center}.sec-step .list li .line{position:absolute;right:0;top:50%;width:1px;background:#e1e1e1;height:50%;transform:translate(0,-50%)}.sec-step .list .tit{font-size:16px;text-align:center}.sec-step .list .intro{font-weight:700;color:#666}
-</style>
+    .sec-step {
+        margin-left: 120px;
+        margin-top: 30px;
+        position: relative
+    }
+
+    .sec-step .item-zhl-1 {
+        position: absolute;
+        left: -60px;
+        top: 0;
+        height: 460px;
+        width: 60px;
+        z-index: 10
+    }
+
+    .sec-step .item-zhl-1 .intro-txt {
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        padding: 20px 0;
+        background: #fff;
+        transform: translate(0, -50%)
+    }
+
+    .sec-step .item-zhl-1 .intro-txt .txt-1,
+    .sec-step .item-zhl-1 .intro-txt .txt-2 {
+        font-size: 14px;
+        text-align: center;
+        white-space: nowrap
+    }
+
+    .sec-step .item-zhl-1 .intro-txt .txt-2 span {
+        color: #f60
+    }
+
+    .sec-step .item-zhl-1 .line-1 {
+        width: 60px;
+        height: 1px;
+        background: #e5e5e5;
+        position: absolute;
+        right: 0;
+        top: 50px
+    }
+
+    .sec-step .item-zhl-1 .line-2 {
+        width: 60px;
+        height: 1px;
+        background: #e5e5e5;
+        position: absolute;
+        right: 0;
+        bottom: 50px
+    }
+
+    .sec-step .item-zhl-1 .line-3 {
+        width: 1px;
+        height: 360px;
+        background: #e5e5e5;
+        position: absolute;
+        right: 60px;
+        top: 50px;
+        bottom: 50px
+    }
+
+    .sec-step .item-distance-zhl {
+        position: relative;
+        width: 100px;
+        padding: 20px 0
+    }
+
+    .sec-step .item-distance-zhl .line-t {
+        position: absolute;
+        height: 20px;
+        width: 1px;
+        left: 50%;
+        top: 0;
+        background: #999;
+        transform: translate(-50%, 0)
+    }
+
+    .sec-step .item-distance-zhl .line-b {
+        position: absolute;
+        height: 20px;
+        width: 1px;
+        left: 50%;
+        bottom: 0;
+        background: #999;
+        transform: translate(-50%, 0)
+    }
+
+    .sec-step .item-distance-zhl .zh-intro {
+        text-align: center;
+        line-height: 21px;
+        font-size: 14px
+    }
+
+    .sec-step .item-distance-zhl .zh-intro span {
+        color: #f60
+    }
+
+    .sec-step .item-step {
+        position: relative;
+        padding-left: 110px;
+        margin: 0 0 20px 0
+    }
+
+    .sec-step .item-step .area-l {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 110px;
+        height: 100px;
+        line-height: 100px;
+        background: #e6e6e6;
+        color: #666;
+        font-weight: 400;
+        text-align: center
+    }
+
+    .sec-step .item-step.step-1 {
+        margin: 0
+    }
+
+    .sec-step .item-step.step-1 .area-l {
+        background: #0c79b1;
+        color: #fff
+    }
+
+    .sec-step .item-step.step-2 {
+        margin: 0
+    }
+
+    .sec-step .item-step.step-2 .area-l {
+        background: #f37b1d;
+        color: #fff
+    }
+
+    .sec-step .item-step.step-3 .area-l {
+        background: #dd514c;
+        color: #fff
+    }
+
+    .sec-step .item-step.step-4 .area-l {
+        background: #5eb95e;
+        color: #fff
+    }
+
+    .sec-step .item-step.step-5 .area-l {
+        background: #3bb4f2;
+        color: #fff
+    }
+
+    .sec-step .list {
+        float: left;
+        background: #efefef;
+        height: 100px
+    }
+
+    .sec-step .list li {
+        float: left;
+        padding-top: 25px;
+        height: 100px;
+        min-width: 140px;
+        position: relative;
+        text-align: center
+    }
+
+    .sec-step .list li .line {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 1px;
+        background: #e1e1e1;
+        height: 50%;
+        transform: translate(0, -50%)
+    }
+
+    .sec-step .list .tit {
+        font-size: 16px;
+        text-align: center
+    }
+
+    .sec-step .list .intro {
+        font-weight: 700;
+        color: #666
+    }
+
+
+    .tab-list-1 {}
+
+    .tab-list-1 li {
+        float: left;
+        padding-top: 25px;
+        height: 100px;
+        min-width: 140px;
+        position: relative;
+        text-align: center
+    }
+
+    .tab-list-1 li .line {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        width: 1px;
+        background: #e1e1e1;
+        height: 50%;
+        transform: translate(0, -50%)
+    }
+
+    .tab-list-1 .tit {
+        font-size: 16px;
+        text-align: center
+    }
+
+    .tab-list-1 .intro {
+        font-weight: 700;
+        color: #666
+    }
+
+    .sec-area-list {
+        padding: 0 0 15px 0;
+    }
+
+    .sec-area-list li {
+        float: left;
+        margin: 0 35px;
+        height: 185px;
+        min-width: 60px;
+
+        position: relative;
+        text-align: center;
+    }
+
+    .sec-area-list li .inner-intro {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+    }
+
+    .sec-area-list li .percent,
+    .sec-area-list li .num {
+        font-size: 14px;
+        color: #333;
+        line-height: 1.3;
+    }
+
+    .sec-area-list li .barrel {
+        max-height: 100px;
+        width: 40px;
+        margin: 10px auto 5px;
+    }
+
+    .sec-area-list li .address {
+        text-align: center;
+        font-size: 16px;
+        white-space: nowrap;
+    }
+
+    .sec-area-list li .barrel span {
+        display: block;
+       
+
+    }
+    </style>
+    <script type="text/javascript">
+        
+    </script>
 </head>
 
 <body>
     <div class="coms-layout-container theme-default">
         @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
-        <div class="coms-layout-body p15 has-nav" id="J_coms-layout-body">
-            <ul class="coms-body-main-nav">
-                <li class="active"><a href="#">定义菜单01</a></li>
-                <li><a href="#">定义菜单02</a></li>
-                <li><a href="#">定义菜单03</a></li>
-            </ul>
+        <div class="coms-layout-body p15" id="J_coms-layout-body">
+            <div class="coms-elem-quote am-cf">
+                <span class="fl f16">业务情况</span>
+            </div>
+            
             <div class="coms-table-wrap">
                 <!--  no-border  去掉头部就有边控了-->
                 <div class="coms-table-hd clearfix no-border">
@@ -63,15 +327,14 @@
                 <hr>
                 <div class="sec-step">
                     <div class="item-zhl-1">
-                         <span class="line-1"></span>
-                         <span class="line-2"></span>
-                         <span class="line-3"></span>
-                         <div class="intro-txt">
-                             <p class="txt-1">申请—转账</p>
-                             <p class="txt-2">转化率：<span>9.4%</span></p>
-                         </div>
+                        <span class="line-1"></span>
+                        <span class="line-2"></span>
+                        <span class="line-3"></span>
+                        <div class="intro-txt">
+                            <p class="txt-1">申请—转账</p>
+                            <p class="txt-2">转化率：<span>9.4%</span></p>
+                        </div>
                     </div>
-
                     <div class="item-step step-1">
                         <label class="area-l">申请</label>
                         <div class="area-r clearfix">
@@ -101,8 +364,8 @@
                     <div class="item-distance-zhl">
                         <span class="line-t"></span>
                         <div class="zh-intro">
-                             <p class="txt-1">申请—转账</p>
-                             <p class="txt-2">转化率：<span>9.4%</span></p>
+                            <p class="txt-1">申请—转账</p>
+                            <p class="txt-2">转化率：<span>9.4%</span></p>
                         </div>
                         <span class="line-b"></span>
                     </div>
@@ -135,8 +398,8 @@
                     <div class="item-distance-zhl">
                         <span class="line-t"></span>
                         <div class="zh-intro">
-                             <p class="txt-1">申请—转账</p>
-                             <p class="txt-2">转化率：<span>9.4%</span></p>
+                            <p class="txt-1">申请—转账</p>
+                            <p class="txt-2">转化率：<span>9.4%</span></p>
                         </div>
                         <span class="line-b"></span>
                     </div>
@@ -220,7 +483,173 @@
                     </div>
                 </div>
             </div>
+            <div class="am-tabs" data-am-tabs style="margin:30px 30px 50px;">
+                <ul class="am-tabs-nav am-nav am-nav-tabs">
+                    <li class="am-active"><a href="#tab1">申请客户</a></li>
+                    <li><a href="#tab2">放款客户</a></li>
+                </ul>
+                <div class="am-tabs-bd">
+                    <div class="am-tab-panel am-active" id="tab1">
+                        <ul class="tab-list-1 clearfix">
+                            <li>
+                                <div class="tit">申请人数</div>
+                                <div class="intro">453</div>
+                            </li>
+                        </ul>
+                        <div class="coms-elem-quote am-cf">
+                            <span class="fl f16">行政区分布</span>
+                        </div>
+                        <ul class="sec-area-list clearfix">
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:40px; background: #5eb95e;"></span></div>
+                                    <p class="address">思明区</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:80px;background: #5eb95e;"></span></div>
+                                    <p class="address">湖里区</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:80px;background: #5eb95e;"></span></div>
+                                    <p class="address">集美区</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:100px;background: #5eb95e;"></span></div>
+                                    <p class="address">海沧区</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:10px;background: #5eb95e;"></span></div>
+                                    <p class="address">翔安区</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:20px;background: #5eb95e;"></span></div>
+                                    <p class="address">同安</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:30px;background: #5eb95e;"></span></div>
+                                    <p class="address">杏林</p>
+                                </div>
+                            </li>
+                        </ul>
+                        
+                        <div class="coms-elem-quote am-cf" style="border-color:#3bb4f2;">
+                            <span class="fl f16">产权面积分布</span>
+                        </div>
+                         <ul class="sec-area-list clearfix">
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:40px; background: #3bb4f2;"></span></div>
+                                    <p class="address">50平米以下</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:80px;background: #3bb4f2;"></span></div>
+                                    <p class="address">50-80平米</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:80px;background: #3bb4f2;"></span></div>
+                                    <p class="address">80-100平米</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:100px;background: #3bb4f2;"></span></div>
+                                    <p class="address">100-144平米</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:10px;background: #3bb4f2;"></span></div>
+                                    <p class="address">144以上</p>
+                                </div>
+                            </li>
+                            
+                            
+                        </ul>
+                        <div class="coms-elem-quote am-cf" style="border-color:#f37b1d;">
+                            <span class="fl f16">装修需求分布</span>
+                        </div>
+                        <ul class="sec-area-list clearfix">
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:40px; background: #f37b1d;"></span></div>
+                                    <p class="address">旧房翻新</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:80px;background: #f37b1d;"></span></div>
+                                    <p class="address">毛坯装修</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:80px;background: #f37b1d;"></span></div>
+                                    <p class="address">精装房装修</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="inner-intro">
+                                    <p class="percent">30%</p>
+                                    <p class="num">453人</p>
+                                    <div class="barrel"><span style="height:100px;background: #f37b1d;"></span></div>
+                                    <p class="address">局部改造</p>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div class="am-tab-panel" id="tab2">2222</div>
+                </div>
+            </div>
+            
         </div>
+      
 </body>
 
 </html>
