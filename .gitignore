@@ -10,3 +10,4 @@ dist/
 192168026/
 *.dat
 *.sass-cache
+package.json
