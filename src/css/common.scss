@@ -15,4 +15,30 @@
 @import "./scss/_base.scss";
 
 
+.mini-workbench {
+    position: fixed;
+    border-radius: 100%;
+    height: 50px;
+    line-height: 50px;
+    width: 50px;
+    text-align: center;
+    background: #00c1de;
+    color: white;
+    cursor: pointer;
+    bottom: 44px;
+    right: 10px;
+}
 
+
+#workbench {
+    font-size: 14px;
+    color: #4F5357;
+    position: fixed;
+    width: 280px;
+    background: #FFFFFF;
+    border: 1px solid #D7D8D9;
+    box-shadow: 0 1px 4px 0 rgba(55, 61, 65, 0.14);
+    bottom: 101px;
+    right: 10px;
+    transition: all .3s;
+}

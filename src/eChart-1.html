@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="./AmazeUI/assets/css/amazeui.css">
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+    <script type="text/javascript" src="./js/common/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="AmazeUI/assets/js/amazeui.js"></script>
+    <script type="text/javascript" src="js/plugin/layer/layer.js"></script>
+    <script type="text/javascript" src="js/plugin/jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/mobilemedia.css">
+    <script type="text/javascript" src="js/plugin/echarts.min.js"></script>
+    <style type="text/css">
+    .perdays-chart-dialog {
+        display: none;
+        box-sizing: border-box;
+
+    }
+
+    .perdays-chart-dialog .am-form {
+        padding: 20px 0 0 50px;
+
+    }
+    </style>
+</head>
+
+<body>
+    <div class="coms-layout-container theme-default">
+        @@include("./views/common/_header.html") @@include("./views/common/_sideMenu.html")
+        <div class="coms-layout-body p15 has-nav" id="J_coms-layout-body">
+            <button id="btn-xxx">展开折线图</button>
+            <div class="perdays-chart-dialog" id="J_perdays-chart-dialog">
+                <div class="am-form am-form-horizontal clearfix">
+                    <div class="am-form-group fl mb10 mr20">
+                        <div class="am-para-inline w300">
+                            <input id="auto-order-lists-time" type="text" name="time" autocomplete="off" value="" placeholder="日期范围" lay-key="1">
+                        </div>
+                    </div>
+                    <div class="am-form-group fl mb10 mt5">
+                        <div class="am-para-inline w300">
+                            <a class="mr10 auto-order-lists-time-btn pl10 pr10 pt5 pb5 am-btn-primary" href="javascript:void (0);"  >最近7天</a>
+                            <a class="mr10 auto-order-lists-time-btn pl10 pr10 pt5 pb5" href="javascript:void (0);"  id="test1">最近15天</a>
+                            <a class="mr10 auto-order-lists-time-btn pl10 pr10 pt5 pb5" href="javascript:void (0);" >最近30天</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="charts-main"></div>
+            </div>
+            <script type="text/javascript">
+            $(function() {
+                var winW, winH, wp = 0.75,
+                    hp = 0.65;
+                $(window).on("resize", function() {
+                    winW = $(this).width();
+                    winH = $(this).height();
+                    $("#charts-main").css({ width: winW * wp + "px", height: winH * hp + "px" });
+
+                }).trigger('resize');
+                var myChart = echarts.init(document.getElementById('charts-main'));
+                // 指定图表的配置项和数据
+                var option = {
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+
+                        data: ['2019-02-27 星期一', '2019-02-28 周1', '2019-03-01', '2019-03-02', '2019-03-03', '2019-03-04', '2019-03-05'].map(function(str) {
+                            return str.replace(' ', '\n')
+                        })
+                    },
+
+                    tooltip: {
+                        trigger: 'axis',
+                        formatter: '{b0}<br />日均授信金额: {c0}万',
+                        axisPointer: {
+                            // type: 'cross',
+                            label: {
+                                backgroundColor: '#6a7985'
+                            }
+                        }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: {
+                            formatter: '{value}万'
+                        }
+
+                    },
+                    series: [{
+                        data: [20, 32, 11, 40, 90, 30, 10],
+                        type: 'line',
+                        markPoint: {
+                            symbol: 'circle',
+                            symbolSize: 20,
+                            itemStyle: {
+                                normal: {
+
+                                    label: {
+                                        show: false
+                                    }
+                                },
+                            },
+                            data: [
+                                { type: 'max', name: '最大值' },
+                            ]
+                        },
+
+                    }]
+                };
+
+
+
+
+                $("#btn-xxx").on("click", function() {
+                    layer.open({
+                        type: 1,
+                        shade: false,
+                        title: false, //不显示标题
+                        area: winW * wp + "px",
+                        content: $('#J_perdays-chart-dialog'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+                        success: function() {
+
+
+                            myChart.setOption(option);
+                        }
+                    });
+                }).trigger("click");
+
+                //开发自行修改
+                $("#test1").on("click", function() {
+                    $(this).addClass("am-btn-primary").siblings().removeClass("am-btn-primary");
+                    myChart.setOption({
+                        xAxis: {
+                            data: ['2019-02-27 周六', '2019-02-28', '2019-03-01', '2019-03-02', '2019-03-03', '2019-03-04', '2019-03-05', '2019-03-06', '2019-03-07', '2019-03-08', '2019-03-09', '2019-03-10', '2019-03-11', '2019-03-12', '2019-03-13'].map(function(str) {
+                                return str.replace(' ', '\n')
+                            })
+                        },
+                        yAxis: {
+                            type: 'value',
+                            data: [100, 200, 300, 350, 400, 410, 430, 100, 200, 300, 350, 400, 410, 430, 280],
+                            axisLabel: {
+                                formatter: '{value}万'
+                            }
+
+                        },
+                        series: [{
+                            data: [100, 200, 300, 350, 400, 410, 430, 100, 200, 300, 350, 400, 410, 430, 280],
+                            type: 'line'
+                        }]
+                    });
+                })
+
+
+
+
+            })
+
+
+
+            // 使用刚指定的配置项和数据显示图表。
+            </script>
+        </div>
+    </div>
+</body>
+
+</html>
