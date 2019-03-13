@@ -29,7 +29,7 @@
         position: absolute;
         left: -60px;
         top: 0;
-        height: 460px;
+        height: 340px;
         width: 60px;
         z-index: 10
     }
@@ -74,7 +74,7 @@
 
     .sec-step .item-zhl-1 .line-3 {
         width: 1px;
-        height: 360px;
+        height: 240px;
         background: #e5e5e5;
         position: absolute;
         right: 60px;
@@ -82,41 +82,7 @@
         bottom: 50px
     }
 
-    .sec-step .item-distance-zhl {
-        position: relative;
-        width: 100px;
-        padding: 20px 0
-    }
 
-    .sec-step .item-distance-zhl .line-t {
-        position: absolute;
-        height: 20px;
-        width: 1px;
-        left: 50%;
-        top: 0;
-        background: #999;
-        transform: translate(-50%, 0)
-    }
-
-    .sec-step .item-distance-zhl .line-b {
-        position: absolute;
-        height: 20px;
-        width: 1px;
-        left: 50%;
-        bottom: 0;
-        background: #999;
-        transform: translate(-50%, 0)
-    }
-
-    .sec-step .item-distance-zhl .zh-intro {
-        text-align: center;
-        line-height: 21px;
-        font-size: 14px
-    }
-
-    .sec-step .item-distance-zhl .zh-intro span {
-        color: #f60
-    }
 
     .sec-step .item-step {
         position: relative;
@@ -137,18 +103,14 @@
         text-align: center
     }
 
-    .sec-step .item-step.step-1 {
-        margin: 0
-    }
+  
 
     .sec-step .item-step.step-1 .area-l {
         background: #0c79b1;
         color: #fff
     }
 
-    .sec-step .item-step.step-2 {
-        margin: 0
-    }
+   
 
     .sec-step .item-step.step-2 .area-l {
         background: #f37b1d;
@@ -178,6 +140,7 @@
 
     .sec-step .list li {
         float: left;
+        position:relative;
         padding-top: 25px;
         height: 100px;
         min-width: 140px;
@@ -200,10 +163,16 @@
         text-align: center
     }
 
-    .sec-step .list .intro {
+    .sec-step .list .intro-1 {
         font-weight: 700;
         color: #666
     }
+     .sec-step .list .intro-2{
+        font-weight: 700;
+        color: #666
+    }
+
+
 
 
     .tab-list-1 {}
@@ -282,9 +251,50 @@
        
 
     }
-    .chart-entry{
-        color:#0c79b1;
-        font-size:12px;  
+    
+
+    .date-distance-list{
+        padding:0;
+
+        margin:0 25px 0 0; 
+    }
+
+    .date-distance-list  a{
+        padding:0.5em;
+    }
+    .date-distance-list  a.active{
+        text-decoration: underline;
+    }
+    .compare-toggle-date{
+        margin:15px 30px 0;
+        padding:8px 15px;
+        border:1px dashed #e5e5e5;
+    }
+    
+    .compare-toggle-date .item-cell{
+        float:left; 
+        line-height:20px;
+        margin:0 50px 0 0;  
+    }
+    .compare-toggle-date .item-cell .circle{
+         float:left; 
+         width:20px;
+         height:20px;
+         margin:0 12px 0 0; 
+        
+    }
+    .compare-toggle-date .item-cell .time{
+        white-space:nowrap;
+        float: left;
+
+    }
+    .compare-toggle-date .item-cell.item-1 .circle{
+        
+         background:#d03336;
+    }
+    .compare-toggle-date .item-cell.item-2 .circle{
+        
+         background:#4553ad;
     }
     </style>
     <script type="text/javascript">
@@ -299,36 +309,33 @@
             <div class="coms-elem-quote am-cf">
                 <span class="fl f16">业务情况</span>
             </div>
-            
             <div class="coms-table-wrap">
                 <!--  no-border  去掉头部就有边控了-->
                 <div class="coms-table-hd clearfix no-border">
                     <div class="am-form am-form-horizontal">
+                        <div class="am-form-group fl date-distance-list">
+                           <a href="#" class="am-btn am-btn-link active">今天</a>
+                           <a href="#" class="am-btn am-btn-link">昨天</a>
+                           <a href="#" class="am-btn am-btn-link">最近7天</a>
+                           <a href="#" class="am-btn am-btn-link">最近30天</a>
+                        </div>
                         <div class="am-form-group fl">
-                            <label class="am-para-label">时间筛选：</label>
-                            <div class="am-para-inline w150">
-                                <select required="" name="province">
-                                    <option value="">今日实时</option>
-                                    <option value="option1">选项一...</option>
-                                    <option value="option2">选项二.....</option>
-                                    <option value="option3" disabled="">选项三........</option>
-                                </select>
-                            </div>
-                            <div class="am-para-inline w150">
-                                <select required="" name="province">
-                                    <option value="">日期筛选</option>
-                                    <option value="option1">选项一...</option>
-                                    <option value="option2">选项二.....</option>
-                                    <option value="option3" disabled="">选项三........</option>
-                                </select>
-                            </div>
+                            <input type="text" class="am-form-field am-radius" style="width:200px;padding:9px 8px;width:270px;">
                         </div>
-                        <div class="am-form-group fl ml20">
-                            <button type="button" class="am-btn  am-btn-sm am-btn-success w100">搜索</button>
+                        <div class="am-form-group fl" style="line-height:36px;padding:0 10px;">
+                            <label><input type="checkbox">对比</label>
                         </div>
+                        <div class="am-form-group fl">
+                            <input type="text" class="am-form-field am-radius" style="width:200px;padding:9px 8px;width:270px;">
+                        </div>
+                        <button type="button" class="am-btn am-btn-primary fr">趋势分析图</button>
                     </div>
                 </div>
                 <hr>
+                <div class="compare-toggle-date clearfix">
+                    <div class="item-cell item-1"><span class="circle"></span><div class="time">2019-02-11 ~ 2019-03-13</div></div>
+                    <div class="item-cell item-2"><span class="circle"></span><div class="time">2019-02-11 ~ 2019-03-13</div></div>
+                </div>
                 <div class="sec-step">
                     <div class="item-zhl-1">
                         <span class="line-1"></span>
@@ -342,94 +349,159 @@
                     <div class="item-step step-1">
                         <label class="area-l">申请</label>
                         <div class="area-r clearfix">
+                            <style type="text/css">
+                                 .sec-step .list .circle{
+                                    width:12px;
+                                    height:12px;
+                                    display: inline-block;
+                                    
+                                    margin:0 10px 0 0;  
+                                 }
+                                 .sec-step .list .intro-1 .circle{
+                                    background:#d03336;
+                                 }
+                                 .sec-step .list .intro-2 .circle{
+                                    background:#4553ad;
+                                 }
+                                 .sec-step .list .item-mid{
+                                       position:absolute;
+                                       top:50%;
+                                       left:50%;
+                                       transform: translate(-50%,-50%);         
+                                 }
+                            </style>
                             <ul class="list">
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
-                                    <div class="chart-entry"><i class="am-icon-exclamation-circle"></i>日均授信走势图</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
+                                    <span class="line"></span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="item-distance-zhl">
-                        <span class="line-t"></span>
-                        <div class="zh-intro">
-                            <p class="txt-1">申请—转账</p>
-                            <p class="txt-2">转化率：<span>9.4%</span></p>
-                        </div>
-                        <span class="line-b"></span>
-                    </div>
+
+                    <style type="text/css">
+                        .area-tip-zh{
+                            position:absolute;
+                            background:#fff;
+
+                        }
+                        .area-tip-zh{
+                            position:absolute;
+                            background:#fff;
+                            
+                        }
+                    </style>
+                    
                     <div class="item-step step-2">
-                        <label class="area-l">初审通过</label>
+                        <label class="area-l">初审通过<i class="am-icon-eye ml5"></i></label>
+                        <div class="area-tip-zh">
+                             <div class="zh-detail">
+                                <p>申请-初审通过 转化率：51.66%</p>
+                                <p>申请-初审通过 转化率：34.66%</p>
+                             </div>
+                             <span class="arrow"></span>
+                        </div>
                         <div class="area-r clearfix">
                             <ul class="list">
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
+                                    <span class="line"></span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-                    <div class="item-distance-zhl">
-                        <span class="line-t"></span>
-                        <div class="zh-intro">
-                            <p class="txt-1">申请—转账</p>
-                            <p class="txt-2">转化率：<span>9.4%</span></p>
-                        </div>
-                        <span class="line-b"></span>
-                    </div>
+                   
                     <div class="item-step step-3">
-                        <label class="area-l">放款</label>
+                        <label class="area-l">放款<i class="am-icon-eye ml5"></i></label>
                         <div class="area-r clearfix">
                             <ul class="list">
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
+                                    <span class="line"></span>
                                 </li>
                             </ul>
                         </div>
@@ -439,23 +511,28 @@
                         <div class="area-r clearfix">
                             <ul class="list">
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
-                                </li>
-                                <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
                                 </li>
                             </ul>
                         </div>
@@ -465,23 +542,28 @@
                         <div class="area-r clearfix">
                             <ul class="list">
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
+                                    <div class="item-mid">
+                                        <div class="tit">申请人数</div>
+                                        <div class="intro-1"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                    </div>
                                     <span class="line"></span>
-                                </li>
-                                <li>
-                                    <div class="tit">申请人数</div>
-                                    <div class="intro">453</div>
                                 </li>
                             </ul>
                         </div>

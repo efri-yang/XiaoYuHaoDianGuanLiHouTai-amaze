@@ -53,7 +53,7 @@
                             <a class="mr10 auto-order-lists-time-btn pl10 pr10 pt5 pb5 am-btn-primary" href="javascript:void (0);">最近7天</a>
                             <a class="mr10 auto-order-lists-time-btn pl10 pr10 pt5 pb5" href="javascript:void (0);" id="test1">最近15天</a>
                             <a class="mr10 auto-order-lists-time-btn pl10 pr10 pt5 pb5" href="javascript:void (0);">最近30天</a>
-                            <a class="mr10 am-btn am-btn-success pl10 pr10 pt5 pb5" href="javascript:void (0);">搜索</a>
+                            
                         </div>
                     </div>
                     
@@ -123,7 +123,7 @@
                         orient: 'horizontal', // 'vertical'
                         x: 'center', // 'center' | 'left' | {number},
                         y: 'bottom', // 'center' | 'bottom' | {number}
-                        data: ['人均授信金额', '授信总额', '放款总额', '放款人数', '授信人数', '初审通过人数']
+                        data: ['人均授信金额', '授信总额', '放款总额','签约总额','放款人数', '授信人数', '初审通过人数']
                     },
                     yAxis: {
                         type: 'value',
@@ -179,7 +179,28 @@
                             }, ]
                         },
 
-                    }, {
+                    },{
+                        name: "签约总额",
+                        data: [20, 18, 50, 62, 70, 6, 12],
+                        type: 'line',
+                        markPoint: {
+                            symbol: 'circle',
+                            symbolSize: 10,
+                            itemStyle: {
+                                normal: {
+
+                                    label: {
+                                        show: false
+                                    }
+                                },
+                            },
+                            data: [{
+                                type: 'max',
+                                name: '最大值'
+                            }, ]
+                        },
+
+                    },, {
                         name: "放款总额",
                         data: [22, 23, 60, 70, 80, 6, 14],
                         type: 'line',
@@ -200,7 +221,7 @@
                             }, ]
                         },
 
-                    }, {
+                    },{
                         name: "放款人数",
                         data: [10, 1, 40, 0,13, 16, 17],
                         type: 'line',
