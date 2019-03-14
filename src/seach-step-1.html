@@ -87,7 +87,8 @@
     .sec-step .item-step {
         position: relative;
         padding-left: 110px;
-        margin: 0 0 20px 0
+        margin: 0 0 20px 0;
+        z-index: 11;
     }
 
     .sec-step .item-step .area-l {
@@ -103,14 +104,14 @@
         text-align: center
     }
 
-  
+
 
     .sec-step .item-step.step-1 .area-l {
         background: #0c79b1;
         color: #fff
     }
 
-   
+
 
     .sec-step .item-step.step-2 .area-l {
         background: #f37b1d;
@@ -140,7 +141,7 @@
 
     .sec-step .list li {
         float: left;
-        position:relative;
+        position: relative;
         padding-top: 25px;
         height: 100px;
         min-width: 140px;
@@ -167,7 +168,8 @@
         font-weight: 700;
         color: #666
     }
-     .sec-step .list .intro-2{
+
+    .sec-step .list .intro-2 {
         font-weight: 700;
         color: #666
     }
@@ -248,57 +250,153 @@
 
     .sec-area-list li .barrel span {
         display: block;
-       
+
 
     }
-    
 
-    .date-distance-list{
-        padding:0;
 
-        margin:0 25px 0 0; 
+    .date-distance-list {
+        padding: 0;
+
+        margin: 0 25px 0 0;
     }
 
-    .date-distance-list  a{
-        padding:0.5em;
+    .date-distance-list a {
+        padding: 0.5em;
     }
-    .date-distance-list  a.active{
+
+    .date-distance-list a.active {
         text-decoration: underline;
     }
-    .compare-toggle-date{
-        margin:15px 30px 0;
-        padding:8px 15px;
-        border:1px dashed #e5e5e5;
+
+    .compare-toggle-date {
+        margin: 15px 30px 0;
+        padding: 8px 15px;
+        border: 1px dashed #e5e5e5;
     }
-    
-    .compare-toggle-date .item-cell{
-        float:left; 
-        line-height:20px;
-        margin:0 50px 0 0;  
-    }
-    .compare-toggle-date .item-cell .circle{
-         float:left; 
-         width:20px;
-         height:20px;
-         margin:0 12px 0 0; 
-        
-    }
-    .compare-toggle-date .item-cell .time{
-        white-space:nowrap;
+
+    .compare-toggle-date .item-cell {
         float: left;
+        line-height: 20px;
+        margin: 0 50px 0 0;
+    }
+
+    .compare-toggle-date .item-cell .circle {
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin: 0 12px 0 0;
 
     }
-    .compare-toggle-date .item-cell.item-1 .circle{
-        
-         background:#d03336;
+
+    .compare-toggle-date .item-cell .time {
+        white-space: nowrap;
+        float: left;
     }
-    .compare-toggle-date .item-cell.item-2 .circle{
-        
-         background:#4553ad;
+
+    .compare-toggle-date .item-cell.item-1 .circle {
+        background: #d03336;
+    }
+
+    .compare-toggle-date .item-cell.item-2 .circle {
+        background: #4553ad;
+    }
+
+
+    .sec-step .list .circle {
+        width: 12px;
+        height: 12px;
+        display: inline-block;
+
+        margin: 0 10px 0 0;
+    }
+
+    .sec-step .list .intro-1 .circle {
+        display: none;
+        background: #d03336;
+    }
+
+    .sec-step .list .intro-2 {
+        display: none;
+    }
+
+    .sec-step .list .intro-2 .circle {
+        display: none;
+        background: #4553ad;
+    }
+
+    .compare-table-wrap .sec-step .list .intro-1 .circle {
+        display: inline-block;
+    }
+
+    .compare-table-wrap .sec-step .list .intro-2 .circle {
+        display: inline-block;
+    }
+
+    .compare-table-wrap .sec-step .list .intro-1 {
+        color: #d03336;
+    }
+
+    .compare-table-wrap .sec-step .list .intro-2 {
+        display: block;
+        color: #4553ad;
+    }
+
+
+    .compare-table-wrap .area-tip-zh .zh-detail p:nth-child(1) {
+        color: #d03336;
+    }
+
+    .compare-table-wrap .area-tip-zh .zh-detail p:nth-child(2) {
+        color: #4553ad;
+        display: block;
+    }
+
+
+
+    .sec-step .list .item-mid {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .area-tip-zh {
+        position: absolute;
+        background: #fff;
+        left: -55px;
+        bottom: 100px;
+        display: none;
+
+    }
+
+    .area-tip-zh .zh-detail {
+        padding: 8px;
+        background: #fff;
+        box-shadow: 0 0 15px #999;
+        border-radius: 7px;
+        font-size: 14px;
+
+    }
+
+    .area-tip-zh .zh-detail p:nth-child(2) {
+        display: none;
+    }
+
+
+    .area-tip-zh .arrow {
+        position: absolute;
+        bottom: -8px;
+        left: 50%;
+        margin-left: -5px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #fff;
     }
     </style>
     <script type="text/javascript">
-        
     </script>
 </head>
 
@@ -309,15 +407,16 @@
             <div class="coms-elem-quote am-cf">
                 <span class="fl f16">业务情况</span>
             </div>
-            <div class="coms-table-wrap">
+            <!-- compare-table-wrap -->
+            <div class="coms-table-wrap compare-table-wrap">
                 <!--  no-border  去掉头部就有边控了-->
                 <div class="coms-table-hd clearfix no-border">
                     <div class="am-form am-form-horizontal">
                         <div class="am-form-group fl date-distance-list">
-                           <a href="#" class="am-btn am-btn-link active">今天</a>
-                           <a href="#" class="am-btn am-btn-link">昨天</a>
-                           <a href="#" class="am-btn am-btn-link">最近7天</a>
-                           <a href="#" class="am-btn am-btn-link">最近30天</a>
+                            <a href="#" class="am-btn am-btn-link active">今天</a>
+                            <a href="#" class="am-btn am-btn-link">昨天</a>
+                            <a href="#" class="am-btn am-btn-link">最近7天</a>
+                            <a href="#" class="am-btn am-btn-link">最近30天</a>
                         </div>
                         <div class="am-form-group fl">
                             <input type="text" class="am-form-field am-radius" style="width:200px;padding:9px 8px;width:270px;">
@@ -333,8 +432,12 @@
                 </div>
                 <hr>
                 <div class="compare-toggle-date clearfix">
-                    <div class="item-cell item-1"><span class="circle"></span><div class="time">2019-02-11 ~ 2019-03-13</div></div>
-                    <div class="item-cell item-2"><span class="circle"></span><div class="time">2019-02-11 ~ 2019-03-13</div></div>
+                    <div class="item-cell item-1"><span class="circle"></span>
+                        <div class="time">2019-02-11 ~ 2019-03-13</div>
+                    </div>
+                    <div class="item-cell item-2"><span class="circle"></span>
+                        <div class="time">2019-02-11 ~ 2019-03-13</div>
+                    </div>
                 </div>
                 <div class="sec-step">
                     <div class="item-zhl-1">
@@ -350,25 +453,6 @@
                         <label class="area-l">申请</label>
                         <div class="area-r clearfix">
                             <style type="text/css">
-                                 .sec-step .list .circle{
-                                    width:12px;
-                                    height:12px;
-                                    display: inline-block;
-                                    
-                                    margin:0 10px 0 0;  
-                                 }
-                                 .sec-step .list .intro-1 .circle{
-                                    background:#d03336;
-                                 }
-                                 .sec-step .list .intro-2 .circle{
-                                    background:#4553ad;
-                                 }
-                                 .sec-step .list .item-mid{
-                                       position:absolute;
-                                       top:50%;
-                                       left:50%;
-                                       transform: translate(-50%,-50%);         
-                                 }
                             </style>
                             <ul class="list">
                                 <li>
@@ -382,52 +466,41 @@
                                 <li>
                                     <div class="item-mid">
                                         <div class="tit">申请人数</div>
-                                        <div class="intro-1"><span class="circle"></span>453</div>
-                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                        <div class="intro-1">453</div>
+                                        <div class="intro-2">453</div>
                                     </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
                                     <div class="item-mid">
                                         <div class="tit">申请人数</div>
-                                        <div class="intro-1"><span class="circle"></span>453</div>
-                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                        <div class="intro-1">453</div>
+                                        <div class="intro-2">453</div>
                                     </div>
                                     <span class="line"></span>
                                 </li>
                                 <li>
                                     <div class="item-mid">
                                         <div class="tit">申请人数</div>
-                                        <div class="intro-1"><span class="circle"></span>453</div>
-                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                        <div class="intro-1">453</div>
+                                        <div class="intro-2">453</div>
                                     </div>
                                     <span class="line"></span>
                                 </li>
                             </ul>
                         </div>
                     </div>
-
                     <style type="text/css">
-                        .area-tip-zh{
-                            position:absolute;
-                            background:#fff;
-
-                        }
-                        .area-tip-zh{
-                            position:absolute;
-                            background:#fff;
-                            
-                        }
                     </style>
-                    
+                   
                     <div class="item-step step-2">
                         <label class="area-l">初审通过<i class="am-icon-eye ml5"></i></label>
                         <div class="area-tip-zh">
-                             <div class="zh-detail">
+                            <div class="zh-detail">
                                 <p>申请-初审通过 转化率：51.66%</p>
                                 <p>申请-初审通过 转化率：34.66%</p>
-                             </div>
-                             <span class="arrow"></span>
+                            </div>
+                            <span class="arrow"></span>
                         </div>
                         <div class="area-r clearfix">
                             <ul class="list">
@@ -466,9 +539,15 @@
                             </ul>
                         </div>
                     </div>
-                   
                     <div class="item-step step-3">
                         <label class="area-l">放款<i class="am-icon-eye ml5"></i></label>
+                        <div class="area-tip-zh">
+                            <div class="zh-detail">
+                                <p>申请-初审通过 转化率：51.66%</p>
+                                <p>申请-初审通过 转化率：34.66%</p>
+                            </div>
+                            <span class="arrow"></span>
+                        </div>
                         <div class="area-r clearfix">
                             <ul class="list">
                                 <li>
@@ -644,11 +723,10 @@
                                 </div>
                             </li>
                         </ul>
-                        
                         <div class="coms-elem-quote am-cf" style="border-color:#3bb4f2;">
                             <span class="fl f16">产权面积分布</span>
                         </div>
-                         <ul class="sec-area-list clearfix">
+                        <ul class="sec-area-list clearfix">
                             <li>
                                 <div class="inner-intro">
                                     <p class="percent">30%</p>
@@ -689,8 +767,6 @@
                                     <p class="address">144以上</p>
                                 </div>
                             </li>
-                            
-                            
                         </ul>
                         <div class="coms-elem-quote am-cf" style="border-color:#f37b1d;">
                             <span class="fl f16">装修需求分布</span>
@@ -728,15 +804,12 @@
                                     <p class="address">局部改造</p>
                                 </div>
                             </li>
-                            
                         </ul>
                     </div>
                     <div class="am-tab-panel" id="tab2">2222</div>
                 </div>
             </div>
-            
         </div>
-      
 </body>
 
 </html>
