@@ -82,15 +82,55 @@
 
                 var myChart = echarts.init(document.getElementById('charts-main'));
 
+                myChart.on('legendselectchanged', function(obj){
+                   
+                    var flag=obj.selected[obj.name];
 
+                     var option = this.getOption();
+                   
+                     var selectValue = Object.values(obj.selected);
+                     if(flag==false){
+                         if(-1 !=obj.name.indexOf("old")){
+                            //是old选项
+                            option.legend[0].selected[obj.name] = false;
+                            option.legend[0].selected[obj.name.substring(3)] = false;
+                            
+                         }else{
+                         
+                             //不是old选项
+                            option.legend[0].selected[obj.name] = false;
+                            option.legend[0].selected["old"+obj.name] = false;
+                            
+                         }
+                         
+                    }else{
+                        if(-1 !=obj.name.indexOf("old")){
+                            //是old
+                            option.legend[0].selected[obj.name] = true;
+                            option.legend[0].selected[obj.name.substring(3)] = true;
+                         }else{
+                            //不是old
+                            option.legend[0].selected[obj.name] = true;
+                            option.legend[0].selected["old"+obj.name] = true;
+                         }
+                         
+                    }
+
+                  
+                    
+
+                     
+                     
+                   
+                     this.setOption(option)
+                });
 
                 var color1 = ['#e32540', '#000000', '#f1801c', "#c710d7", "#10d7d0", "#10d723", "#108cd7", "#f4dd1d"];
                 var color2 = ['#fc96a5', '#989898', '#ffcda1', "#f7a1ff", "#9bfffb", "#90ff9a", "#88d2ff", "#fff38d"];
                 var isCompare = false;
                 var legendArr;
                 var seriesArr;
-                var xAxisArr;
-
+                var oldTimeDate;
 
 
 
@@ -112,31 +152,74 @@
 
                     tooltip: {
                         trigger: 'axis',
+
                         formatter: function(params) {
+
                             var str = "";
-                            var indexColor;
+                            if (!isCompare) {
+                                //没有对比的时候
+                                for (var i = 0, length = params.length; i < length; i++) {
+                                    if (i == 0) {
+                                        str += params[i].axisValue + "<br/>";
+                                    }
 
-                            //没有对比的时候
-                            for (var i = 0, length = params.length; i < length; i++) {
+                                    if (-1 == params[i].seriesName.indexOf("人数")) {
 
-                                if (i == 0) {
-                                    str += params[i].axisValue + "<br/>";
+                                        //不是人数就直接给单位万元
+                                        str += params[i].seriesName + "：" + params[i].data + "万<br/>";
+                                    } else {
+                                        //是人数就直接给单位人
+                                        str += params[i].seriesName + "：" + params[i].data + "人<br/>";
+                                    }
                                 }
+                            } else {
+                                //对比的时候
+                                str += "<style>.tooltip-table{border:1px solid #e5e5e5;}.tooltip-table td{border:1px solid #e5e5e5;padding:8px 10px;}</style><table class='tooltip-table'>";
+                                for (var i = 0, length = Math.ceil(params.length / 2); i < length; i++) {
 
-                                indexColor = params[i].color;
-                                str += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + indexColor + '"></span>';
-                                if (-1 == params[i].seriesName.indexOf("人数")) {
-                                    //不是人数就直接给单位万元
-                                    str += params[i].seriesName + "：" + params[i].data + "万<br/>";
-                                } else {
-                                    //是人数就直接给单位人
-                                    str += params[i].seriesName + "：" + params[i].data + "人<br/>";
+                                    if (i == 0) {
+                                        str += "<tr>"
+                                        str += '<td>' + params[i].axisValue + "</td>";
+                                        str += '<td>' + params[i + length].axisValue + "</td>";
+                                        str += "</tr>"
+                                    }
+                                    str += "<tr>"
+                                    //只要其中一个存在就要显示
+                                    if (params[i]) {
+                                        if (-1 == params[i].seriesName.indexOf("人数")) {
+                                            //万单位
+                                            str += '<td>' + params[i].seriesName + "：" + params[i].data + "万</td>";
+                                        } else {
+                                            str += '<td>' + params[i].seriesName + "：" + params[i].data + "人</td>";
+                                        }
+                                    } else {
+                                        str += '<td></td>';
+                                    }
+
+                                    if (params[i + length]) {
+                                        if (-1 == params[i + length].seriesName.indexOf("人数")) {
+                                            //万单位
+                                            str += '<td>' + params[i + length].seriesName.substring(3) + "：" + params[i + length].data + "万</td>";
+                                        } else {
+                                            str += '<td>' + params[i + length].seriesName.substring(3) + "：" + params[i + length].data + "人</td>";
+                                        }
+                                    } else {
+                                        str += '<td></td>';
+                                    }
+                                    str += "</tr>"
                                 }
+                                str += "</table>";
+
+
                             }
-                            return str;
-                        },
 
+
+
+                            return str;
+
+                        },
                         axisPointer: {
+                            // type: 'cross',
                             label: {
                                 backgroundColor: '#6a7985'
                             }
@@ -160,7 +243,7 @@
 
                     },
                     series: [{
-
+                            id:1,
                             name: "人均授信金额",
                             data: [20, 32, 11, 40, 90, 30, 10],
                             type: 'line',
@@ -181,7 +264,7 @@
                             },
                         },
                         {
-
+                            id:2,
                             name: "授信总额",
                             data: [15, 16, 9, 26, 75, 15, 26],
                             type: 'line',
@@ -202,7 +285,7 @@
                             },
                         },
                         {
-
+                            id:3,
                             name: "放款总额",
                             data: [5, 16, 22, 20, 20, 46, 35],
                             type: 'line',
@@ -223,7 +306,7 @@
                             }
                         },
                         {
-
+                            id:4,
                             name: "签约总额",
                             data: [80, 32, 36, 39, 5, 45, 52],
                             type: 'line',
@@ -244,7 +327,7 @@
                             }
                         },
                         {
-
+                            id:5,
                             name: "放款人数",
                             data: [60, 16, 18, 13, 15, 20, 26],
                             type: 'line',
@@ -266,7 +349,7 @@
                         },
 
                         {
-
+                            id:6,
                             name: "授信人数",
                             data: [61, 22, 18, 17, 14, 16, 23],
                             type: 'line',
@@ -287,7 +370,7 @@
                             }
                         },
                         {
-
+                            id:7,
                             name: "初审通过人数",
                             data: [36, 11, 54, 34, 28, 8, 11],
                             type: 'line',
@@ -308,7 +391,7 @@
                             }
                         },
                         {
-
+                            id:8,
                             name: "签约人数",
                             data: [30, 5, 24, 16, 32, 15, 22],
                             type: 'line',
@@ -351,25 +434,393 @@
 
 
 
-
+                
 
 
                 $("#J_checkbox").on("click", function() {
                     var $this = $(this);
+                    oldTimeDate= ['2019-02-01 星期一', '2019-02-02 星期二', '2019-02-03 星期三', '2019-02-04 星期四',
+                            '2019-02-05 星期五', '2019-02-05 星期六', '2019-02-06 星期天'
+                        ];
+                    if ($this.prop("checked")) {
+                        //选中
+                        isCompare = true;
+                        legendArr = [{
+                            orient: 'horizontal', // 'vertical'
+                            x: 'center', // 'center' | 'left' | {number},
+                            y: winH * hp - 50, // 'center' | 'bottom' | {number}
+                            data: ['人均授信金额', '授信总额', '放款总额', '签约总额', '放款人数', '授信人数', '初审通过人数', '签约人数'],
+                            formatter: function(name) {
+                                return name;
+                            }
 
-                    if (!$this.prop("checked")) {
-                        //没有选中的时候
-                        isCompare = false;
+                        }, {
+                            orient: 'horizontal', // 'vertical'
+                            x: 'center', // 'center' | 'left' | {number},
+                            y: 'bottom', // 'center' | 'bottom' | {number}
+                            data: ['old人均授信金额', 'old授信总额', 'old放款总额', 'old签约总额', 'old放款人数', 'old授信人数', 'old初审通过人数', 'old签约人数'],
+                            formatter: function(name) {
+                                return name.substring(3);
+                            }
 
-                        xAxisArr = [{
-                            type: 'category',
-                            boundaryGap: false,
-                            data: ['2019-03-01 星期一', '2019-03-02 星期二', '2019-03-03 星期三', '2019-03-04 星期四',
-                                '2019-03-05 星期五', '2019-03-05 星期六', '2019-03-06 星期天'
-                            ].map(function(str) {
-                                return str.replace(' ', '\n')
-                            })
                         }];
+                        seriesArr = [{
+                               
+                                name: "人均授信金额",
+                                data: [20, 32, 11, 40, 90, 30, 10],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值',
+
+                                    }]
+                                },
+                            },
+                            {
+                               
+                                name: "授信总额",
+                                data: [15, 16, 9, 26, 75, 15, 26],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                },
+                            },
+                            {
+                                id:3,
+                                name: "放款总额",
+                                data: [5, 16, 22, 20, 20, 46, 35],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值',
+
+                                    }]
+                                }
+                            },
+                            {
+                               
+                                name: "签约总额",
+                                data: [80, 32, 36, 39, 5, 45, 52],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+                            {
+                               
+                                name: "放款人数",
+                                data: [60, 16, 18, 13, 15, 20, 26],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+
+                            {
+                               
+                                name: "授信人数",
+                                data: [61, 22, 18, 17, 14, 16, 23],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+                            {
+                               
+                                name: "初审通过人数",
+                                data: [36, 11, 54, 34, 28, 8, 11],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+                            {
+                                
+                                name: "签约人数",
+                                data: [30, 5, 24, 16, 32, 15, 22],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+
+
+
+                            {
+                               
+                                name: "old人均授信金额",
+                                data: [20, 32, 11, 40, 90, 30, 10],
+                                type: 'line',
+                                time:"2019-01-03",
+                                lineStyle: {
+                                    width: 3,
+                                    type: "dashed"
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值',
+
+                                    }]
+                                },
+                            },
+                            {
+                               
+                                name: "old授信总额",
+                                data: [33, 19, 14, 32, 61, 32, 41],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3,
+                                    type: "dashed"
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                },
+                            },
+                            {
+                                
+                                name: "old放款总额",
+                                data: [10, 32, 16, 23, 33, 32, 24],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3,
+                                    type: "dashed"
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值',
+
+                                    }]
+                                }
+                            },
+                            {
+                                
+                                name: "old签约总额",
+                                data: [40, 16, 18, 45, 10, 36, 32],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3,
+                                    type: "dashed"
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+                            {
+                                
+                                name: "old放款人数",
+                                data: [52, 24, 26, 29, 18, 30, 36],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3,
+                                    type: "dashed"
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+
+                            {
+                               
+                                name: "old授信人数",
+                                data: [31, 28, 24, 34, 20, 24, 30],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3,
+                                    type: "dashed"
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+                            {
+                                id:17,
+                                name: "old初审通过人数",
+                                data: [44, 19, 46, 28, 20, 4, 22],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3,
+                                    type: "dashed"
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            },
+                            {
+                                id:18,
+                                name: "old签约人数",
+                                data: [15, 10, 48, 8, 16, 30, 44],
+                                type: 'line',
+                                lineStyle: {
+                                    width: 3,
+                                    type: "dashed"
+                                },
+                                markPoint: {
+                                    symbol: 'circle',
+                                    symbolSize: 15,
+                                    label: {
+                                        show: false
+                                    },
+                                    data: [{
+                                        type: 'max',
+                                        name: '最大值'
+
+                                    }]
+                                }
+                            }
+                        ];
+
+                    } else {
+                        //没选中
+                        //
+
+                        isCompare = false;
 
                         legendArr = {
                             orient: 'horizontal', // 'vertical'
@@ -543,473 +994,39 @@
                                 }
                             }
                         ];
-                    } else {
-                        //没选中
-                        isCompare = true;
-                        xAxisArr = [{
-                            type: 'category',
-                            boundaryGap: false,
-                            data: ['2019-03-01 星期一', '2019-03-02 星期二', '2019-03-03 星期三', '2019-03-04 星期四',
-                                '2019-03-05 星期五', '2019-03-05 星期六', '2019-03-06 星期天'
-                            ].map(function(str) {
-                                return str.replace(' ', '\n')
-                            })
-                        }, {
-                            type: 'category',
-                            boundaryGap: false,
-                            data: ['2019-02-01 星期一', '2019-02-02 星期二', '2019-02-03 星期三', '2019-02-04 星期四',
-                                '2019-02-05 星期五', '2019-02-05 星期六', '2019-02-06 星期天'
-                            ].map(function(str) {
-                                return str.replace(' ', '\n')
-                            })
-                        }];
-
-
-                        legendArr = [{
-                            color: color1,
-                            orient: 'horizontal', // 'vertical'
-                            x: 'center', // 'center' | 'left' | {number},
-                            y: winH * hp - 50, // 'center' | 'bottom' | {number}
-                            data: ['人均授信金额', '授信总额', '放款总额', '签约总额', '放款人数', '授信人数', '初审通过人数', '签约人数'],
-                            formatter: function(name) {
-                                return name;
-                            }
-
-                        }, {
-                            color: color2,
-                            xAxisIndex: 1,
-                            orient: 'horizontal', // 'vertical'
-                            x: 'center', // 'center' | 'left' | {number},
-                            y: 'bottom', // 'center' | 'bottom' | {number}
-                            data: ['人均授信金额', '授信总额', '放款总额', '签约总额', '放款人数', '授信人数', '初审通过人数', '签约人数'],
-                            formatter: function(name) {
-                                return name;
-                            }
-
-                        }];
-                        seriesArr = [{
-
-                                name: "人均授信金额",
-                                data: [20, 32, 11, 40, 90, 30, 10],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值',
-
-                                    }]
-                                },
-                            },
-                            {
-
-                                name: "授信总额",
-                                data: [15, 16, 9, 26, 75, 15, 26],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                },
-                            },
-                            {
-
-                                name: "放款总额",
-                                data: [5, 16, 22, 20, 20, 46, 35],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值',
-
-                                    }]
-                                }
-                            },
-                            {
-
-                                name: "签约总额",
-                                data: [80, 32, 36, 39, 5, 45, 52],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-                            {
-
-                                name: "放款人数",
-                                data: [60, 16, 18, 13, 15, 20, 26],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-
-                            {
-
-                                name: "授信人数",
-                                data: [61, 22, 18, 17, 14, 16, 23],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-                            {
-
-                                name: "初审通过人数",
-                                data: [36, 11, 54, 34, 28, 8, 11],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-                            {
-
-                                name: "签约人数",
-                                data: [30, 5, 24, 16, 32, 15, 22],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-
-
-
-                            {
-                                xAxisIndex: 1,
-                                name: "人均授信金额",
-                                data: [40, 32, 11, 40, 90, 30, 10],
-                                type: 'line',
-                                time: "2019-01-03",
-                                lineStyle: {
-                                    width: 3,
-                                    opacity: 0.5,
-                                    type: "dashed"
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值',
-
-                                    }]
-                                },
-                            },
-                            {
-                                xAxisIndex: 1,
-                                name: "授信总额",
-                                data: [18, 19, 14, 32, 61, 32, 41],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3,
-                                    opacity: 0.5,
-                                    type: "dashed"
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                },
-                            },
-                            {
-
-                                xAxisIndex: 1,
-                                name: "放款总额",
-                                data: [10, 32, 16, 23, 33, 32, 24],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3,
-                                    opacity: 0.5,
-                                    type: "dashed"
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值',
-
-                                    }]
-                                }
-                            },
-                            {
-                                xAxisIndex: 1,
-                                name: "签约总额",
-                                data: [40, 16, 18, 45, 10, 36, 32],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3,
-                                    opacity: 0.5,
-                                    type: "dashed"
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-                            {
-                                xAxisIndex: 1,
-                                name: "放款人数",
-                                data: [52, 24, 26, 29, 18, 30, 36],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3,
-                                    opacity: 0.5,
-                                    type: "dashed"
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-
-                            {
-                                xAxisIndex: 1,
-                                name: "授信人数",
-                                data: [31, 28, 24, 34, 20, 24, 30],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3,
-                                    opacity: 0.5,
-                                    type: "dashed"
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-                            {
-                                xAxisIndex: 1,
-                                name: "初审通过人数",
-                                data: [50, 19, 46, 28, 20, 4, 22],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3,
-                                    opacity: 0.5,
-                                    type: "dashed"
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            },
-                            {
-                                xAxisIndex: 1,
-                                name: "签约人数",
-                                data: [15, 10, 48, 8, 16, 30, 44],
-                                type: 'line',
-                                lineStyle: {
-                                    width: 3,
-                                    opacity: 0.5,
-                                    type: "dashed"
-                                },
-                                markPoint: {
-                                    symbol: 'circle',
-                                    symbolSize: 15,
-                                    label: {
-                                        show: false
-                                    },
-                                    data: [{
-                                        type: 'max',
-                                        name: '最大值'
-
-                                    }]
-                                }
-                            }
-                        ];
-
 
                     }
 
 
                     myChart.setOption({
-
-                        xAxis: xAxisArr,
+                        color: color1.concat(color2),
+                        xAxis: {
+                            type: 'category',
+                            boundaryGap: false,
+                           data: ['2019-03-01 星期一', '2019-03-02 星期二', '2019-03-03 星期三', '2019-03-04 星期四',
+                            '2019-03-05 星期五', '2019-03-05 星期六', '2019-03-06 星期天'
+                        ].map(function(str) {
+                                return str.replace(' ', '\n')
+                            })
+                        },
                         grid: {
                             bottom: 90
                         },
                         tooltip: {
                             trigger: 'axis',
-                            extraCssText: isCompare ? "width:400px;" :"auto",
                             formatter: function(params) {
-                                if (isCompare) {
-                                    var str = "<style>.compare-tbl{float:left; padding:0 10px;}.compare-tbl li{padding:3px 0;}</style>";
-                                    var indexColor;
+                               
+                                console.dir(params)
+                                var str = "";
+                                if (!isCompare) {
                                     //没有对比的时候
                                     for (var i = 0, length = params.length; i < length; i++) {
-
-                                        if (i == 0) {
-                                            str += "<ul class='compare-tbl' style='margin-right:50px;'>";
-                                            str += "<li>" + params[i].axisValue + "</li>";
-                                        }
-                                        if (i == length / 2) {
-                                            str += "<ul class='compare-tbl'>";
-                                            str += "<li>" + params[i].axisValue + "</li>";
-                                        }
-
-                                        indexColor = params[i].color;
-                                        str += '<li><span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + indexColor + '"></span>';
-                                        if (-1 == params[i].seriesName.indexOf("人数")) {
-                                            //不是人数就直接给单位万元
-                                            str += params[i].seriesName + "：" + params[i].data + "万<br/>";
-                                        } else {
-                                            //是人数就直接给单位人
-                                            str += params[i].seriesName + "：" + params[i].data + "人<br/>";
-                                        }
-                                        str += "</li>";
-                                        if (i == (length / 2 - 1)) {
-                                            str += "</ul>";
-
-                                        }
-                                        if (i == length - 1) {
-                                            str += "</ul>";
-
-                                        }
-                                    }
-                                } else {
-                                    var str = "";
-                                    var indexColor;
-
-                                    //没有对比的时候
-                                    for (var i = 0, length = params.length; i < length; i++) {
-
                                         if (i == 0) {
                                             str += params[i].axisValue + "<br/>";
                                         }
 
-                                        indexColor = params[i].color;
-                                        str += '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:9px;height:9px;background:' + indexColor + '"></span>';
                                         if (-1 == params[i].seriesName.indexOf("人数")) {
+
                                             //不是人数就直接给单位万元
                                             str += params[i].seriesName + "：" + params[i].data + "万<br/>";
                                         } else {
@@ -1017,6 +1034,42 @@
                                             str += params[i].seriesName + "：" + params[i].data + "人<br/>";
                                         }
                                     }
+                                } else {
+                                    //对比的时候
+                                    str += "<style>.tooltip-table{border:1px solid #e5e5e5;}.tooltip-table td{border:1px solid #e5e5e5;padding:8px 10px;}</style><table class='tooltip-table'>";
+                                    for (var i = 0, length = Math.ceil(params.length / 2); i < length; i++) {
+                                        if (i == 0) {
+                                            str += "<tr>"
+                                            str += '<td>' + params[i].axisValue + "</td>";
+                                            str += '<td></td>';
+                                            str += "</tr>"
+                                        }
+                                        str += "<tr>"
+                                        //只要其中一个存在就要显示
+                                        if (params[i]) {
+                                            if (-1 == params[i].seriesName.indexOf("人数")) {
+                                                //万单位
+                                                str += '<td>' + params[i].seriesName + "：" + params[i].data + "万</td>";
+                                            } else {
+                                                str += '<td>' + params[i].seriesName + "：" + params[i].data + "人</td>";
+                                            }
+                                        } else {
+                                            str += '<td></td>';
+                                        }
+
+                                        if (params[i + length]) {
+                                            if (-1 == params[i + length].seriesName.indexOf("人数")) {
+                                                //万单位
+                                                str += '<td>' + params[i + length].seriesName.substring(3) + "：" + params[i + length].data + "万</td>";
+                                            } else {
+                                                str += '<td>' + params[i + length].seriesName.substring(3) + "：" + params[i + length].data + "人</td>";
+                                            }
+                                        } else {
+                                            str += '<td></td>';
+                                        }
+                                        str += "</tr>"
+                                    }
+                                    str += "</table>";
                                 }
                                 return str;
                             },
