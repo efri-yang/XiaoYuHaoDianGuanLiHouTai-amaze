@@ -20,7 +20,7 @@
     <script type="text/javascript" src="js/common.js"></script>
     <style type="text/css">
     .sec-step {
-        margin-left: 120px;
+        margin-left: 186px;
         margin-top: 30px;
         position: relative
     }
@@ -29,7 +29,7 @@
         position: absolute;
         left: -60px;
         top: 0;
-        height: 340px;
+        height: 468px;
         width: 60px;
         z-index: 10
     }
@@ -50,12 +50,25 @@
         white-space: nowrap
     }
 
+    .sec-step .item-zhl-1 .intro-txt .txt-2{
+        display:none;
+    }
+
+    .compare-table-wrap .sec-step .item-zhl-1 .intro-txt .txt-1{
+        color:#d03336; 
+    }
+
+    .compare-table-wrap .sec-step .item-zhl-1 .intro-txt .txt-2{
+        color:#4553ad;
+        display:block;  
+    }
+
     .sec-step .item-zhl-1 .intro-txt .txt-2 span {
         color: #f60
     }
 
     .sec-step .item-zhl-1 .line-1 {
-        width: 60px;
+        width: 90px;
         height: 1px;
         background: #e5e5e5;
         position: absolute;
@@ -64,7 +77,7 @@
     }
 
     .sec-step .item-zhl-1 .line-2 {
-        width: 60px;
+        width: 90px;
         height: 1px;
         background: #e5e5e5;
         position: absolute;
@@ -74,10 +87,10 @@
 
     .sec-step .item-zhl-1 .line-3 {
         width: 1px;
-        height: 240px;
+        height: 368px;
         background: #e5e5e5;
         position: absolute;
-        right: 60px;
+        right: 90px;
         top: 50px;
         bottom: 50px
     }
@@ -87,7 +100,7 @@
     .sec-step .item-step {
         position: relative;
         padding-left: 110px;
-        margin: 0 0 20px 0;
+        margin: 0 0 0px 0;
         z-index: 11;
     }
 
@@ -118,6 +131,13 @@
         color: #fff
     }
 
+    .sec-step .item-step.step-3{
+        margin-bottom:20px; 
+    }
+    .sec-step .item-step.step-4{
+        margin-bottom:20px; 
+    }
+
     .sec-step .item-step.step-3 .area-l {
         background: #dd514c;
         color: #fff
@@ -125,7 +145,8 @@
 
     .sec-step .item-step.step-4 .area-l {
         background: #5eb95e;
-        color: #fff
+        color: #fff;
+        margin:0;
     }
 
     .sec-step .item-step.step-5 .area-l {
@@ -395,6 +416,53 @@
         border-right: 10px solid transparent;
         border-top: 10px solid #fff;
     }
+
+    .sec-step .item-distance-zhl {
+        position: relative;
+        width: 210px;
+        padding: 20px 0
+    }
+
+    .sec-step .item-distance-zhl .line-t {
+        position: absolute;
+        height: 20px;
+        width: 1px;
+        left: 25%;
+        top: 0;
+        background: #999;
+        transform: translate(-50%, 0)
+    }
+
+    .sec-step .item-distance-zhl .line-b {
+        position: absolute;
+        height: 20px;
+        width: 1px;
+        left: 25%;
+        bottom: 0;
+        background: #999;
+        transform: translate(-50%, 0)
+    }
+
+    .sec-step .item-distance-zhl .zh-intro {
+        text-align: center;
+        line-height: 21px;
+        font-size: 14px
+    }
+
+    .sec-step .item-distance-zhl .zh-intro .txt-2{
+        display:none; 
+    }
+    .compare-table-wrap .sec-step .item-distance-zhl .zh-intro .txt-1{
+        color:#d03336; 
+    }
+    .compare-table-wrap .sec-step .item-distance-zhl .zh-intro .txt-2{
+        display:block; 
+        color:#4553ad; 
+    }
+
+    .sec-step .item-distance-zhl .zh-intro span {
+        color: #f60
+    }
     </style>
     <script type="text/javascript">
     </script>
@@ -445,8 +513,10 @@
                         <span class="line-2"></span>
                         <span class="line-3"></span>
                         <div class="intro-txt">
-                            <p class="txt-1">申请—转账</p>
-                            <p class="txt-2">转化率：<span>9.4%</span></p>
+                            <p class="txt-1">申请—转账 转化率：<span>9.4%</span></p>
+
+                            <p class="txt-2">申请—转账 转化率：<span>9.4%</span></p>
+                            
                         </div>
                     </div>
                     <div class="item-step step-1">
@@ -490,11 +560,20 @@
                             </ul>
                         </div>
                     </div>
-                    <style type="text/css">
-                    </style>
+
+                     <div class="item-distance-zhl">
+                        <span class="line-t"></span>
+                        <div class="zh-intro">
+                            <p class="txt-1">申请—初审通过  转化率：<span>9.4%</span></p>
+                            <p class="txt-2">申请—初审通过  转化率：<span>9.4%</span></p>
+                           
+                        </div>
+                        <span class="line-b"></span>
+                    </div>
+                   
                    
                     <div class="item-step step-2">
-                        <label class="area-l">初审通过<i class="am-icon-eye ml5"></i></label>
+                        <label class="area-l">初审通过</label>
                         <div class="area-tip-zh">
                             <div class="zh-detail">
                                 <p>申请-初审通过 转化率：51.66%</p>
@@ -539,8 +618,16 @@
                             </ul>
                         </div>
                     </div>
+                     <div class="item-distance-zhl">
+                        <span class="line-t"></span>
+                        <div class="zh-intro">
+                             <p class="txt-1">初审通过—放款  转化率：<span>9.4%</span></p>
+                            <p class="txt-2">初审通过—放款 转化率：<span>9.4%</span></p>
+                        </div>
+                        <span class="line-b"></span>
+                    </div>
                     <div class="item-step step-3">
-                        <label class="area-l">放款<i class="am-icon-eye ml5"></i></label>
+                        <label class="area-l">放款</label>
                         <div class="area-tip-zh">
                             <div class="zh-detail">
                                 <p>申请-初审通过 转化率：51.66%</p>
