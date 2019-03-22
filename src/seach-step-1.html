@@ -507,6 +507,101 @@
                         <div class="time">2019-02-11 ~ 2019-03-13</div>
                     </div>
                 </div>
+                <style>
+                .compare-c-data {
+                    padding:15px 0;
+                    margin:0 30px; 
+                    border:1px solid #ddd;
+                }
+                .compare-c-data ul li{
+                    float:left; 
+                    padding:0 30px;    
+                }
+                .compare-c-data ul li .cap-1{
+                    margin-bottom:5px;
+                }
+                .compare-c-data ul li .txt-count{
+                    font-weight:bold;
+                }
+                .compare-c-data ul li .txt-count.txt-2{
+                    color:#999;
+                }
+                .compare-c-data ul li .tip-box{
+                        position:absolute;
+                       
+                        left:50%;
+                        transform: translate(-50%,0);
+                        bottom:30px;
+                        display:none; 
+
+
+                }
+                .compare-c-data ul li .tip-box .detail{
+                        
+                        white-space:nowrap; 
+                        text-align: center;
+                        padding:8px; 
+                        border-radius:8px; 
+                        background:#e5e5e5;
+                        font-size:12px; 
+                }
+                .compare-c-data ul li .tip-box .arrow{
+                    position: absolute;
+                   
+                    bottom:-5px;
+                     left:50%;
+                    transform: translate(-50%,0);
+                    width:0;
+                    height:0;
+                    border-left:5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-top:5px solid #e5e5e5;
+                }
+                </style>
+                <script type="text/javascript">
+                    $(function(){
+                        $(".compare-c-data .am-icon-question-circle-o").hover(function(){
+                                $(this).siblings(".tip-box").show();
+                        },function(){
+                                $(this).siblings(".tip-box").hide();
+                        })
+                    })
+
+                </script>
+                <div class="compare-c-data clearfix">
+                    <ul>
+                        <li>
+                            <div class="cap-1">
+                                <span class="fl mr5">人均授信额度</span> 
+                                <div class="fl relative">
+                                    <span class="am-icon-question-circle-o"></span>
+                                     <div class="tip-box">
+                                        <div class="detail">信息提示提示提示</div>
+                                        <span class="arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="txt-count txt-1">2877,91</div>
+                            <div class="txt-count txt-2">112877,91</div>
+                           
+                        </li>
+                        <li>
+                            <div class="cap-1">
+                                <span class="fl mr5">人均授信额度</span> 
+                                <div class="fl relative">
+                                    <span class="am-icon-question-circle-o"></span>
+                                     <div class="tip-box">
+                                        <div class="detail">信息提示提示提示</div>
+                                        <span class="arrow"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="txt-count txt-1">2877,91</div>
+                            <div class="txt-count txt-2">112877,91</div>
+                           
+                        </li>             
+                    </ul>
+                </div>
                 <div class="sec-step">
                     <div class="item-zhl-1">
                         <span class="line-1"></span>
