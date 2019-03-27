@@ -356,11 +356,15 @@
 
     .compare-table-wrap .sec-step .list .intro-1 {
         color: #d03336;
+         padding:0 15px 0 0;
+         white-space:nowrap; 
     }
 
     .compare-table-wrap .sec-step .list .intro-2 {
         display: block;
         color: #4553ad;
+        padding:0 15px 0 0;
+        white-space:nowrap; 
     }
 
 
@@ -463,6 +467,35 @@
     .sec-step .item-distance-zhl .zh-intro span {
         color: #f60
     }
+
+
+
+
+    .sec-step .list li .item-mid .cion-toggle-updown{
+        position:absolute;
+        right:-15px;
+        top:50%;
+        font-size:32px; 
+        display:none; 
+        transform: translate(0,-25%); 
+    }
+    .sec-step .list li .item-mid .cion-toggle-updown.icon-climmsn{
+        color:#4b9f53;
+    }
+    .sec-step .list li .item-mid .cion-toggle-updown.icon-jiantou{
+        color:#e8464d; 
+    }
+
+    .compare-table-wrap .sec-step .item-distance-zhl .zh-intro .txt-2,
+    .compare-table-wrap .sec-step .item-distance-zhl .zh-intro .txt-1{
+       padding:0 10px 0 0;
+       display:block; 
+    }
+
+    .compare-table-wrap .sec-step .list li .item-mid .cion-toggle-updown{
+        display:block; 
+    }
+   
     </style>
     <script type="text/javascript">
     </script>
@@ -624,7 +657,8 @@
                                     <div class="item-mid">
                                         <div class="tit">申请人数</div>
                                         <div class="intro-1"><span class="circle"></span>453</div>
-                                        <div class="intro-2"><span class="circle"></span>453</div>
+                                        <div class="intro-2"><span class="circle"></span>4053</div>
+                                        <i class="iconfont icon-climmsn cion-toggle-updown"></i>
                                     </div>
                                     <span class="line"></span>
                                 </li>
@@ -633,6 +667,7 @@
                                         <div class="tit">申请人数</div>
                                         <div class="intro-1">453</div>
                                         <div class="intro-2">453</div>
+                                        <i class="iconfont icon-jiantou cion-toggle-updown"></i>
                                     </div>
                                     <span class="line"></span>
                                 </li>
